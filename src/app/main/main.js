@@ -1,8 +1,13 @@
 class MainController {
-  constructor() {
+  constructor($stateParams) {
     'ngInject';
-    // Default options for the video
-    this.playerVars = { controls: 0, autoplay: 1 };
+    angular.extend(this, { $stateParams });
+  }
+  $onInit() {
+    console.log(this.meta);
+  }
+  current() {
+    return this.meta[ this.$stateParams.index || 0 ]
   }
 }
 

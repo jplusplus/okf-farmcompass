@@ -5,7 +5,6 @@ function timeline() {
       data: '='
     },
     link: (scope, element, attrs) => {
-      console.log(scope.data)
     }
   };
 }
