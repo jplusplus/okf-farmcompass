@@ -11,6 +11,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglifySaveLicense = require('uglify-save-license');
 const inject = require('gulp-inject');
 const ngAnnotate = require('gulp-ng-annotate');
+const ghPages = require('gulp-gh-pages');
 
 const conf = require('../conf/gulp.conf');
 
@@ -47,3 +48,9 @@ function build() {
     .pipe(htmlFilter.restore)
     .pipe(gulp.dest(conf.path.dist()));
 }
+
+gulp.task('deploy', gulp.series('build', function() {
+  return gulp.src('./dist/**/*').pipe(ghPages({
+    remoteUrl: 'git@github.com:jplusplus/okf-farmcompass.git'
+  }));
+}));
