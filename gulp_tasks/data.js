@@ -1,19 +1,21 @@
 'use strict';
 
-const path  = require('path');
-const fs    = require('fs');
-const _     = require('lodash');
-const async = require('async');
-const slug  = require('slug');
-const gulp  = require('gulp');
-const log   = require('gulp-util').log;
-const colors= require('gulp-util').colors;
-const Gss   = require('google-spreadsheet');
-const conf  = require('../conf/gulp.conf');
+const path    = require('path');
+const fs      = require('fs');
+const _       = require('lodash');
+const async   = require('async');
+const slug    = require('slug');
+const gulp    = require('gulp');
+const log     = require('gulp-util').log;
+const colors  = require('gulp-util').colors;
+const Gss     = require('google-spreadsheet');
+const conf    = require('../conf/gulp.conf');
+const jeditor = require("gulp-json-editor");
+
 
 const GSSID = '1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k';
 const NUMBER_FIELDS = ['slideid']
-const UNWANTED_FIELDS = ['_xml', '_links'];
+const UNWANTED_FIELDS = ['_xml', '_links', 'id'];
 const BOOL_FIELDS = [];
 
 let gss = new Gss(GSSID);
@@ -43,6 +45,13 @@ var prepareRows = function(rows) {
     for(let k in row) {
       if( row[k] === '' ) row[k] = null;
     }
+    // Convert year column into numeric values
+    for(let k in row) {
+      if( /y(\d)+/.test(k) ) {
+        row[k.replace('y', '')] = 1 * row[k];
+        delete row[k];
+      }
+    }
     return row;
   });
 }
@@ -53,7 +62,7 @@ gulp.task('data:all', function(done) {
   gss.getInfo(function(err, info) {
     async.eachSeries(info.worksheets, function(worksheet, next){
       log('Saving', colors.yellow(worksheet.title));
-      gss.getRows(info.worksheets.indexOf(worksheet), function(err, rows){
+      gss.getRows(1 + info.worksheets.indexOf(worksheet), function(err, rows){
         var data = prepareRows(rows);
         var json = JSON.stringify(data, null, 2);
         var filename = slug(worksheet.title) + ".json";
@@ -64,4 +73,16 @@ gulp.task('data:all', function(done) {
   });
 });
 
-gulp.task('data', gulp.series('data:all'));
+gulp.task('data:meta', function() {
+  return gulp.src(path.join(conf.paths.data, 'meta.json'))
+    .pipe(jeditor(function(meta) {
+      return meta.map(step =>{
+        step.slug = slug(step.sheettitle);
+        step.filename = path.join('data', step.slug + '.json');
+        return step;
+      });
+    }))
+    .pipe(gulp.dest(conf.paths.data));
+});
+
+gulp.task('data', gulp.series('data:all', 'data:meta'));

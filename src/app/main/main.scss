@@ -1,11 +1,57 @@
 .main {
   background-color: $brand-secondary;
   color: white;
-  position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+
+  &, &__intro {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+
+  &__intro {
+    z-index:1000;
+    background-color: $brand-secondary;
+    opacity:1;
+    cursor: pointer;
+    @include transition(1s);
+
+    &.ng-hide {
+      opacity:0;
+      filter: blur(200px);
+    }
+
+    &__bg {
+      opacity: 0.5;
+      filter:grayscale(90%);
+      height:100%;
+    }
+
+    &__heading {
+      position: absolute;
+      bottom:2vh;
+      left:0;
+      max-width: 880px;
+
+      &__title {
+        font-weight: bolder;
+        font-size: 5vh;
+        border-left:2vh solid white;
+        padding-left:2vh;
+      }
+
+      &__start, &__abstract {
+        padding: 0 4vh;
+        font-size:2vh;
+      }
+
+      &__start {
+        color:mix($link-color, white);
+      }
+
+    }
+  }
 
   &__heading {
     margin: $spacer 0;
