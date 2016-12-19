@@ -78,11 +78,9 @@ gulp.task('data:meta', function() {
     .pipe(jeditor(function(meta) {
       return meta.map(step =>{
         step.slug = slug(step.sheettitle);
-        step.filename = path.join('data', step.slug + '.json');
+        step.data = require( path.join('../', conf.paths.data, step.slug + '.json') );
         return step;
       });
     }))
     .pipe(gulp.dest(conf.paths.data));
 });
-
-gulp.task('data', gulp.series('data:all', 'data:meta'));

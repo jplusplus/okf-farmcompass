@@ -2,7 +2,7 @@
   <div class="main__intro" ng-show="'main' | isState" ui-sref="main.step({ index: 0 })">
     <div class="main__intro__bg">
       <video-bg video-id="'9pYqdGqyLdU'">
-        <div>1<!-- I don't know why but we need to add content
+        <div><!-- I don't know why but we need to add content<
                   here for having the video to start. --></div>
       </video-bg>
     </div>
@@ -19,7 +19,7 @@
       </p>
     </div>
   </div>
-  <timeline data="$ctrl.data">
+  <timeline meta="$ctrl.meta">
     <h2 class="main__heading" ui-sref="main">
       {{ $ctrl.current().slidetitleenbe }}
     </h2>

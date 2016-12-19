@@ -15,15 +15,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         meta: ($http) =>{
           'ngInject';
           return $http.get('data/meta.json').then(r => r.data);
-        },
-        data: (meta, $http, $q) =>{
-          'ngInject';
-          // Create an object where every key is a request
-          let targets = angular.copy(meta).reduce( function(hash, step){
-            hash[step.slug] = $http.get(step.filename).then(r => r.data);
-            return hash;
-          }, {});
-          return $q.all(targets);
         }
       }
     })

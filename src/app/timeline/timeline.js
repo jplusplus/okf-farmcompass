@@ -2,7 +2,7 @@ function timeline() {
   return {
     restrict: 'E',
     scope: {
-      data: '='
+      meta: '='
     },
     link: (scope, element, attrs) => {
     }

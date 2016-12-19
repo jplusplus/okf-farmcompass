@@ -1,10 +1,9 @@
 class MainController {
-  constructor($stateParams) {
+  constructor($stateParams, $scope) {
     'ngInject';
-    angular.extend(this, { $stateParams });
+    angular.extend(this, { $stateParams, $scope });
   }
   $onInit() {
-    console.log(this.meta);
   }
   current() {
     return this.meta[ this.$stateParams.index || 0 ]
@@ -17,7 +16,6 @@ angular
     templateUrl: 'app/main/main.html',
     controller: MainController,
     bindings: {
-      meta: '<',
-      data: '<'
+      meta: '<'
     }
   });
