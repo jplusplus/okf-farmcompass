@@ -77,8 +77,10 @@ gulp.task('data:meta', function() {
   return gulp.src(path.join(conf.paths.data, 'meta.json'))
     .pipe(jeditor(function(meta) {
       return meta.map(step =>{
-        step.slug = slug(step.sheettitle);
-        step.data = require( path.join('../', conf.paths.data, step.slug + '.json') );
+        if(step.sheettitle !== null) {
+          step.slug = slug(step.sheettitle);
+          step.data = require( path.join('../', conf.paths.data, step.slug + '.json') );
+        }
         return step;
       });
     }))
