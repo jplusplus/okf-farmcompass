@@ -1,0 +1,40 @@
+.timeline {
+  cursor:pointer;
+
+  &, &__chart {
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+  }
+
+  &__chart {
+    $label-color: #71929C;
+    z-index: 0;
+
+    text {
+      font-family: $font-family-sans-serif;
+      fill: $label-color;
+    }
+
+    .lines {
+
+      path {
+        stroke: $brand-success;
+        stroke-width: 2.5px;
+        fill: none;
+      }
+    }
+
+    .axis {
+      .tick line, path {
+        stroke: $label-color;
+      }
+
+      &--x {
+        path { display: none; }
+      }
+    }
+  }
+}

@@ -19,9 +19,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state('main.step', {
+      url: 'playing',
+      template: `<timeline meta="$ctrl.meta" step="$ctrl.step"></timeline>`,
       params: {
         index: {
-          value: null
+          value: null,
+          dynamic: true
         }
       }
     });

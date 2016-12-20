@@ -19,10 +19,8 @@
       </p>
     </div>
   </div>
-  <timeline meta="$ctrl.meta">
-    <h2 class="main__heading" ui-sref="main">
-      {{ $ctrl.current().slidetitleenbe }}
-    </h2>
-  </timeline>
-  <ui-view></ui-view>
+  <h2 class="main__heading">
+    {{ $ctrl.current().slidetitleenbe }}
+  </h2>
+  <ui-view ng-click="$ctrl.next()"></ui-view>
 </div>
