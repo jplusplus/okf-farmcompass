@@ -29,6 +29,7 @@
 
     .axis {
       .tick line, path {
+        shape-rendering: crispEdges;
         stroke: $label-color;
       }
 

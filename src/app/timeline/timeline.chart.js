@@ -54,8 +54,12 @@ class Timeline extends Koto {
       },
       events: {
         'enter': selection => {
-          // Number of nodes that composed the path
-          let length = selection.node() ? selection.node().getTotalLength() : 0;
+          let length = 0;
+          // This selection may target several elements
+          selection.each(function(){
+            // Take the longest path
+            length = Math.max(length, d3.select(this).node().getTotalLength());
+          })
           // Selection refer to a path
           selection
             .attr("stroke-dasharray", length + " " + length)

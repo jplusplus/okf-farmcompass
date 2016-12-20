@@ -17,6 +17,8 @@ class MainController {
   next() {
     if(this.step < this.meta.length - 1) {
       this.$state.go('main.step', { index: this.step + 1 })
+    } else {
+      this.$state.go('main.step', { index: 0 })
     }
   }
   current() {
