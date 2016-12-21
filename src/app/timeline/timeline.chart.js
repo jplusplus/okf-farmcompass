@@ -29,9 +29,16 @@ class Timeline extends Koto {
       },
       transition: {
         name: 'transition',
+        description: 'Transition delay.',
         type: 'number',
         units: 'ms',
         value: 700
+      },
+      smoothing: {
+        name: 'smoothing',
+        description: 'Moving average amplitude',
+        type: 'number',
+        value: 0
       }
     };
     // Bind local method to this
@@ -74,18 +81,43 @@ class Timeline extends Koto {
       }
     })
   }
+  smooth(hash) {
+    // Iterate over the hash
+    _.each(hash, (value, key)=> {
+      // Skip non-numeric keys
+      if(!isNaN(key)) {
+        // Every values to use in the moving average
+        let values = [];
+        let smoothing = this.config('smoothing');
+        // Go backward and forward the current year
+        for(let i = -smoothing; i <= smoothing; i++) {
+          // Build the hash key to the year
+          let year = (1 * key) + i;
+          // Since the mean function ignore undefined element, we do not check
+          // that there is a value for the year!
+          values.push(hash[year]);
+        }
+        // Calculate the mean for all values
+        hash[key] = d3.mean(values);
+      }
+    });
+    return hash
+  }
   transform(data) {
     // Extract years from the first line
     let years = this.years(data[0]);
     // Create an object for each group
-    let rows = _.reduce(data, (res, row)=>{
+    let rows = _.reduce(data, (res, hash)=>{
+      // Smooth the given object
+      hash = this.smooth(hash);
+      // Create a new object as row, describing this group
       res.push({
-        // The last element of this row is the group id
-        id: _.values(row).pop(),
+        // The last element of this hash is the group id
+        id: _.values(hash).pop(),
         // Collect value for each year
         values: _.map(years, (year)=>{
           return {
-            value: row[year],
+            value: hash[year],
             id: year
           };
         })
