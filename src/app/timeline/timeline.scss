@@ -25,7 +25,8 @@
     }
 
     .area path {
-      fill: rgba($brand-success, .5);
+      fill: $brand-success;
+      fill-opacity:0.95;
     }
 
     .axis {

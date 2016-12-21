@@ -1,43 +1,66 @@
 class Timeline extends Koto {
   constructor(svg){
     super(svg)
+
     // define configs
     this.configs = TIMELINE_CONFIG;
+
     // Bind local method to this
     this.transitionValues = this.transitionValues.bind(this);
     this.bindLayer = this.bindLayer.bind(this);
+
+    // Create color scheme
+    this.colors = d3.scaleOrdinal(TIMELINE_COLORS);
+
     // Create scale
-    let xScale = this.xScale = d3.scaleLinear();
-    let yScale = this.yScale = d3.scaleLinear();
+    this.xScale = d3.scaleLinear();
+    this.yScale = d3.scaleLinear();
+
     // Create axis's layers
     this.base.append("g").attr("class", "axis axis--x");
     this.base.append("g").attr("class", "axis axis--y");
-    // Function to draw the line
-    this.line = d3.line().x(d => this.xScale(d.id)).y(d => this.yScale(d.value));
-    this.area = d3.area().x(d => this.xScale(d.id)).y1(d => this.yScale(d.value))
+
+    // Function to draw a line
+    this.line = d3.line()
+      .x(d => this.xScale(d.id))
+      .y(d => this.yScale(this.isStacked ? d.stack[1] : d.value));
+
+    // Function to draw an area
+    this.area = d3.area()
+      .x(d => this.xScale(d.id))
+      .y0(d => this.isStacked ? this.yScale(d.stack[0]) : this.height)
+      .y1(d => this.yScale(this.isStacked ? d.stack[1] : d.value));
+
     // Setup areas' layer
     this.layer('area', this.base.append('g').attr('class', 'area'), angular.extend(this.bindLayer(this.area), {
       dataBind: function(data) {
-        if(data.type !== 'line') {;
-          return this.selectAll('path').data(data.rows, d => d.id);
-        } else {
-          return this.selectAll('path').data([], d => d.id);
-        }
+        // Disable on lines
+        let rows = data.type === 'line' ? [] : data.rows;
+        return this.selectAll('path')
+          .data(rows, d => d.id);
+      },
+      insert: selection =>  {
+        // Add the path to the current selection and clip its path the rect
+        return selection.append('path')
+          .style('fill', d => this.colors(d.id))
+          .attr('d', d => this.area(d.values));
       }
     }));
     // Setup lines' layer
     this.layer('line', this.base.append('g').attr('class', 'line'), angular.extend(this.bindLayer(this.line), {
       dataBind: function(data) {
         return this.selectAll('path').data(data.rows, d => d.id);
+      },
+      insert:  selection => {
+        // Add the path to the current selection and clip its path the rect
+        return selection.append('path')
+          .style('stroke', d => this.colors(d.id))
+          .attr('d', d => this.line(d.values));
       }
     }));
   }
   bindLayer(path) {
     return {
-      insert: function() {
-        // Add the path to the current selection and clip its path the rect
-        return this.append('path').attr('d', d => path(d.values))
-      },
       events: {
         'enter': selection => {
           // Create a unique id for this element clip
@@ -73,6 +96,9 @@ class Timeline extends Koto {
   get height() {
     return this.c('height') - this.c('padding').top - this.c('padding').bottom;
   }
+  get isStacked() {
+    return this.c('type') === 'stacked-area';
+  }
   smooth(hash) {
     // Iterate over the hash
     _.each(hash, (value, key)=> {
@@ -97,10 +123,21 @@ class Timeline extends Koto {
   transform(data) {
     // Extract years from the first line
     let years = this.years(data[0]);
+    // Smooth all the rows
+    data = data.map(this.smooth.bind(this));
+    // Get groups of data
+    let groups = _.chain(data).map(r => _.values(r).pop()).value();
+    // Transpose data to be able to stack them
+    let transpose = _.map(years, year =>{
+      return angular.extend({ year }, _.reduce(groups, (hash, group, i)=> {
+        hash[group] = data[i][year];
+        return hash;
+      }, {}));
+    });
+    // Stack data for stacked representation
+    let stack = d3.stack().keys(groups)(transpose);
     // Create an object for each group
-    let rows = _.reduce(data, (res, hash)=>{
-      // Smooth the given object
-      hash = this.smooth(hash);
+    let rows = _.reduce(data, (res, hash, i)=>{
       // Create a new object as row, describing this group
       res.push({
         // The last element of this hash is the group id
@@ -109,6 +146,7 @@ class Timeline extends Koto {
         values: _.map(years, (year)=>{
           return {
             value: hash[year],
+            stack: _.find(stack[i], d=> d.data.year === year),
             id: year
           };
         })
@@ -117,7 +155,7 @@ class Timeline extends Koto {
     }, []);
     // Return an object with several precalculated fields
     return {
-      years, rows,
+      years, rows, stack,
       // Save the type of the chart for nested access
       type: this.c('type'),
       // First year in this dataset
@@ -125,9 +163,9 @@ class Timeline extends Koto {
       // Last year in this dataset
       end: years[years.length -1],
       // Minimum value among all row
-      min: d3.min(rows, c => d3.min(c.values, d => d.value)),
+      min: d3.min(rows, c => d3.min(c.values, d => this.isStacked ? d.stack[0] : d.value)),
       // Maximum value among all row
-      max: d3.max(rows, c => d3.max(c.values, d => d.value))
+      max: d3.max(rows, c => d3.max(c.values, d => this.isStacked ? d.stack[1] : d.value))
     };
   }
   years(hash) {
@@ -149,8 +187,6 @@ class Timeline extends Koto {
     // Set xScale according to the size of the container and the last year
     this.xScale.range([0, this.width]).domain([data.begin, data.end]);
     this.yScale.range([this.height, 0]).domain([data.min, data.max]);
-    // Update area according to height
-    this.area.y0(this.height);
     // Set sizes explicitely
     this.base.attr({ width: this.width, height: this.height });
     this.base.selectAll('.line, .area').call(this.translate(p.left, p.top));
