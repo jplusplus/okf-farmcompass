@@ -18,13 +18,14 @@
       fill: $label-color;
     }
 
-    .lines {
+    .line path {
+      stroke: $brand-success;
+      stroke-width: 2.5px;
+      fill: none;
+    }
 
-      path {
-        stroke: $brand-success;
-        stroke-width: 2.5px;
-        fill: none;
-      }
+    .area path {
+      fill: rgba($brand-success, .5);
     }
 
     .axis {
