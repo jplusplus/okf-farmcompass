@@ -17,8 +17,13 @@ class Timeline extends Koto {
     this.yScale = d3.scaleLinear();
 
     // Create axis's layers
-    this.base.append("g").attr("class", "axis axis--x");
-    this.base.append("g").attr("class", "axis axis--y");
+    let ax = this.base.append("g").attr("class", "axis axis--x");
+    let ay = this.base.append("g").attr("class", "axis axis--y");
+    // Create grid's layers
+    let gy = this.base.append("g").attr("class", "grid grid--x");
+    // Create shapes layers
+    let area = this.base.append('g').attr('class', 'area');
+    let line = this.base.append('g').attr('class', 'line');
 
     // Function to draw a line
     this.line = d3.line()
@@ -32,7 +37,7 @@ class Timeline extends Koto {
       .y1(d => this.yScale(this.isStacked ? d.stack[1] : d.value));
 
     // Setup areas' layer
-    this.layer('area', this.base.append('g').attr('class', 'area'), angular.extend(this.bindLayer(this.area), {
+    this.layer('area', area, angular.extend(this.bindLayer(this.area), {
       dataBind: function(data) {
         // Disable on lines
         let rows = data.type === 'line' ? [] : data.rows;
@@ -42,12 +47,13 @@ class Timeline extends Koto {
       insert: selection =>  {
         // Add the path to the current selection and clip its path the rect
         return selection.append('path')
+          .attr('title', d => d.id)
           .style('fill', d => this.colors(d.id))
           .attr('d', d => this.area(d.values));
       }
     }));
     // Setup lines' layer
-    this.layer('line', this.base.append('g').attr('class', 'line'), angular.extend(this.bindLayer(this.line), {
+    this.layer('line', line, angular.extend(this.bindLayer(this.line), {
       dataBind: function(data) {
         return this.selectAll('path').data(data.rows, d => d.id);
       },
@@ -98,6 +104,12 @@ class Timeline extends Koto {
   }
   get isStacked() {
     return this.c('type') === 'stacked-area';
+  }
+  get isLine() {
+    return this.c('type') === 'line';
+  }
+  get isArea() {
+    return this.c('type') === 'area';
   }
   smooth(hash) {
     // Iterate over the hash
@@ -184,9 +196,11 @@ class Timeline extends Koto {
   }
   preDraw(data) {
     let p = this.c('padding');
+    let max = data.max + (data.max - data.min) * 1/8;
+    let min = this.isLine ? Math.max( data.min - (data.max - data.min) * 1/8, 0) : data.min;
     // Set xScale according to the size of the container and the last year
     this.xScale.range([0, this.width]).domain([data.begin, data.end]);
-    this.yScale.range([this.height, 0]).domain([data.min, data.max]);
+    this.yScale.range([this.height, 0]).domain([min, max]);
     // Set sizes explicitely
     this.base.attr({ width: this.width, height: this.height });
     this.base.selectAll('.line, .area').call(this.translate(p.left, p.top));
@@ -196,13 +210,25 @@ class Timeline extends Koto {
       // Animate the axis creation/update
       .transition()
         .duration(this.c('transition'))
-        .call(d3.axisBottom(this.xScale).tickFormat(d3.format("")))
+        .call(d3.axisBottom(this.xScale)
+          .tickValues(data.years.slice(1, -1))
+          .tickFormat(d3.format(""))
+          .tickSize(0).tickPadding(10));
     // Select the existing Y axis to update it
     this.base.select('.axis--y')
       .call(this.translate(p.left, p.top))
       // Animate the axis creation/update
       .transition()
         .duration(this.c('transition'))
-        .call(d3.axisLeft(this.yScale).tickSizeOuter(0))
+        .call(d3.axisLeft(this.yScale)
+          .tickSizeOuter(0)
+          .tickSize(-this.width));
+    // Changed text alignment on y axis
+    this.base.selectAll('.axis--y text')
+      .attr("y", 2)
+      .attr("x", 0)
+      .attr("dx", "4px")
+      .attr("dy", "-1em")
+      .style("text-anchor", "start");
   }
 }

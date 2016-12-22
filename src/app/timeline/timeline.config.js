@@ -35,7 +35,7 @@ const TIMELINE_CONFIG = {
     type: 'object',
     units: 'px',
     category: 'Size',
-    value: { top: 60, bottom: 40, left: 60, right: 20 }
+    value: { top: 60, bottom: 40, left: 20, right: 20 }
   },
   transition: {
     name: 'transition',

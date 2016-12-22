@@ -30,13 +30,26 @@
     }
 
     .axis {
-      .tick line, path {
-        shape-rendering: crispEdges;
-        stroke: $label-color;
+
+      &--y {
+        .domain {
+          display: none;
+        }
+        .tick line {
+          stroke: $label-color;
+          stroke-dasharray: 2 3;
+        }
       }
 
       &--x {
-        path { display: none; }
+
+        .domain {
+          stroke: lighten($label-color, 20);
+        }
+
+        .tick text {
+          fill: lighten($label-color, 20);
+        }
       }
     }
   }
