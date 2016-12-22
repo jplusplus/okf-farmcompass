@@ -1,6 +1,21 @@
-<div class="main__step" ng-click="$ctrl.next()">
-  <h2 class="main__heading">
-    {{ $ctrl.current().slidetitleenbe }}
-  </h2>
-  <timeline meta="$ctrl.meta" step="$ctrl.step"></timeline>
+<div class="main__step">
+  <div class="main__step__heading">
+    <h2 class="main__step__heading__title">
+      {{ $ctrl.current().slidetitleenbe }}
+    </h2>
+    <div class="main__step__heading__controls">
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-primary btn-sm" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()">
+          <span class="sr-only">Previous</span>
+          <i class="fa fa-fw fa-chevron-left"></i>
+        </button>
+        <button class="btn btn-primary btn-sm" ng-click="$ctrl.next()" ng-disabled="$ctrl.isLast()">
+          <span class="sr-only">Next</span>
+          <i class="fa fa-fw fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="main__step__heading__progress" ng-style="{ width: $ctrl.progress() + '%' }"></div>
+  </div>
+  <timeline meta="$ctrl.meta" step="$ctrl.step" ng-click="$ctrl.next()"></timeline>
 </div>

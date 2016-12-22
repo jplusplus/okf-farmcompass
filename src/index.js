@@ -2,5 +2,6 @@ angular
   .module('app', [
     'ngAnimate',
     'ui.router',
-    'angularVideoBg'
+    'angularVideoBg',
+    'cfp.hotkeys'
   ]);

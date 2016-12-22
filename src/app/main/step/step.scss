@@ -1,0 +1,38 @@
+.main__step {
+
+  &__heading {
+    margin: $spacer;
+    padding: 0 $spacer;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index:200;
+    position: relative;
+    border:mix($brand-secondary, black, 75) 1px solid;
+    border-radius:2px;
+    @include gradient-directional(mix($brand-secondary, black, 75), $brand-secondary, 45deg);
+    @include box-shadow(0 2px 2px 0 rgba(black, .4));
+
+    &__title {
+      margin:$spacer 0;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    &__controls {
+      position: absolute;
+      top:50%;
+      right:$spacer;
+      transform: translateY(-50%);
+    }
+
+    &__progress {
+      @include transition(.7s);
+      position: absolute;
+      bottom:0;
+      left:0;
+      height: 3px;
+      background: $brand-primary;
+    }
+  }
+}

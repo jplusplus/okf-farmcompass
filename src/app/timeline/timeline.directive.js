@@ -12,6 +12,8 @@ angular
       link: (scope, element, attrs) => {
         new class {
           constructor() {
+            // Resize the parent element to fit to the screen
+            this.fit();
             // Create a SVG and append it to the element
             this.svg = d3.select(element[0]).select('svg');
             // Create a Timeline instance
@@ -52,10 +54,15 @@ angular
             this.timeline.draw( this.data(step) );
           }
           resize() {
+            // Parent element must fit to the new window's height
+            this.fit();
             // Use dynamic sizes
             this.timeline.config(this.bounding());
             // And redraw at the current step
             this.draw(scope.step);
+          }
+          fit() {
+            $(element).css('height', $(window).height() - $(element).offset().top);
           }
           // Uniq event on window element to destroy it with the directive
           get windowResizeEvent() {
