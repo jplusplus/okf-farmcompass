@@ -17,5 +17,10 @@
     </div>
     <div class="main__step__heading__progress" ng-style="{ width: $ctrl.progress() + '%' }"></div>
   </div>
-  <timeline meta="$ctrl.meta" step="$ctrl.step" ng-click="$ctrl.next()"></timeline>
+  <div class="main__step__wrapper">
+    <div class="main__step__description lead">
+      <span ng-bind-html="$ctrl.trustAs('HTML', $ctrl.current().slidetextenbe)"></span>
+    </div>
+    <timeline meta="$ctrl.meta" step="$ctrl.step" ng-click="$ctrl.next()"></timeline>
+  </div>
 </div>

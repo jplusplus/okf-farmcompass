@@ -1,7 +1,7 @@
 class MainStepController {
-  constructor($stateParams, $state, $scope, hotkeys) {
+  constructor($stateParams, $state, $scope, hotkeys, $sce) {
     'ngInject';
-    angular.extend(this, { $state, $scope });
+    angular.extend(this, { $state, $scope, $sce });
     // Initialize
     this.uiOnParamsChanged($stateParams);
     // Bind local method to this
@@ -43,6 +43,9 @@ class MainStepController {
   }
   progress() {
     return this.step / (this.meta.length - 1) * 100;
+  }
+  trustAs(type='HTML', value) {
+    return this.$sce.trustAs(this.$sce[type], value);
   }
 }
 

@@ -1,5 +1,4 @@
 const TIMELINE_COLORS = [
-  '#543005',
   '#8c510a',
   '#bf812d',
   '#dfc27d',
@@ -8,8 +7,7 @@ const TIMELINE_COLORS = [
   '#c7eae5',
   '#80cdc1',
   '#35978f',
-  '#01665e',
-  '#003c30'
+  '#01665e'
 ];
 
 const TIMELINE_CONFIG = {
