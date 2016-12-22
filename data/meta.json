@@ -5,7 +5,7 @@
   "sheettitle": "subsidies",
   "smoothing": "1",
   "charttype": "area",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
   "detailsenbe": "Subsidies in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -37,7 +37,9 @@
   "sheettitle": "subsidies_by_type",
   "smoothing": "1",
   "charttype": "stacked area",
-  "highlightsenbe": "Product subsidies",
+  "highlightsenbe": [
+    "Product subsidies"
+  ],
   "labelenbe": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
   "detailsenbe": "Subsidies in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -87,7 +89,9 @@
   "sheettitle": "subsidies_by_type",
   "smoothing": "1",
   "charttype": "stacked area",
-  "highlightsenbe": "Other subsidies",
+  "highlightsenbe": [
+    "Other subsidies"
+  ],
   "labelenbe": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
   "detailsenbe": "Subsidies in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -137,7 +141,9 @@
   "sheettitle": "subsidies_bulgaria",
   "smoothing": "1",
   "charttype": "stacked area",
-  "highlightsenbe": "Direct subsidies to Bulgarian farmers",
+  "highlightsenbe": [
+    "Direct subsidies to Bulgarian farmers"
+  ],
   "labelenbe": "Subsidies to Bulgarian farmers in millions of euros",
   "detailsenbe": "Subsidies in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -187,7 +193,7 @@
   "sheettitle": "farms_bulgaria",
   "smoothing": "0",
   "charttype": "line",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Average farm size in hectares",
   "detailsenbe": "Average farm size in hectares",
   "yaxislabelenbe": "hectares",
@@ -207,7 +213,7 @@
   "sheettitle": "production_bulgaria",
   "smoothing": "1",
   "charttype": "area",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Production in Bulgaria in millions of euros",
   "detailsenbe": "Production in Bulgaria in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -239,7 +245,9 @@
   "sheettitle": "cash_crops_bulgaria",
   "smoothing": "1",
   "charttype": "stacked area",
-  "highlightsenbe": "Cash crops production",
+  "highlightsenbe": [
+    "Cash crops production"
+  ],
   "labelenbe": "Production in Bulgaria in millions of euros",
   "detailsenbe": "Production in Bulgaria in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -289,7 +297,9 @@
   "sheettitle": "vegetables_bulgaria",
   "smoothing": "1",
   "charttype": "stacked area",
-  "highlightsenbe": "Vegetables",
+  "highlightsenbe": [
+    "Vegetables"
+  ],
   "labelenbe": "Production in Bulgaria in millions of euros",
   "detailsenbe": "Production in Bulgaria in millions of current euros",
   "yaxislabelenbe": "million euros",
@@ -357,7 +367,7 @@
   "sheettitle": "vegetables_details",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Vegetable production tonnage (2001 = 100)",
   "detailsenbe": "Production (2001 = 100)",
   "yaxislabelenbe": null,
@@ -507,7 +517,9 @@
   "sheettitle": "vegetables in value",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": "Bulgaria",
+  "highlightsenbe": [
+    "Bulgaria"
+  ],
   "labelenbe": null,
   "detailsenbe": "Production in value (2000=100)",
   "yaxislabelenbe": null,
@@ -971,7 +983,10 @@
   "sheettitle": "cash crops in value",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": "Bulgaria, Vegetables",
+  "highlightsenbe": [
+    "Bulgaria",
+    "Vegetables"
+  ],
   "labelenbe": null,
   "detailsenbe": "Production in value (2000=100)",
   "yaxislabelenbe": null,
@@ -1453,7 +1468,7 @@
   "sheettitle": "imports",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Imports of fruits and vegetables in volume",
   "detailsenbe": "Imports in volume to EU-28 countries (2000=100)",
   "yaxislabelenbe": null,
@@ -1539,7 +1554,7 @@
   "sheettitle": "salaried employment",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Number of salaried workers in agriculture in the EU-27.",
   "detailsenbe": "Full-time equivalent (thousands)",
   "yaxislabelenbe": "thousand workers",
@@ -1571,7 +1586,7 @@
   "sheettitle": "non salaried employment",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": null,
+  "highlightsenbe": [],
   "labelenbe": "Number of non-salaried workers in agriculture in the EU-27.",
   "detailsenbe": "Full-time equivalent (thousands)",
   "yaxislabelenbe": "thousand workers",
@@ -1603,7 +1618,11 @@
   "sheettitle": "non salaried employment by country",
   "smoothing": "1",
   "charttype": "line",
-  "highlightsenbe": "Slovakia, Romania, Bulgaria",
+  "highlightsenbe": [
+    "Slovakia",
+    "Romania",
+    "Bulgaria"
+  ],
   "labelenbe": null,
   "detailsenbe": "Number of non-salaried workers (2000=100)",
   "yaxislabelenbe": null,
