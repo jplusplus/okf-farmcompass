@@ -196,8 +196,8 @@ class Timeline extends Koto {
   }
   preDraw(data) {
     let p = this.c('padding');
-    let max = data.max + (data.max - data.min) * 1/8;
     let min = this.isLine ? Math.max( data.min - (data.max - data.min) * 1/8, 0) : data.min;
+    let max = this.isLine ? data.max + (data.max - data.min) * 1/8 : data.max;
     // Set xScale according to the size of the container and the last year
     this.xScale.range([0, this.width]).domain([data.begin, data.end]);
     this.yScale.range([this.height, 0]).domain([min, max]);
@@ -222,7 +222,14 @@ class Timeline extends Koto {
         .duration(this.c('transition'))
         .call(d3.axisLeft(this.yScale)
           .tickSizeOuter(0)
-          .tickSize(-this.width));
+          .tickSize(-this.width))
+          // After the transition ends
+          .on("end", t =>{
+            // Add unit  to the last child
+            this.base.select('.axis--y .tick:last-child text').text(d => {
+              return d + ' ' + this.c('yunit');
+            });
+          });
     // Changed text alignment on y axis
     this.base.selectAll('.axis--y text')
       .attr("y", 2)

@@ -58,5 +58,11 @@ const TIMELINE_CONFIG = {
     setter: function (newValue){
       return newValue.toLowerCase().replace(/\s/, '-');
     }
+  },
+  yunit: {
+    name: 'yunit',
+    description: 'Unit of Y axis',
+    type: 'string',
+    value: ''
   }
 };

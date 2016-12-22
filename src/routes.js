@@ -10,21 +10,21 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('main', {
       url: '/',
-      component: 'main',
-      resolve: {
-        meta: ($http) =>{
-          'ngInject';
-          return $http.get('data/meta.json').then(r => r.data);
-        }
-      }
+      component: 'main'
     })
     .state('main.step', {
+      component: 'main.step',
       url: 'playing/:index',
-      template: `<timeline meta="$ctrl.meta" step="$ctrl.step"></timeline>`,
       params: {
         index: {
           value: null,
           dynamic: true
+        }
+      },
+      resolve: {
+        meta: ($http) =>{
+          'ngInject';
+          return $http.get('data/meta.json', {cache: true}).then(r => r.data);
         }
       }
     });

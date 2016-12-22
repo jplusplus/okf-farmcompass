@@ -45,7 +45,8 @@ angular
           draw(step) {
             this.timeline.config({
               smoothing: this.smoothing(step),
-              type: scope.meta[step].charttype
+              type: scope.meta[step].charttype,
+              yunit: scope.meta[step].yaxislabelenbe
             });
             // Configure the chart with the new step
             this.timeline.draw( this.data(step) );
