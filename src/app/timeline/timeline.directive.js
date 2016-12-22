@@ -46,9 +46,10 @@ angular
           }
           draw(step) {
             this.timeline.config({
+              highlights: scope.meta[step].highlightsenbe,
               smoothing: this.smoothing(step),
-              type: scope.meta[step].charttype,
-              yunit: scope.meta[step].yaxislabelenbe
+              yunit: scope.meta[step].yaxislabelenbe,
+              type: scope.meta[step].charttype
             });
             // Configure the chart with the new step
             this.timeline.draw( this.data(step) );

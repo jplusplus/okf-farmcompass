@@ -7,10 +7,10 @@ class Timeline extends Koto {
 
     // Bind local method to this
     this.transitionValues = this.transitionValues.bind(this);
+    this.isHighlighted = this.isHighlighted.bind(this);
+    this.updateLabel = this.updateLabel.bind(this);
     this.bindLayer = this.bindLayer.bind(this);
-
-    // Create color scheme
-    this.colors = d3.scaleOrdinal(TIMELINE_COLORS);
+    this.colors = this.colors.bind(this);
 
     // Create scale
     this.xScale = d3.scaleLinear();
@@ -22,8 +22,9 @@ class Timeline extends Koto {
     // Create grid's layers
     let gy = this.base.append("g").attr("class", "grid grid--x");
     // Create shapes layers
-    let area = this.base.append('g').attr('class', 'area');
-    let line = this.base.append('g').attr('class', 'line');
+    let area  = this.base.append('g').attr('class', 'area');
+    let line  = this.base.append('g').attr('class', 'line');
+    let label = this.base.append('g').attr('class', 'label');
 
     // Function to draw a line
     this.line = d3.line()
@@ -40,35 +41,59 @@ class Timeline extends Koto {
     this.layer('area', area, angular.extend(this.bindLayer(this.area), {
       dataBind: function(data) {
         // Disable on lines
-        let rows = data.type === 'line' ? [] : data.rows;
-        return this.selectAll('path')
-          .data(rows, d => d.id);
+        let rows = data.type === 'line' ? [] : data.rows.reverse();
+        return this.selectAll('.area__group').data(rows, d => d.id);
       },
       insert: selection =>  {
         // Add the path to the current selection and clip its path the rect
         return selection.append('path')
-          .attr('title', d => d.id)
-          .style('fill', d => this.colors(d.id))
-          .attr('d', d => this.area(d.values));
+            .classed('area__group', true)
+            .classed('highlighted', this.isHighlighted)
+            .style('opacity', d => this.isHighlighted(d) ? 1 : .3)
+            .attr('d', d => this.area(d.values))
+            .style('fill', this.colors);
       }
     }));
     // Setup lines' layer
     this.layer('line', line, angular.extend(this.bindLayer(this.line), {
       dataBind: function(data) {
-        return this.selectAll('path').data(data.rows, d => d.id);
+        return this.selectAll('.line__group').data(data.rows, d => d.id);
       },
       insert:  selection => {
         // Add the path to the current selection and clip its path the rect
         return selection.append('path')
-          .style('stroke', d => this.colors(d.id))
-          .attr('d', d => this.line(d.values));
+            .classed('line__group', true)
+            .classed('highlighted', this.isHighlighted)
+            .style('opacity', d => this.isHighlighted(d) ? 1 : .3)
+            .attr('d', d => this.line(d.values))
+            .style('stroke', this.colors);
       }
     }));
+    // Setup labels layer
+    this.layer('label', label, {
+      dataBind: function(data) {
+        return this.selectAll('.label text').data(data.rows, d => d.id);
+      },
+      insert: selection => {
+        return selection.append('text').text(d => d.id)
+          .classed('highlighted', this.isHighlighted)
+          .attr("text-anchor", "end")
+          .attr("dy", '-1em')
+          .call(this.updateLabel)
+          .style('opacity', 0)
+      },
+      events: {
+        'enter:transition': t => t.duration(this.c('transition')).style('opacity', 1),
+        'update:transition': t => t.duration(this.c('transition')).call(this.updateLabel),
+        'merge:transition': t => t.duration(this.c('transition')).call(this.updateLabel),
+        'exit:transition': t => t.duration(this.c('transition')).style('opacity', 0).remove()
+      }
+    });
   }
-  bindLayer(path) {
+  bindLayer(pathFn) {
     return {
       events: {
-        'enter': selection => {
+        enter: selection => {
           // Create a unique id for this element clip
           let id = _.uniqueId('rectClip-');
           // Add the clip to the current selection
@@ -90,9 +115,15 @@ class Timeline extends Koto {
                 d3.select(this.parentNode).remove();
               })
         },
-        'merge:transition':  t => t.call(this.transitionValues(path)),
-        'update:transition': t => t.call(this.transitionValues(path)),
-        'exit:transition':   t => t.duration(this.c('transition')).style('opacity', 0).remove()
+        merge: this.transitionValues(pathFn),
+        update: this.transitionValues(pathFn),
+        exit: selection => {
+          selection
+            .transition()
+              .duration(this.c('transition'))
+              .style('opacity', 0)
+              .on('end', ()=> selection.remove())
+        }
       }
     }
   }
@@ -110,6 +141,32 @@ class Timeline extends Koto {
   }
   get isArea() {
     return this.c('type') === 'area';
+  }
+  get hasHighligths() {
+    return this.c('highlights').length > 0;
+  }
+  transitionValues(pathFn) {
+    return selection => {
+      selection.transition()
+        .duration(this.c('transition'))
+        .style('opacity', d => this.isHighlighted(d) ? 1 : .3)
+        .attr("d", d => pathFn(d.values));
+    }
+  }
+  updateLabel(selection) {
+    return selection
+      .attr("x", d => this.xScale(_.last(d.values).id))
+      .attr("y", d => this.yScale(_.last(d.values).value))
+  }
+  isHighlighted(d) {
+    return !this.hasHighligths || this.c('highlights').indexOf(d.id) > -1;
+  }
+  colors(d) {
+    // Create color schema if undefined
+    this._colors = this._colors || d3.scaleOrdinal(TIMELINE_COLORS);
+    // DISABLED: return a different color if the element is not highlighted
+    // return this.isHighlighted(d) ? this._colors(d.id) : 'white';
+    return this._colors(d.id);
   }
   smooth(hash) {
     // Iterate over the hash
@@ -189,21 +246,17 @@ class Timeline extends Koto {
       return selection.attr('transform', `translate(${left}, ${top})`);
     }
   }
-  transitionValues(path) {
-    return selection => {
-      selection.duration(this.c('transition')).attr("d", d => path(d.values));
-    }
-  }
   preDraw(data) {
     let p = this.c('padding');
     let min = this.isLine ? Math.max( data.min - (data.max - data.min) * 1/8, 0) : data.min;
-    let max = this.isLine ? data.max + (data.max - data.min) * 1/8 : data.max;
+    let max = data.max + (data.max - data.min) * 1/8;
     // Set xScale according to the size of the container and the last year
     this.xScale.range([0, this.width]).domain([data.begin, data.end]);
     this.yScale.range([this.height, 0]).domain([min, max]);
     // Set sizes explicitely
     this.base.attr({ width: this.width, height: this.height });
-    this.base.selectAll('.line, .area').call(this.translate(p.left, p.top));
+    this.base.classed('timeline__chart--highlights', this.hasHighligths);
+    this.base.selectAll('.line, .area, .label').call(this.translate(p.left, p.top));
     // Select the existing X axis to update it
     this.base.select('.axis--x')
       .call(this.translate(p.left, this.height + p.top))

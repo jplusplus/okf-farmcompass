@@ -6,31 +6,39 @@
   min-height: 250px;
 
   &__chart {
+    $label-color: #71929C;
+
     position: absolute;
     top:0;
     left:0;
     height:100%;
     width:100%;
-  }
-
-  &__chart {
-    $label-color: #71929C;
     z-index: 0;
+
+    .label text:not(.highlighted) {
+      display: none;
+    }
 
     text {
       font-family: $font-family-sans-serif;
       fill: $label-color;
     }
 
-    .line path {
+    .line .line__group {
       stroke: $brand-success;
       stroke-width: 2.5px;
       fill: none;
     }
 
-    .area path {
+    .area .area__group {
       fill: $brand-success;
       fill-opacity:0.95;
+    }
+
+    .label text {
+      font-weight:bold;
+      fill: white;
+      font-size: .8rem;
     }
 
     .axis {

@@ -62,5 +62,10 @@ const TIMELINE_CONFIG = {
     description: 'Unit of Y axis',
     type: 'string',
     value: ''
+  },
+  highlights: {
+    name: 'highlights',
+    type: 'array',
+    value: []
   }
 };

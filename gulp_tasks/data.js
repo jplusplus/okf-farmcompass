@@ -80,6 +80,12 @@ gulp.task('data:meta', function() {
         if(step.sheettitle !== null) {
           step.slug = slug(step.sheettitle);
           step.data = require( path.join('../', conf.paths.data, step.slug + '.json') );
+          // Transform some step's values according to their name
+          Object.keys(step).forEach( (key)=> {
+            if( key.indexOf('highlights') === 0) {
+              step[key] = _.compact( (step[key] || '').split(',').map(_.trim) );
+            }
+          });
         }
         return step;
       });
