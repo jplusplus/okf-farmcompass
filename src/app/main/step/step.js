@@ -1,7 +1,7 @@
 class MainStepController {
   constructor($stateParams, $state, $scope, hotkeys, $sce) {
     'ngInject';
-    angular.extend(this, { $state, $scope, $sce });
+    angular.extend(this, {$state, $scope, $sce});
     // Initialize
     this.uiOnParamsChanged($stateParams);
     // Bind local method to this
@@ -13,23 +13,23 @@ class MainStepController {
     this.progress = this.progress.bind(this);
     this.current = this.current.bind(this);
     // Bind hot keys
-    hotkeys.add({ combo: ['left', 'p'], callback: this.previous});
-    hotkeys.add({ combo: ['space', 'right', 'n'], callback: this.next });
+    hotkeys.add({combo: ['left', 'p'], callback: this.previous});
+    hotkeys.add({combo: ['space', 'right', 'n'], callback: this.next});
   }
   get step() {
     return this._step;
   }
   uiOnParamsChanged(params) {
-    this._step = 1 * (params.index || 0);
+    this._step = Number(params.index || 0);
   }
   next() {
-    if(this.step < this.meta.length - 1) {
-      this.$state.go('main.step', { index: this.step + 1 });
+    if (this.step < this.meta.length - 1) {
+      this.$state.go('main.step', {index: this.step + 1});
     }
   }
   previous() {
-    if(this.step > 0) {
-      this.$state.go('main.step', { index: this.step - 1 });
+    if (this.step > 0) {
+      this.$state.go('main.step', {index: this.step - 1});
     }
   }
   isFirst() {
@@ -44,7 +44,7 @@ class MainStepController {
   progress() {
     return this.step / (this.meta.length - 1) * 100;
   }
-  trustAs(type='HTML', value) {
+  trustAs(type = 'HTML', value) {
     return this.$sce.trustAs(this.$sce[type], value);
   }
 }

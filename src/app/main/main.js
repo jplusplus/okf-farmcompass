@@ -2,7 +2,7 @@ class MainController {
   constructor($http) {
     'ngInject';
     // Preload meta for the next step
-    $http.get('data/meta.json', { cache: true }).then(r => r.data);
+    $http.get('data/meta.json', {cache: true}).then(r => r.data);
   }
 }
 

@@ -72,7 +72,11 @@
   "eslintConfig": {
     "globals": {
       "expect": true,
-      "angular": true
+      "angular": true,
+      "d3": true,
+      "chroma": true,
+      "Koto": true,
+      "_": true
     },
     "root": true,
     "env": {

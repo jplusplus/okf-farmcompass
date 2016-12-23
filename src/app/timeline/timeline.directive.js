@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .directive('timeline', function($window) {
+  .directive('timeline', ($window, Timeline) => {
     return {
       restrict: 'E',
       scope: {
@@ -9,8 +9,8 @@ angular
       },
       replace: true,
       template: '<div class="timeline"><svg class="timeline__chart"></svg></div>',
-      link: (scope, element, attrs) => {
-        new class {
+      link: (scope, element) => {
+        return new class {
           constructor() {
             // Resize the parent element to fit to the screen
             this.fit();
@@ -21,17 +21,17 @@ angular
             // Use dynamic sizes
             this.timeline.config(this.bounding());
             // Watch for change on the step attribute
-            scope.$watch('step', function(step) {
+            scope.$watch('step', step => {
               // Don't go too far!
-              if(step < scope.meta.length){
+              if (step < scope.meta.length) {
                 // Draw the timeline at a given step
                 this.draw(step);
               }
-            }.bind(this));
+            });
             // Watch for windows resize
             angular.element($window).on(this.windowResizeEvent, this.resize.bind(this));
             // Watch for scope destruction
-            scope.$on('$destroy', e => angular.element($window).off(this.windowResizeEvent))
+            scope.$on('$destroy', () => angular.element($window).off(this.windowResizeEvent));
           }
           bounding() {
             // Get SVG sizes
@@ -39,7 +39,7 @@ angular
           }
           // Get last available data for the given step
           data(step) {
-            return step >= 0 ? scope.meta[step].data || data(step - 1) : [];
+            return step >= 0 ? scope.meta[step].data || this.data(step - 1) : [];
           }
           smoothing(step) {
             return (scope.meta[step] || {}).smoothing || 0;
@@ -52,7 +52,7 @@ angular
               type: scope.meta[step].charttype
             });
             // Configure the chart with the new step
-            this.timeline.draw( this.data(step) );
+            this.timeline.draw(this.data(step));
           }
           resize() {
             // Parent element must fit to the new window's height
@@ -63,16 +63,16 @@ angular
             this.draw(scope.step);
           }
           fit() {
-            $(element).css('height', $(window).height() - $(element).offset().top);
+            angular.element(element).css('height', angular.element(window).height() - angular.element(element).offset().top);
           }
           // Uniq event on window element to destroy it with the directive
           get windowResizeEvent() {
             // Create the event tken only once
-            this._windowResizeEvent = this._windowResizeEvent || (_.uniqueId() + ' resize');
+            this._windowResizeEvent = this._windowResizeEvent || (`${_.uniqueId()} resize`);
             // Simply return the event string
             return this._windowResizeEvent;
           }
-        }
+        };
       }
     };
   });

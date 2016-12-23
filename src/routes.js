@@ -22,7 +22,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       },
       resolve: {
-        meta: ($http) =>{
+        meta: $http => {
           'ngInject';
           return $http.get('data/meta.json', {cache: true}).then(r => r.data);
         }
