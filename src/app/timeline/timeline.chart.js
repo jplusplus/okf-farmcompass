@@ -51,7 +51,7 @@ class Timeline extends Koto {
             .classed('highlighted', this.isHighlighted)
             .style('opacity', d => this.isHighlighted(d) ? 1 : .3)
             .attr('d', d => this.area(d.values))
-            .style('fill', this.colors);
+            .style('fill', d => chroma(this.colors(d)).hex());
       }
     }));
     // Setup lines' layer
@@ -79,6 +79,7 @@ class Timeline extends Koto {
           .classed('highlighted', this.isHighlighted)
           .attr("text-anchor", "end")
           .attr("dy", '-1em')
+          .attr("dx", '-1em')
           .call(this.updateLabel)
           .style('opacity', 0)
       },
@@ -156,7 +157,10 @@ class Timeline extends Koto {
   updateLabel(selection) {
     return selection
       .attr("x", d => this.xScale(_.last(d.values).id))
-      .attr("y", d => this.yScale(_.last(d.values).value))
+      .attr("y", d => {
+        let row = _.last(d.values);
+        return this.yScale(this.isStacked ? row.stack[1] : row.value);
+      })
   }
   isHighlighted(d) {
     return !this.hasHighligths || this.c('highlights').indexOf(d.id) > -1;
@@ -164,9 +168,9 @@ class Timeline extends Koto {
   colors(d) {
     // Create color schema if undefined
     this._colors = this._colors || d3.scaleOrdinal(TIMELINE_COLORS);
-    // DISABLED: return a different color if the element is not highlighted
-    // return this.isHighlighted(d) ? this._colors(d.id) : 'white';
-    return this._colors(d.id);
+    // return a different color if the element is not highlighted
+    let color = this._colors(d.id);
+    return  this.isHighlighted(d) ? color : chroma(color).desaturate(2).hex()
   }
   smooth(hash) {
     // Iterate over the hash
