@@ -85,7 +85,9 @@ class Timeline extends Koto {
       },
       events: {
         'enter:transition': t => t.duration(this.c('transition')).style('opacity', 1),
+        'update': selection => selection.classed('highlighted', this.isHighlighted),
         'update:transition': t => t.duration(this.c('transition')).call(this.updateLabel),
+        'merge': selection => selection.classed('highlighted', this.isHighlighted),
         'merge:transition': t => t.duration(this.c('transition')).call(this.updateLabel),
         'exit:transition': t => t.duration(this.c('transition')).style('opacity', 0).remove()
       }
