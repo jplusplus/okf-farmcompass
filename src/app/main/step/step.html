@@ -17,7 +17,7 @@
     </div>
     <div class="main__step__heading__progress" ng-style="{ width: $ctrl.progress() + '%' }"></div>
   </div>
-  <div class="main__step__wrapper">
+  <div class="main__step__wrapper" ng-swipe-right="$ctrl.previous()" ng-swipe-left="$ctrl.next()">
     <div class="main__step__description lead">
       <span ng-bind-html="$ctrl.trustAs('HTML', $ctrl.current().slidetextenbe)"></span>
     </div>
