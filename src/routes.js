@@ -27,5 +27,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
           return $http.get('data/meta.json', {cache: true}).then(r => r.data);
         }
       }
+    })
+    .state('main.step.outro', {
+      url: '/outro'
     });
 }

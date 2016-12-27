@@ -23,12 +23,18 @@ class MainStepController {
     this._step = Number(params.index || 0);
   }
   next() {
-    if (this.step < this.meta.length - 1) {
+    if (!this.isLast()) {
       this.$state.go('main.step', {index: this.step + 1});
+    } else {
+      this.$state.go('main.step.outro');
     }
   }
   previous() {
-    if (this.step > 0) {
+    if (this.isOutro()) {
+      this.$state.go('main.step');
+    } else if (this.isFirst()) {
+      this.$state.go('main');
+    } else if (this.step > 0) {
       this.$state.go('main.step', {index: this.step - 1});
     }
   }
@@ -38,11 +44,14 @@ class MainStepController {
   isLast() {
     return this.step === this.meta.length - 1;
   }
+  isOutro() {
+    return this.$state.is('main.step.outro');
+  }
   current() {
     return this.meta[this.step];
   }
   progress() {
-    return this.step / (this.meta.length - 1) * 100;
+    return ( this.step + this.isOutro() )/ this.meta.length * 100;
   }
   trustAs(type = 'HTML', value) {
     return this.$sce.trustAs(this.$sce[type], value);

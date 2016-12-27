@@ -288,7 +288,7 @@ angular.module('app')
               .on("end", () => {
                 // Add unit  to the last child
                 this.base.select('.axis--y .tick:last-child text').text(d => {
-                  return `${d} ${this.c('yunit')}`;
+                  return `${d} ${this.c('yunit') || ''}`;
                 });
               });
         // Changed text alignment on y axis
