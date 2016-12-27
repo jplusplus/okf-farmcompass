@@ -52,7 +52,8 @@
     text-shadow:0 0 5px $brand-secondary;
     pointer-events: none;
     strong {
-      color: $brand-success;
+      font-weight: bolder;
+      border-bottom:$spacer/3 solid white;
     }
   }
 
