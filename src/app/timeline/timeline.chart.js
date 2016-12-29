@@ -21,8 +21,6 @@ angular.module('app')
         // Create axis's layers
         this.base.append("g").attr("class", "axis axis--x");
         this.base.append("g").attr("class", "axis axis--y");
-        // Create grid's layers
-        this.base.append("g").attr("class", "grid grid--x");
         // Create shapes layers
         const area = this.base.append('g').attr('class', 'area');
         const line = this.base.append('g').attr('class', 'line');
@@ -179,8 +177,8 @@ angular.module('app')
       smooth(hash) {
         // Iterate over the hash
         _.each(hash, (value, key) => {
-          // Skip non-numeric keys
-          if (!isNaN(key)) {
+          // Skip non-numeric keys and the first year
+          if (!isNaN(key) && hash.hasOwnProperty(Number(key) - 1)) {
             // Every values to use in the moving average
             let values = [];
             // Go backward and forward the current year
