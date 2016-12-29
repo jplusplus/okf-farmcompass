@@ -291,8 +291,8 @@ angular.module('app')
           .attr('y2', this.yScale(min))
         groups.append('text')
           .text(d => d[1])
-          .attr('dy', '1em')
-          .attr('dx', '.35em')
+          .attr('dy', '.85em')
+          .attr('dx', '1em')
       }
       preDraw(data) {
         const p = this.c('padding');

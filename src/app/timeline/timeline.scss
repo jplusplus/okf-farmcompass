@@ -43,8 +43,14 @@
     .ruler {
       &__group {
         line {
-          stroke: rgba($label-color, 0.5);
+          stroke: lighten($label-color, 5);
           stroke-width: 1px;
+          stroke-dasharray: 10 4;
+        }
+
+        text {
+          fill: lighten($label-color, 5);
+          font-size:12px;
         }
       }
     }
