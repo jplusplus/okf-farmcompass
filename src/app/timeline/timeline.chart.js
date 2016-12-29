@@ -10,6 +10,7 @@ angular.module('app')
         // Bind local method to this
         this.transitionValues = this.transitionValues.bind(this);
         this.isHighlighted = this.isHighlighted.bind(this);
+        this.updateBubbles = this.updateBubbles.bind(this);
         this.updateLabel = this.updateLabel.bind(this);
         this.bindLayer = this.bindLayer.bind(this);
         this.colors = this.colors.bind(this);
@@ -21,11 +22,16 @@ angular.module('app')
         // Create axis's layers
         this.base.append("g").attr("class", "axis axis--x");
         this.base.append("g").attr("class", "axis axis--y");
+        // Create ruler layer
         this.base.append('g').attr('class', 'ruler');
         // Create shapes layers
         const area = this.base.append('g').attr('class', 'area');
         const line = this.base.append('g').attr('class', 'line');
         const label = this.base.append('g').attr('class', 'label');
+        // Create interaction layer
+        // this.base.append('rect').attr('class', 'event').on('mousemove', this.updateBubbles);
+        // Create a bubbles layer
+        this.base.append('g').attr('class', 'bubble')
 
         // Function to draw a line
         this.line = d3.line()
@@ -93,6 +99,34 @@ angular.module('app')
             'exit:transition': t => t.duration(this.c('transition')).style('opacity', 0).remove()
           }
         });
+      }
+      updateBubbles() {
+        const t = d3.transition().duration(this.c('transition'));
+        // Helper function to move all groups
+        const moveGroup = selection => {
+          return selection.attr('transform', d=> {
+            const y = _.find(d.values, {id: year}).value;
+            return `translate(0, ${this.yScale(y)})`;
+          });
+        };
+        // Get the year for this x position
+        const year = Math.round(this.xScale.invert(event.clientX));
+        // The layer that holds bubbles
+        const groups = this.base.select('.bubble')
+          // Move the layer on the right year
+          .call(this.translate(this.xScale(year), 0))
+          // Create group for each row
+          .selectAll('.bubble__group')
+          // JOIN data to for the selected year
+          .data(this.data.rows, d => d.id);
+        // REMOVE old bubbles
+        groups.exit().transition(t).style("opacity", 0).remove();
+        // UPDATE current bubbles
+        groups.call(moveGroup).style('opacity', 1);
+        // CREATE new bubbles
+        const entering = groups.enter().append('g').classed('bubble__group', true);
+        // Add text label
+        entering.call(moveGroup).append('text').text(d => d.id);
       }
       bindLayer(pathFn) {
         return {
@@ -254,9 +288,8 @@ angular.module('app')
         };
       }
       isYearVisible(year) {
-        const width = this.c('width') - this.c('padding').left - this.c('padding').top;
         // Year must strictly in bounds
-        return this.xScale(year) >= 0 && this.xScale(year) < width;
+        return year >= this.data.begin && year < this.data.end;
       }
       updateRulers(min, max) {
         const t = d3.transition().duration(this.c('transition'));
@@ -306,6 +339,8 @@ angular.module('app')
         if (max === null) {
           max = data.max + (data.max - data.min) * 1 / 8;
         }
+        // Save the data before the chart is rendered
+        this.data = data;
         // Set xScale according to the size of the container and the last year
         this.xScale.range([0, this.width]).domain([data.begin, data.end]);
         this.yScale.range([this.height, 0]).domain([min, max]);
@@ -315,6 +350,13 @@ angular.module('app')
         this.base.selectAll('.line, .area, .label').call(this.translate(p.left, p.top));
         // Update rulers according to the new scales
         this.updateRulers(min, max);
+        // Resize interaction layer
+        this.base.select('.event')
+          .attr('x', 0)
+          .attr('y', 0)
+          .attr('width', this.width)
+          .attr('height', this.height)
+          .call(this.translate(p.left, p.top))
         // Select the existing X axis to update it
         this.base.select('.axis--x')
           .call(this.translate(p.left, this.height + p.top))
