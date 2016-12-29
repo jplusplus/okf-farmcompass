@@ -14,7 +14,7 @@ const jeditor = require("gulp-json-editor");
 
 
 const GSSID = '1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k';
-const NUMBER_FIELDS = ['slideid']
+const NUMBER_FIELDS = ['slideid', 'min', 'max']
 const UNWANTED_FIELDS = ['_xml', '_links', 'id'];
 const BOOL_FIELDS = [];
 
@@ -39,7 +39,9 @@ var prepareRows = function(rows) {
     }
     // Convert values to number
     for(let k of NUMBER_FIELDS) {
-      if(exists(k)) row[k] = 1 * row[k];
+      if(exists(k)) {
+        row[k] = row[k] === '' ? null : Number(row[k]);
+      }
     }
     // Convert to null when empty
     for(let k in row) {

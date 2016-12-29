@@ -40,6 +40,15 @@
       font-size: .8rem;
     }
 
+    .ruler {
+      &__group {
+        line {
+          stroke: rgba($label-color, 0.5);
+          stroke-width: 1px;
+        }
+      }
+    }
+
     .axis {
 
       &--y {

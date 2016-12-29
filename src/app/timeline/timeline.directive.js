@@ -49,7 +49,9 @@ angular
               highlights: scope.meta[step].highlightsenbe,
               smoothing: this.smoothing(step),
               yunit: scope.meta[step].yaxislabelenbe,
-              type: scope.meta[step].charttype
+              type: scope.meta[step].charttype,
+              min: scope.meta[step].min,
+              max: scope.meta[step].max
             });
             // Configure the chart with the new step
             this.timeline.draw(this.data(step));

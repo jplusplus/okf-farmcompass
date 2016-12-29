@@ -21,6 +21,7 @@ angular.module('app')
         // Create axis's layers
         this.base.append("g").attr("class", "axis axis--x");
         this.base.append("g").attr("class", "axis axis--y");
+        this.base.append('g').attr('class', 'ruler');
         // Create shapes layers
         const area = this.base.append('g').attr('class', 'area');
         const line = this.base.append('g').attr('class', 'line');
@@ -252,10 +253,59 @@ angular.module('app')
           return selection.attr('transform', `translate(${left}, ${top})`);
         };
       }
+      isYearVisible(year) {
+        const width = this.c('width') - this.c('padding').left - this.c('padding').top;
+        // Year must strictly in bounds
+        return this.xScale(year) >= 0 && this.xScale(year) < width;
+      }
+      updateRulers(min, max) {
+        const t = d3.transition().duration(this.c('transition'));
+        const moveGroup = selection => {
+          return selection.attr('transform', d => {
+            const left = this.c('padding').left + this.xScale(d[0]);
+            const top = this.c('padding').top;
+            return `translate(${left}, ${top})`;
+          });
+        };
+        var data = this.c('rulers');
+        // Reove rulers that are under 0
+        data = data.filter(d => this.isYearVisible(d[0]));
+        // JOIN new data to rulers
+        const rulers = this.base.select('.ruler').selectAll('.ruler__group').data(data, d => d[0]);
+        // REMOVE old rulers
+        rulers.exit().transition(t).style("opacity", 0).remove();
+        // UPDATE old rulers
+        rulers.transition(t).call(moveGroup).style('opacity', 1);
+        rulers.selectAll('line').transition(t).attr('y2', this.yScale(min))
+        // CREATE new rulers
+        const groups = rulers.enter().append('g').classed('ruler__group', true)
+        // Move the new ruler to the right position
+        groups.call(moveGroup)
+          .style('opacity', 0)
+          .transition(t)
+            .style('opacity', 1)
+        groups.append('line')
+          .attr('x1', 0)
+          .attr('y1', 0)
+          .attr('x2', 0)
+          .attr('y2', this.yScale(min))
+        groups.append('text')
+          .text(d => d[1])
+          .attr('dy', '1em')
+          .attr('dx', '.35em')
+      }
       preDraw(data) {
         const p = this.c('padding');
-        const min = this.isLine ? Math.max(data.min - (data.max - data.min) * 1 / 8, 0) : data.min;
-        const max = data.max + (data.max - data.min) * 1 / 8;
+        var min = this.c('min');
+        var max = this.c('max');
+        // Fixed minimum value
+        if (min === null) {
+          min = this.isLine ? Math.max(data.min - (data.max - data.min) * 1 / 8, 0) : data.min;
+        }
+        // Fixed maximum value
+        if (max === null) {
+          max = data.max + (data.max - data.min) * 1 / 8;
+        }
         // Set xScale according to the size of the container and the last year
         this.xScale.range([0, this.width]).domain([data.begin, data.end]);
         this.yScale.range([this.height, 0]).domain([min, max]);
@@ -263,6 +313,8 @@ angular.module('app')
         this.base.attr({width: this.width, height: this.height});
         this.base.classed('timeline__chart--highlights', this.hasHighligths);
         this.base.selectAll('.line, .area, .label').call(this.translate(p.left, p.top));
+        // Update rulers according to the new scales
+        this.updateRulers(min, max);
         // Select the existing X axis to update it
         this.base.select('.axis--x')
           .call(this.translate(p.left, this.height + p.top))
