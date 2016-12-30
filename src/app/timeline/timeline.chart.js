@@ -39,6 +39,27 @@ angular.module('app')
         // Create a bubbles layer
         this.base.append('g.bubble')
 
+        // Create a drop-shadow filter
+        this.base.append('filter#dropshadow')
+          .attrs({height: '130%'})
+          .append('feGaussianBlur')
+            .attrs({in: 'SourceAlpha', stdDeviation: 2})
+            .select(function parent() { return this.parentNode; })
+          .append('feOffset')
+            .attrs({dx: 0, dy: 2, result: 'offsetblur'})
+            .select(function parent() { return this.parentNode; })
+          .append('feFlood')
+            .attr('flood-opacity', 0.4)
+            .select(function parent() { return this.parentNode; })
+          .append('feComposite')
+            .attrs({in2: "offsetblur", operator: "in"})
+            .select(function parent() { return this.parentNode; })
+          .append('feMerge')
+            .append('feMergeNode')
+              .select(function parent() { return this.parentNode; })
+            .append('feMergeNode')
+              .attr('in', "SourceGraphic")
+
         // Function to draw a line
         this.line = d3.line()
           .x(d => this.xScale(d.id))
@@ -126,12 +147,12 @@ angular.module('app')
               const bbox = text.node().getBBox();
               text.attrs({ y: that.c('padding').top })
               // To add padding outside the box
-              const p = 3;
+              const p = 2;
               // Add rect as background
               selection.select('rect').attrs({
-                x: bbox.x - p,
+                x: bbox.x - p * 2,
                 y: bbox.y - p,
-                width: bbox.width + 2 * p,
+                width: bbox.width + 4 * p,
                 height: bbox.height + 2 * p
               });
             }, this));
@@ -192,10 +213,16 @@ angular.module('app')
           }
         })
         // Add text label
-        entering.append('text').style('fill', d => this.contrast(this.categoryColors(d)))
+        entering.append('text')
+          .style('fill', d => this.contrast(this.categoryColors(d)))
         // Add text background
-        entering.insert('rect', ':first-child').style('fill', this.categoryColors);
-        entering.call(moveGroup);
+        entering.insert('rect', ':first-child')
+          .attrs({rx: 2, ry: 2})
+          .style('fill', this.categoryColors);
+        entering
+          .attr('fill', 'red')
+          .style('filter', 'url(#dropshadow)')
+          .call(moveGroup);
         // Highlight groups
         this.highlightGroups(_.map(data, 'id'));
       }
