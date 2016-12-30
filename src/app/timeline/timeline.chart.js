@@ -37,28 +37,28 @@ angular.module('app')
           .on('mousemove', this.updateBubbles)
           .on('mouseout', this.resetBubbles);
         // Create a bubbles layer
-        this.base.append('g.bubble')
+        this.base.append('g.bubble');
 
         // Create a drop-shadow filter
         this.base.append('filter#dropshadow')
           .attrs({height: '130%'})
           .append('feGaussianBlur')
             .attrs({in: 'SourceAlpha', stdDeviation: 2})
-            .select(function parent() { return this.parentNode; })
+            .select(this.parent)
           .append('feOffset')
             .attrs({dx: 0, dy: 2, result: 'offsetblur'})
-            .select(function parent() { return this.parentNode; })
+            .select(this.parent)
           .append('feFlood')
             .attr('flood-opacity', 0.4)
-            .select(function parent() { return this.parentNode; })
+            .select(this.parent)
           .append('feComposite')
             .attrs({in2: "offsetblur", operator: "in"})
-            .select(function parent() { return this.parentNode; })
+            .select(this.parent)
           .append('feMerge')
             .append('feMergeNode')
-              .select(function parent() { return this.parentNode; })
+              .select(this.parent)
             .append('feMergeNode')
-              .attr('in', "SourceGraphic")
+              .attr('in', "SourceGraphic");
 
         // Function to draw a line
         this.line = d3.line()
@@ -131,7 +131,7 @@ angular.module('app')
       updateBubbles() {
         // Helper function to move all groups
         const moveGroup = selection => {
-          selection.attr('transform', d=> {
+          selection.attr('transform', d => {
             return `translate(${this.c('padding').left}, ${this.yScale(d.value)})`;
           });
           // Move text with the right anchor
@@ -140,12 +140,12 @@ angular.module('app')
             .each(_.partial(function insert(that) {
               const text = d3.select(this);
               // Remove all children from text element
-              text.selectAll("*").remove()
+              text.selectAll("*").remove();
               // Add values on multiline
-              text.tspans(d =>  [d.year, d.id, that.formatY(d.value)] );
+              text.tspans(d => [d.year, d.id, that.formatY(d.value)]);
               // Get size of the text box
               const bbox = text.node().getBBox();
-              text.attrs({ y: that.c('padding').top })
+              text.attrs({y: that.c('padding').top});
               // To add padding outside the box
               const p = 2;
               // Add rect as background
@@ -159,18 +159,18 @@ angular.module('app')
           return selection;
         };
         // Get the value for this y position
-        const value = this.yScale.invert(event.layerY);
+        const value = this.yScale.invert(d3.event.layerY);
         // Year value at this for this x position
-        const y = Math.round(this.xScale.invert(event.layerX));
+        const y = Math.round(this.xScale.invert(d3.event.layerX));
         // Get the closest year in the dataset
-        const year = _.first( this.data.years.sort( (a, b)=> {
-          return Math.abs(y - a) - Math.abs(y - b)
+        const year = _.first(this.data.years.sort((a, b) => {
+          return Math.abs(y - a) - Math.abs(y - b);
         }));
         // Get the anchor value for this year
         const anchorX = this.xScale(year);
         // Simplify rows to extract only the data for the current year
         const data = _.chain(this.data.rows).map(r => {
-          const row = _.find(r.values, { id:  year});
+          const row = _.find(r.values, {id: year});
           return angular.extend(r, {
             year,
             value: row.value,
@@ -179,13 +179,14 @@ angular.module('app')
         // Then find the closest group according to y position
         }).thru(rows => {
           if (this.isStacked) {
-            return _.filter(rows, { hover: true });
+            rows = _.filter(rows, {hover: true});
           } else {
-            return rows.sort( (a, b) => {
+            rows = rows.sort((a, b) => {
               // Iterate over every row to find the smallest distance
               return Math.abs(value - a.value) - Math.abs(value - b.value);
             });
           }
+          return rows;
         // Return an array with only the irst value
         }).first().castArray().compact().value();
         // The layer that holds bubbles
@@ -204,17 +205,16 @@ angular.module('app')
         const entering = groups.enter().append('g').classed('bubble__group', true);
         // Add corner points
         entering.append('circle').attrs({
-          cx: 0, cy: 0, r: 5,
-          stroke: this.categoryColors,
+          'cx': 0, 'cy': 0, 'r': 5,
+          'stroke': this.categoryColors,
           'stroke-width': 5,
-          fill: d => {
+          'fill': d => {
             const c = this.categoryColors(d);
             return chroma.mix(c, this.contrast(c));
           }
-        })
+        });
         // Add text label
-        entering.append('text')
-          .style('fill', d => this.contrast(this.categoryColors(d)))
+        entering.append('text').style('fill', _.flow(this.categoryColors, this.contrast));
         // Add text background
         entering.insert('rect', ':first-child')
           .attrs({rx: 2, ry: 2})
@@ -235,6 +235,9 @@ angular.module('app')
       deleteBubbles() {
         this.base.selectAll('.bubble__group').remove();
       }
+      parent() {
+        return this.parentNode;
+      }
       bindLayer(pathFn) {
         return {
           events: {
@@ -247,7 +250,7 @@ angular.module('app')
               selection.attr('clip-path', `url(#${id})`);
               // Apply the transition on the clip's rect
               clipRect
-                .attrs({ width: 0, height: this.height })
+                .attrs({width: 0, height: this.height})
                 .transition()
                   .duration(this.c('transition'))
                   .attr('width', this.width)
@@ -323,7 +326,7 @@ angular.module('app')
           .style('fill', d => includes(d) ? this.categoryColors(d) : this.colors(d));
       }
       contrast(c) {
-        return chroma(c).luminance() > .5 ? 'black' : 'white';
+        return chroma(c).luminance() > 0.5 ? 'black' : 'white';
       }
       colors(d) {
         // return a different color if the element is not highlighted
@@ -344,7 +347,7 @@ angular.module('app')
           // Skip non-numeric keys and the first year
           if (!isNaN(key) && hash.hasOwnProperty(Number(key) - 1)) {
             // Every values to use in the moving average
-            let values = [];
+            const values = [];
             // Go backward and forward the current year
             for (let i = -this.c('smoothing'); i <= this.c('smoothing'); i++) {
               // Build the hash key to the year
@@ -423,7 +426,7 @@ angular.module('app')
         // Year must strictly in bounds
         return year >= this.data.begin && year < this.data.end;
       }
-      updateRulers(min, max) {
+      updateRulers() {
         const t = d3.transition().duration(this.c('transition'));
         const moveGroup = selection => {
           return selection.attr('transform', d => {
@@ -432,7 +435,7 @@ angular.module('app')
             return `translate(${left}, ${top})`;
           });
         };
-        var data = this.c('rulers');
+        let data = this.c('rulers');
         // Reove rulers that are under 0
         data = data.filter(d => this.isYearVisible(d[0]));
         // JOIN new data to rulers
@@ -441,24 +444,24 @@ angular.module('app')
         rulers.exit().transition(t).style("opacity", 0).remove();
         // UPDATE old rulers
         rulers.transition(t).call(moveGroup).style('opacity', 1);
-        rulers.selectAll('line').transition(t).attr('y2', this.yScale(min))
+        rulers.selectAll('line').transition(t).attr('y2', this.height);
         // CREATE new rulers
-        const groups = rulers.enter().append('g').classed('ruler__group', true)
+        const groups = rulers.enter().append('g').classed('ruler__group', true);
         // Move the new ruler to the right position
         groups.call(moveGroup)
           .style('opacity', 0)
           .transition(t)
-            .style('opacity', 1)
+            .style('opacity', 1);
         groups.append('line')
-          .attrs({x1: 0, y1: 0, x2: 0, y2: this.yScale(min)});
+          .attrs({x1: 0, y1: 0, x2: 0, y2: this.height});
         groups.append('text')
           .text(d => d[1])
-          .attrs({dy: '.85em', dx: '1em' })
+          .attrs({dy: '.85em', dx: '1em'});
       }
       preDraw(data) {
         const p = this.c('padding');
-        var min = this.c('min');
-        var max = this.c('max');
+        let min = this.c('min');
+        let max = this.c('max');
         // Fixed minimum value
         if (min === null) {
           min = this.isLine ? Math.max(data.min - (data.max - data.min) * 1 / 8, 0) : data.min;
@@ -473,20 +476,17 @@ angular.module('app')
         this.xScale.range([0, this.width]).domain([data.begin, data.end]);
         this.yScale.range([this.height, 0]).domain([min, max]);
         // Set sizes explicitely
-        this.base.attr({width: this.width, height: this.height});
+        this.base.attr(_.pick(this, ['width', 'height']));
         this.base.classed('timeline__chart--highlights', this.hasHighligths);
         this.base.selectAll('.line, .area, .event').call(this.translate(p.left, p.top));
         // Update rulers according to the new scales
-        this.updateRulers(min, max);
+        this.updateRulers();
         // Remove existing bubble
         this.deleteBubbles();
         // Resize interaction layer
         this.base.select('.event')
-          .attrs({
-            width: this.width,
-            height: this.height
-          })
-          .call(this.translate(p.left, p.top))
+          .attrs(_.pick(this, ['width', 'height']))
+          .call(this.translate(p.left, p.top));
         // Select the existing X axis to update it
         this.base.select('.axis--x')
           .call(this.translate(p.left, this.height + p.top))
