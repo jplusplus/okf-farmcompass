@@ -59,6 +59,15 @@
       }
     }
 
+    .bubble {
+      pointer-events: none;
+      &__group text {
+        font-weight: bolder;
+        font-size: .8em;
+        fill: white;
+      }
+    }
+
     .axis {
 
       &--y {
@@ -66,7 +75,7 @@
           display: none;
         }
         .tick line {
-          stroke: $label-color;
+          stroke: rgba($label-color, .3);
           stroke-dasharray: 2 3;
         }
       }

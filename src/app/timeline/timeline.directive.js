@@ -29,7 +29,7 @@ angular
               }
             });
             // Watch for windows resize
-            angular.element($window).on(this.windowResizeEvent, this.resize.bind(this));
+            angular.element($window).on(this.windowResizeEvent, _.throttle(this.resize.bind(this), 150));
             // Watch for scope destruction
             scope.$on('$destroy', () => angular.element($window).off(this.windowResizeEvent));
           }

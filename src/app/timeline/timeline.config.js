@@ -55,7 +55,7 @@ angular
       type: 'string',
       value: 'line',
       setter: newValue => {
-        return newValue.toLowerCase().replace(/\s/, '-');
+        return _.kebabCase(newValue);
       }
     },
     yunit: {

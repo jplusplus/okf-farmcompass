@@ -11,9 +11,13 @@ angular.module('app')
         this.transitionValues = this.transitionValues.bind(this);
         this.isHighlighted = this.isHighlighted.bind(this);
         this.updateBubbles = this.updateBubbles.bind(this);
+        this.resetBubbles = this.resetBubbles.bind(this);
+        this.deleteBubbles = this.deleteBubbles.bind(this);
+        this.highlightGroups = this.highlightGroups.bind(this);
         this.updateLabel = this.updateLabel.bind(this);
         this.bindLayer = this.bindLayer.bind(this);
         this.colors = this.colors.bind(this);
+        this.categoryColors = this.categoryColors.bind(this);
 
         // Create scale
         this.xScale = d3.scaleLinear();
@@ -29,20 +33,22 @@ angular.module('app')
         const line = this.base.append('g').attr('class', 'line');
         const label = this.base.append('g').attr('class', 'label');
         // Create interaction layer
-        // this.base.append('rect').attr('class', 'event').on('mousemove', this.updateBubbles);
+        this.base.append('rect').attr('class', 'event')
+          .on('mousemove', this.updateBubbles)
+          .on('mouseout', this.resetBubbles);
         // Create a bubbles layer
         this.base.append('g').attr('class', 'bubble')
 
         // Function to draw a line
         this.line = d3.line()
           .x(d => this.xScale(d.id))
-          .y(d => this.yScale(this.isStacked ? d.stack[1] : d.value));
+          .y(d => this.yScale(d.value));
 
         // Function to draw an area
         this.area = d3.area()
           .x(d => this.xScale(d.id))
           .y0(d => this.isStacked ? this.yScale(d.stack[0]) : this.height)
-          .y1(d => this.yScale(this.isStacked ? d.stack[1] : d.value));
+          .y1(d => this.yScale(d.value));
 
         // Setup areas' layer
         this.layer('area', area, angular.extend(this.bindLayer(this.area), {
@@ -58,7 +64,7 @@ angular.module('app')
                 .classed('highlighted', this.isHighlighted)
                 .style('opacity', d => this.isHighlighted(d) ? 1 : 0.3)
                 .attr('d', d => this.area(d.values))
-                .style('fill', d => chroma(this.colors(d)).hex());
+                .style('fill', this.colors);
           }
         }));
         // Setup lines' layer
@@ -101,16 +107,43 @@ angular.module('app')
         });
       }
       updateBubbles() {
+        // Common transitionn for entering/exiting/updating nodes
         const t = d3.transition().duration(this.c('transition'));
         // Helper function to move all groups
         const moveGroup = selection => {
           return selection.attr('transform', d=> {
-            const y = _.find(d.values, {id: year}).value;
-            return `translate(0, ${this.yScale(y)})`;
+            return `translate(0, ${this.yScale(d.value)})`;
           });
         };
-        // Get the year for this x position
-        const year = Math.round(this.xScale.invert(event.clientX));
+        // Get the value for this y position
+        const value = this.yScale.invert(event.layerY);
+        // Year value at this for this x position
+        const y = Math.round(this.xScale.invert(event.layerX));
+        // Get the closest year in the dataset
+        const year = _.first( this.data.years.sort( (a, b)=> {
+          return Math.abs(y - a) - Math.abs(y - b)
+        }));
+        // Simplify rows to extract only the data for the current year
+        const data = _.chain(this.data.rows).map(r => {
+          const row = _.find(r.values, { id:  year});
+          return angular.extend(r, {
+            year,
+            value: row.value,
+            hover: value >= row.stack[0] && value <= row.stack[1]
+          });
+        // Then find the closest group according to y position
+        }).thru(rows => {
+          if (this.isStacked) {
+            return _.filter(rows, { hover: true });
+          } else {
+            return rows.sort( (a, b) => {
+              // Iterate over every row to find the smallest distance
+              return Math.abs(value - a.value) - Math.abs(value - b.value);
+              // Get the first value
+            });
+          }
+        // Return an array with only the closest value
+        }).first().castArray().compact().value();
         // The layer that holds bubbles
         const groups = this.base.select('.bubble')
           // Move the layer on the right year
@@ -118,15 +151,30 @@ angular.module('app')
           // Create group for each row
           .selectAll('.bubble__group')
           // JOIN data to for the selected year
-          .data(this.data.rows, d => d.id);
+          .data(data, d => d.id);
         // REMOVE old bubbles
-        groups.exit().transition(t).style("opacity", 0).remove();
+        groups.exit().remove();
         // UPDATE current bubbles
-        groups.call(moveGroup).style('opacity', 1);
+        groups.call(moveGroup).style('opacity', 1)
+          // Move text (if needed)
+          .select('text').attr('text-anchor', this.half < event.layerX ? 'end' : 'start');
         // CREATE new bubbles
         const entering = groups.enter().append('g').classed('bubble__group', true);
         // Add text label
-        entering.call(moveGroup).append('text').text(d => d.id);
+        entering.call(moveGroup).append('text').text(d => d.id)
+          // Change the text anchor according to its position
+          .attr('text-anchor', this.half < event.layerX ? 'end' : 'start');
+        // Highlight groups
+        this.highlightGroups(_.map(data, 'id'));
+      }
+      resetBubbles() {
+        // Delete all bubbles
+        this.deleteBubbles();
+        // Remove highlighted groups by passing an empty array of ids
+        this.highlightGroups();
+      }
+      deleteBubbles() {
+        this.base.selectAll('.bubble__group').remove();
       }
       bindLayer(pathFn) {
         return {
@@ -171,6 +219,9 @@ angular.module('app')
       get height() {
         return this.c('height') - this.c('padding').top - this.c('padding').bottom;
       }
+      get half() {
+        return this.width / 2;
+      }
       get isStacked() {
         return this.c('type') === 'stacked-area';
       }
@@ -196,18 +247,33 @@ angular.module('app')
           .attr("x", d => this.xScale(_.last(d.values).id))
           .attr("y", d => {
             const row = _.last(d.values);
-            return this.yScale(this.isStacked ? row.stack[1] : row.value);
+            return this.yScale(row.value);
           });
       }
       isHighlighted(d) {
         return !this.hasHighligths || this.c('highlights').indexOf(d.id) > -1;
       }
+      highlightGroups(ids = []) {
+        // True if the given set of ids includes the selection
+        const includes = d => ids.indexOf(d.id) > -1;
+        // Change opacity and stroke accordingly
+        this.base.selectAll('.line__group,.area__group')
+          .style('opacity', d => includes(d) || this.isHighlighted(d) ? 1 : 0.3);
+        this.base.selectAll('.line__group')
+          .style('stroke', d => includes(d) ? this.categoryColors(d) : this.colors(d));
+        this.base.selectAll('.area__group')
+          .style('fill', d => includes(d) ? this.categoryColors(d) : this.colors(d));
+      }
       colors(d) {
+        // return a different color if the element is not highlighted
+        const color = this.categoryColors(d);
+        // return a different color if the element is not highlighted
+        return this.isHighlighted(d) ? color : chroma(color).desaturate(1).hex();
+      }
+      categoryColors(d) {
         // Create color schema if undefined
         this._colors = this._colors || d3.scaleOrdinal(TIMELINE_COLORS);
-        // return a different color if the element is not highlighted
-        const color = this._colors(d.id);
-        return this.isHighlighted(d) ? color : chroma(color).desaturate(2).hex();
+        return this._colors(d.id);
       }
       smooth(hash) {
         // Iterate over the hash
@@ -254,10 +320,13 @@ angular.module('app')
             id: _.values(hash).pop(),
             // Collect value for each year
             values: _.map(years, year => {
+              // Create a stack for this year
+              const yearStack = _.find(stack[i], d => d.data.year === year);
+              // Returns a hash
               return {
-                value: hash[year],
-                stack: _.find(stack[i], d => d.data.year === year),
-                id: year
+                id: year,
+                stack: yearStack,
+                value: this.isStacked ? yearStack[1] : hash[year]
               };
             })
           });
@@ -275,7 +344,7 @@ angular.module('app')
           // Minimum value among all row
           min: d3.min(rows, c => d3.min(c.values, d => this.isStacked ? d.stack[0] : d.value)),
           // Maximum value among all row
-          max: d3.max(rows, c => d3.max(c.values, d => this.isStacked ? d.stack[1] : d.value))
+          max: d3.max(rows, c => d3.max(c.values, d => d.value))
         };
       }
       years(hash) {
@@ -350,6 +419,8 @@ angular.module('app')
         this.base.selectAll('.line, .area, .label').call(this.translate(p.left, p.top));
         // Update rulers according to the new scales
         this.updateRulers(min, max);
+        // Remove existing bubble
+        this.deleteBubbles();
         // Resize interaction layer
         this.base.select('.event')
           .attr('x', 0)
