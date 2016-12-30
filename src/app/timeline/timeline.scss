@@ -62,9 +62,16 @@
     .bubble {
       pointer-events: none;
       &__group text {
-        font-weight: bolder;
         font-size: .8em;
         fill: white;
+        // Year
+        & tspan:first-child {
+          font-size:1.5em;
+        }
+        // Country
+        & tspan:nth-child(2) {
+          font-weight: bold;
+        }
       }
     }
 

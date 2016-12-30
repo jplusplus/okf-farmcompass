@@ -24,20 +24,20 @@ angular.module('app')
         this.yScale = d3.scaleLinear();
 
         // Create axis's layers
-        this.base.append("g").attr("class", "axis axis--x");
-        this.base.append("g").attr("class", "axis axis--y");
+        this.base.append("g.axis.axis--x");
+        this.base.append("g.axis.axis--y");
         // Create ruler layer
-        this.base.append('g').attr('class', 'ruler');
+        this.base.append('g.ruler');
         // Create shapes layers
-        const area = this.base.append('g').attr('class', 'area');
-        const line = this.base.append('g').attr('class', 'line');
-        const label = this.base.append('g').attr('class', 'label');
+        const area = this.base.append('g.area');
+        const line = this.base.append('g.line');
+        const label = this.base.append('g.label');
         // Create interaction layer
-        this.base.append('rect').attr('class', 'event')
+        this.base.append('rect.event')
           .on('mousemove', this.updateBubbles)
           .on('mouseout', this.resetBubbles);
         // Create a bubbles layer
-        this.base.append('g').attr('class', 'bubble')
+        this.base.append('g.bubble')
 
         // Function to draw a line
         this.line = d3.line()
@@ -59,8 +59,7 @@ angular.module('app')
           },
           insert: selection => {
             // Add the path to the current selection and clip its path the rect
-            return selection.append('path')
-                .classed('area__group', true)
+            return selection.append('path.area__group')
                 .classed('highlighted', this.isHighlighted)
                 .style('opacity', d => this.isHighlighted(d) ? 1 : 0.3)
                 .attr('d', d => this.area(d.values))
@@ -74,8 +73,7 @@ angular.module('app')
           },
           insert: selection => {
             // Add the path to the current selection and clip its path the rect
-            return selection.append('path')
-                .classed('line__group', true)
+            return selection.append('path.line__group')
                 .classed('highlighted', this.isHighlighted)
                 .style('opacity', d => this.isHighlighted(d) ? 1 : 0.3)
                 .attr('d', d => this.line(d.values))
@@ -106,14 +104,38 @@ angular.module('app')
           }
         });
       }
+      formatY(n) {
+        return d3.round(n, 0);
+      }
       updateBubbles() {
-        // Common transitionn for entering/exiting/updating nodes
-        const t = d3.transition().duration(this.c('transition'));
         // Helper function to move all groups
         const moveGroup = selection => {
-          return selection.attr('transform', d=> {
-            return `translate(0, ${this.yScale(d.value)})`;
+          selection.attr('transform', d=> {
+            return `translate(${this.c('padding').left}, ${this.yScale(d.value)})`;
           });
+          // Move text with the right anchor
+          selection.select('text')
+            .attr('text-anchor', this.half < anchorX ? 'end' : 'start')
+            .each(_.partial(function insert(that) {
+              const text = d3.select(this);
+              // Remove all children from text element
+              text.selectAll("*").remove()
+              // Add values on multiline
+              text.tspans(d =>  [d.year, d.id, that.formatY(d.value)] );
+              // Get size of the text box
+              const bbox = text.node().getBBox();
+              text.attrs({ y: that.c('padding').top })
+              // To add padding outside the box
+              const p = 3;
+              // Add rect as background
+              selection.select('rect').attrs({
+                x: bbox.x - p,
+                y: bbox.y - p,
+                width: bbox.width + 2 * p,
+                height: bbox.height + 2 * p
+              });
+            }, this));
+          return selection;
         };
         // Get the value for this y position
         const value = this.yScale.invert(event.layerY);
@@ -123,6 +145,8 @@ angular.module('app')
         const year = _.first( this.data.years.sort( (a, b)=> {
           return Math.abs(y - a) - Math.abs(y - b)
         }));
+        // Get the anchor value for this year
+        const anchorX = this.xScale(year);
         // Simplify rows to extract only the data for the current year
         const data = _.chain(this.data.rows).map(r => {
           const row = _.find(r.values, { id:  year});
@@ -139,15 +163,14 @@ angular.module('app')
             return rows.sort( (a, b) => {
               // Iterate over every row to find the smallest distance
               return Math.abs(value - a.value) - Math.abs(value - b.value);
-              // Get the first value
             });
           }
-        // Return an array with only the closest value
+        // Return an array with only the irst value
         }).first().castArray().compact().value();
         // The layer that holds bubbles
         const groups = this.base.select('.bubble')
           // Move the layer on the right year
-          .call(this.translate(this.xScale(year), 0))
+          .call(this.translate(anchorX, this.c('padding').top))
           // Create group for each row
           .selectAll('.bubble__group')
           // JOIN data to for the selected year
@@ -155,15 +178,24 @@ angular.module('app')
         // REMOVE old bubbles
         groups.exit().remove();
         // UPDATE current bubbles
-        groups.call(moveGroup).style('opacity', 1)
-          // Move text (if needed)
-          .select('text').attr('text-anchor', this.half < event.layerX ? 'end' : 'start');
+        groups.call(moveGroup);
         // CREATE new bubbles
         const entering = groups.enter().append('g').classed('bubble__group', true);
+        // Add corner points
+        entering.append('circle').attrs({
+          cx: 0, cy: 0, r: 5,
+          stroke: this.categoryColors,
+          'stroke-width': 5,
+          fill: d => {
+            const c = this.categoryColors(d);
+            return chroma.mix(c, this.contrast(c));
+          }
+        })
         // Add text label
-        entering.call(moveGroup).append('text').text(d => d.id)
-          // Change the text anchor according to its position
-          .attr('text-anchor', this.half < event.layerX ? 'end' : 'start');
+        entering.append('text').style('fill', d => this.contrast(this.categoryColors(d)))
+        // Add text background
+        entering.insert('rect', ':first-child').style('fill', this.categoryColors);
+        entering.call(moveGroup);
         // Highlight groups
         this.highlightGroups(_.map(data, 'id'));
       }
@@ -188,8 +220,7 @@ angular.module('app')
               selection.attr('clip-path', `url(#${id})`);
               // Apply the transition on the clip's rect
               clipRect
-                .attr('width', 0)
-                .attr('height', this.height)
+                .attrs({ width: 0, height: this.height })
                 .transition()
                   .duration(this.c('transition'))
                   .attr('width', this.width)
@@ -263,6 +294,9 @@ angular.module('app')
           .style('stroke', d => includes(d) ? this.categoryColors(d) : this.colors(d));
         this.base.selectAll('.area__group')
           .style('fill', d => includes(d) ? this.categoryColors(d) : this.colors(d));
+      }
+      contrast(c) {
+        return chroma(c).luminance() > .5 ? 'black' : 'white';
       }
       colors(d) {
         // return a different color if the element is not highlighted
@@ -387,14 +421,10 @@ angular.module('app')
           .transition(t)
             .style('opacity', 1)
         groups.append('line')
-          .attr('x1', 0)
-          .attr('y1', 0)
-          .attr('x2', 0)
-          .attr('y2', this.yScale(min))
+          .attrs({x1: 0, y1: 0, x2: 0, y2: this.yScale(min)});
         groups.append('text')
           .text(d => d[1])
-          .attr('dy', '.85em')
-          .attr('dx', '1em')
+          .attrs({dy: '.85em', dx: '1em' })
       }
       preDraw(data) {
         const p = this.c('padding');
@@ -416,17 +446,17 @@ angular.module('app')
         // Set sizes explicitely
         this.base.attr({width: this.width, height: this.height});
         this.base.classed('timeline__chart--highlights', this.hasHighligths);
-        this.base.selectAll('.line, .area, .label').call(this.translate(p.left, p.top));
+        this.base.selectAll('.line, .area, .event').call(this.translate(p.left, p.top));
         // Update rulers according to the new scales
         this.updateRulers(min, max);
         // Remove existing bubble
         this.deleteBubbles();
         // Resize interaction layer
         this.base.select('.event')
-          .attr('x', 0)
-          .attr('y', 0)
-          .attr('width', this.width)
-          .attr('height', this.height)
+          .attrs({
+            width: this.width,
+            height: this.height
+          })
           .call(this.translate(p.left, p.top))
         // Select the existing X axis to update it
         this.base.select('.axis--x')
