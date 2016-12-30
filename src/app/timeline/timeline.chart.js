@@ -333,7 +333,9 @@ angular.module('app')
       }
       categoryColors(d) {
         // Create color schema if undefined
-        this._colors = this._colors || d3.scaleOrdinal(TIMELINE_COLORS);
+        if (!this._colors) {
+          this._colors = d3.scaleOrdinal(TIMELINE_COLORS);
+        }
         return this._colors(d.id);
       }
       smooth(hash) {

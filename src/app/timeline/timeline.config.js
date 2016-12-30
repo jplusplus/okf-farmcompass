@@ -1,16 +1,6 @@
 angular
   .module('app')
-  .constant('TIMELINE_COLORS', [
-    '#8c510a',
-    '#bf812d',
-    '#dfc27d',
-    '#f6e8c3',
-    '#f5f5f5',
-    '#c7eae5',
-    '#80cdc1',
-    '#35978f',
-    '#01665e'
-  ])
+  .constant('TIMELINE_COLORS', chroma.brewer.Spectral)
   .constant('TIMELINE_CONFIG', {
     height: {
       name: 'height',
