@@ -45,6 +45,8 @@
     }
 
     .ruler {
+
+
       &__group {
         line {
           stroke: lighten($label-color, 5);
@@ -55,6 +57,10 @@
         text {
           fill: lighten($label-color, 5);
           font-size:12px;
+
+          @media(max-width: 1000px) {
+            transform: rotate(90deg);
+          }
         }
       }
     }
