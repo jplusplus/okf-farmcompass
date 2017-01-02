@@ -20,7 +20,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('main.step', {
       component: 'main.step',
-      url: 'playing/:index',
+      // url: 'playing/:index',
       params: {
         index: {
           value: null,
@@ -35,6 +35,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state('main.step.outro', {
-      url: '/outro'
+      // url: '/outro'
     });
 }

@@ -9,15 +9,11 @@
       </div>
       <div class="main__intro__heading">
         <div class="main__intro__heading__start">
-          Read the full story
+          <span ng-bind-html="'main.intro.read-story' | translate | unsafe"></span>
           <i class="fa fa-play-circle"></i>
         </div>
-        <h1 class="main__intro__heading__title">
-          Agricultural Subsidies:<br />New&nbsp;Countries, Same&nbsp;Problems
-        </h1>
-        <p class="main__intro__heading__abstract lead">
-          The Common Agricultural Policy of the European Union gives out a lot of money to farmers - 60 billion each year. While it does help some farms, most of this money incentivizes farmers to grow cash crops and employ less workers.
-        </p>
+        <h1 class="main__intro__heading__title" ng-bind-html="'main.intro.headline' | translate | unsafe"></h1>
+        <p class="main__intro__heading__abstract lead" ng-bind-html="'main.intro.abstract' | translate | unsafe"></p>
       </div>
     </div>
   </ui-view>

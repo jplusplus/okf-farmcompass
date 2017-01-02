@@ -7,6 +7,11 @@
     }
   },
   "main": {
+    "intro": {
+      "read-story": "Read the full story",
+      "headline": "Agricultural Subsidies:<br/>New Countries, Same Problems",
+      "abstract": "The Common Agricultural Policy of the European Union gives out a lot of money to farmers - 60 billion each year. While it does help some farms, most of this money incentivizes farmers to grow cash crops and employ less workers."
+    },
     "step": {
       "next": "Next",
       "previous": "Previous",
