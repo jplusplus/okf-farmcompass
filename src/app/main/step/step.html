@@ -1,16 +1,16 @@
 <div class="main__step">
   <div class="main__step__heading">
     <h2 class="main__step__heading__title">
-      {{ $ctrl.current().slidetitleenbe }}
+      {{ $ctrl.current().slidetitle | i18n }}
     </h2>
     <div class="main__step__heading__controls">
       <div class="btn-group btn-group-sm">
-        <button class="btn btn-primary btn-sm" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()">
-          <span class="sr-only">Previous</span>
+        <button class="btn btn-primary btn-sm" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()" ng-attr-title="{{ 'main.step.previous' | translate }}">
+          <span class="sr-only">{{ 'main.step.previous' | translate }}</span>
           <i class="fa fa-fw fa-chevron-left"></i>
         </button>
-        <button class="btn btn-primary btn-sm" ng-click="$ctrl.next()" ng-disabled="$ctrl.isOutro()">
-          <span class="sr-only">Next</span>
+        <button class="btn btn-primary btn-sm" ng-click="$ctrl.next()" ng-disabled="$ctrl.isOutro()" ng-attr-title="{{ 'main.step.next' | translate }}">
+          <span class="sr-only">{{ 'main.step.next' | translate }}</span>
           <i class="fa fa-fw fa-chevron-right"></i>
         </button>
       </div>
@@ -19,7 +19,7 @@
   </div>
   <div class="main__step__wrapper" ng-swipe-right="$ctrl.previous()" ng-swipe-left="$ctrl.next()">
     <div class="main__step__description lead">
-      <span ng-bind-html="$ctrl.trustAs('HTML', $ctrl.current().slidetextenbe)"></span>
+      <span ng-bind-html="$ctrl.current().slidetext | i18n | unsafe"></span>
     </div>
     <timeline meta="$ctrl.meta" step="$ctrl.step" ng-click="$ctrl.next()"></timeline>
   </div>
@@ -27,20 +27,16 @@
     <div class="main__step__outro__backdrop"  ng-click="$ctrl.previous()"></div>
     <div class="main__step__outro__content">
       <div class="row">
-        <div class="col-sm-8 lead">
-          <p>Farm subsidies in Bulgaria, Romania and other EU countries have pushed farmers out of labour-intensive farming, such as vegetables, towards cash crops.</p>
-          <p>Farming cash crops creates unemployment and environmental damage (erosion).</p>
-          <p>In 1999, the Commission said it would tackle the problem. Instead, it made it worse.</p>
-        </div>
+        <div class="col-sm-8 lead" ng-bind-html="'main.step.outro.content' | translate | unsafe"></div>
         <div class="col-sm-4 main__step__outro__content__sidebar">
           <img src="images/vroom.svg" class="img-fluid w-100 pl-3 pr-3 pb-3 pt-0 hidden-xs-down" alt="" />
           <button class="btn btn-secondary btn-block">
             <i class="fa fa-share fa-fw"></i>
-            Share
+            {{ 'main.step.outro.share' | translate }}
           </button>
           <button class="btn btn-primary btn-block" ui-sref="main.step({ index: 0 })">
             <i class="fa fa-repeat fa-fw"></i>
-            Play again
+            {{ 'main.step.outro.play-again' | translate }}
           </button>
         </div>
       </div>

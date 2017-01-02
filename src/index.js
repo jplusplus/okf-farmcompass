@@ -2,7 +2,10 @@ angular
   .module('app', [
     'ngAnimate',
     'ngTouch',
+    'ngCookies',
     'ui.router',
     'angularVideoBg',
-    'cfp.hotkeys'
+    'cfp.hotkeys',
+    'pascalprecht.translate',
+    'tmh.dynamicLocale'
   ]);

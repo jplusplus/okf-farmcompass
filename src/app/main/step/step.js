@@ -1,9 +1,11 @@
 class MainStepController {
-  constructor($stateParams, $state, $scope, hotkeys, $sce) {
+  constructor($stateParams, $translate, $state, $scope, hotkeys, $sce) {
     'ngInject';
     angular.extend(this, {$state, $scope, $sce});
     // Initialize
     this.uiOnParamsChanged($stateParams);
+    // Copy translate's use method
+    this.use = $translate.use;
     // Bind local method to this
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -13,8 +15,8 @@ class MainStepController {
     this.progress = this.progress.bind(this);
     this.current = this.current.bind(this);
     // Bind hot keys
-    hotkeys.add({combo: ['left', 'p'], callback: this.previous});
-    hotkeys.add({combo: ['space', 'right', 'n'], callback: this.next});
+    hotkeys.add({combo: ['left'], callback: this.previous});
+    hotkeys.add({combo: ['space', 'right'], callback: this.next});
   }
   get step() {
     return this._step;

@@ -1,8 +1,10 @@
 class MainController {
-  constructor($http) {
+  constructor($http, $translate, tmhDynamicLocale) {
     'ngInject';
     // Preload meta for the next step
     $http.get('data/meta.json', {cache: true}).then(r => r.data);
+    // Change locale once
+    tmhDynamicLocale.set($translate.use().slice(0, 2));
   }
 }
 

@@ -1,5 +1,5 @@
 angular.module('app')
-  .service('Timeline', (TIMELINE_CONFIG, TIMELINE_COLORS) => {
+  .service('Timeline', (TIMELINE_CONFIG, TIMELINE_COLORS, $filter) => {
     class Timeline extends Koto {
       constructor(svg) {
         super(svg);
@@ -126,7 +126,7 @@ angular.module('app')
         });
       }
       formatY(n) {
-        return d3.round(n, 0);
+        return $filter('number')(n, 0);
       }
       updateBubbles() {
         // Helper function to move all groups
@@ -495,7 +495,6 @@ angular.module('app')
             .duration(this.c('transition'))
             .call(d3.axisBottom(this.xScale)
               .tickValues(data.years.slice(1, -1))
-              .tickFormat(d3.format(""))
               .tickSize(0).tickPadding(10));
         // Select the existing Y axis to update it
         this.base.select('.axis--y')
@@ -505,12 +504,13 @@ angular.module('app')
             .duration(this.c('transition'))
             .call(d3.axisLeft(this.yScale)
               .tickSizeOuter(0)
+              .tickFormat(this.formatY)
               .tickSize(-this.width))
               // After the transition ends
               .on("end", () => {
                 // Add unit  to the last child
                 this.base.select('.axis--y .tick:last-child text').text(d => {
-                  return `${d} ${this.c('yunit') || ''}`;
+                  return `${this.formatY(d)} ${this.c('yunit') || ''}`;
                 });
               });
         // Changed text alignment on y axis

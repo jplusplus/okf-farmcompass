@@ -17,6 +17,7 @@ const GSSID = '1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k';
 const NUMBER_FIELDS = ['slideid', 'min', 'max']
 const UNWANTED_FIELDS = ['_xml', '_links', 'id'];
 const BOOL_FIELDS = [];
+const I18N_FIELDS = ['slidetitle', 'slidetext', 'label', 'details', 'yaxislabel', 'highlights'];
 
 let gss = new Gss(GSSID);
 
@@ -56,7 +57,7 @@ var prepareRows = function(rows) {
     }
     return row;
   });
-}
+};
 
 
 gulp.task('data:all', function(done) {
@@ -84,7 +85,7 @@ gulp.task('data:meta', function() {
           step.data = require( path.join('../', conf.paths.data, step.slug + '.json') );
           // Transform some step's values according to their name
           Object.keys(step).forEach( (key)=> {
-            if( key.indexOf('highlights') === 0) {
+            if (key.indexOf('highlights') === 0) {
               step[key] = _.compact( (step[key] || '').split(',').map(_.trim) );
             }
           });
@@ -94,3 +95,32 @@ gulp.task('data:meta', function() {
     }))
     .pipe(gulp.dest(conf.paths.data));
 });
+
+gulp.task('data:i18n', function() {
+  return gulp.src(path.join(conf.paths.data, 'meta.json'))
+    .pipe(jeditor(function(meta) {
+      return meta.map(step =>{
+        // Transform some step's values according to their name
+        Object.keys(step).forEach( (key)=> {
+          // Look into translatable fields
+          for (let field of I18N_FIELDS) {
+            // Does the step's key starts by the current translatable field?
+            if (key !== field && key.indexOf(field) === 0) {
+              // Add a key for this field
+              step[field] = step[field] || {};
+              // Then add the current key as a translation
+              let lang = key.slice(-4);
+              // Format the lang
+              lang = lang.slice(0, 2) + "_" + lang.slice(2).toUpperCase();
+              // Add the translation for this field and this lang
+              step[field][lang] = step[key];
+              // Delete the field we just copied
+              delete step[key];
+            }
+          }
+        });
+        return step;
+      });
+    }))
+    .pipe(gulp.dest(conf.paths.data));
+})

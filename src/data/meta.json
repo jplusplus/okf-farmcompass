@@ -1,16 +1,10 @@
 [{
   "slideid": 2,
-  "slidetitleenbe": "Subsidies",
-  "slidetextenbe": "After the enlargement of the European Union to the countries of post-socialist Europe in 2004, 2007 and 2013, agricultural subsidies to farmers of these countries increased a lot.",
   "sheettitle": "subsidies",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "area",
-  "highlightsenbe": [],
-  "labelenbe": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
-  "detailsenbe": "Subsidies in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "subsidies",
   "data": [{
@@ -31,22 +25,37 @@
     "2014": 12119.25,
     "2015": 11831.14,
     "_cn6ca": "Subsidies"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Subsidies to new EU members in millions of euros",
+    "fr_FR": "Subventions aux nouveaux états-membres de l'UE en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "After the enlargement of the European Union to the countries of post-socialist Europe in 2004, 2007 and 2013, agricultural subsidies to farmers of these countries increased a lot.",
+    "fr_FR": "Après l'élargissement de l'Union Européenne aux pays d'Europe post-socialiste en 2004, 2007 et 2013, les subventions aux agriculteurs de ces pays ont augmenté."
+  },
+  "highlights": {
+    "en_BE": []
+  },
+  "label": {
+    "en_BE": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
+    "fr_FR": "Subventions à tous les nouveaux membres de l'UE à l'exception de Malte et Chypre."
+  },
+  "details": {
+    "en_BE": "Subsidies in millions of current euros",
+    "fr_FR": "Subventions en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 3,
-  "slidetitleenbe": "Indirect subsidies",
-  "slidetextenbe": "Some subsidies are indirect subsidies. They are tied to the crops farmers grow, for instance.",
   "sheettitle": "subsidies_by_type",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "stacked area",
-  "highlightsenbe": [
-    "Product subsidies"
-  ],
-  "labelenbe": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
-  "detailsenbe": "Subsidies in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "subsidies_by_type",
   "data": [{
@@ -85,22 +94,39 @@
     "2014": 10987.06,
     "2015": 10144.58,
     "_cn6ca": "Other subsidies"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Indirect subsidies to new EU members in millions of euros",
+    "fr_FR": "Subventions indirectes aux nouveaux états-membres de l'UE en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "Some subsidies are indirect subsidies. They are tied to the crops farmers grow, for instance.",
+    "fr_FR": "Certaines subventions sont des subventions indirectes. Elles sont liées aux types de cultures plantées, par exemple."
+  },
+  "highlights": {
+    "en_BE": [
+      "Product subsidies"
+    ]
+  },
+  "label": {
+    "en_BE": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
+    "fr_FR": "Subventions à tous les nouveaux membres de l'UE à l'exception de Malte et Chypre."
+  },
+  "details": {
+    "en_BE": "Subsidies in millions of current euros",
+    "fr_FR": "Subventions en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 4,
-  "slidetitleenbe": "Direct subsidies",
-  "slidetextenbe": "Most of the subsidies are <strong>direct subsidies</strong>. It’s a lump sum of money given per hectare. The larger the fields, the more money farmers receive.",
   "sheettitle": "subsidies_by_type",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "stacked area",
-  "highlightsenbe": [
-    "Other subsidies"
-  ],
-  "labelenbe": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
-  "detailsenbe": "Subsidies in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "subsidies_by_type",
   "data": [{
@@ -139,22 +165,39 @@
     "2014": 10987.06,
     "2015": 10144.58,
     "_cn6ca": "Other subsidies"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Direct subsidies to new EU members in millions of euros",
+    "fr_FR": "Subventions directes aux nouveaux états-membres de l'UE en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "Most of the subsidies are <strong>direct subsidies</strong>. It’s a lump sum of money given per hectare. The larger the fields, the more money farmers receive.",
+    "fr_FR": "La majeure partie des subventions sont des <strong>subventions directes</strong>, données par hectare. Plus la surface cultivée est grande, plus les agriculteurs touchent de subventions."
+  },
+  "highlights": {
+    "en_BE": [
+      "Other subsidies"
+    ]
+  },
+  "label": {
+    "en_BE": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
+    "fr_FR": "Subventions à tous les nouveaux membres de l'UE à l'exception de Malte et Chypre."
+  },
+  "details": {
+    "en_BE": "Subsidies in millions of current euros",
+    "fr_FR": "Subventions en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 5,
-  "slidetitleenbe": "Subsidies Bulgaria",
-  "slidetextenbe": "The proportion of direct subsidies is even higher in Bulgaria.",
   "sheettitle": "subsidies_bulgaria",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "stacked area",
-  "highlightsenbe": [
-    "Direct subsidies to Bulgarian farmers"
-  ],
-  "labelenbe": "Subsidies to Bulgarian farmers in millions of euros",
-  "detailsenbe": "Subsidies in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "subsidies_bulgaria",
   "data": [{
@@ -193,20 +236,39 @@
     "2014": 820.59,
     "2015": 677.4,
     "_cn6ca": "Direct subsidies to Bulgarian farmers"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Subsidies to Bulgarian farmers in millions of euros",
+    "fr_FR": "Subventions aux fermes bulgares en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "The proportion of direct subsidies is even higher in Bulgaria.",
+    "fr_FR": "La proportion de subventions directe est encore plus élevée en Bulgarie."
+  },
+  "highlights": {
+    "en_BE": [
+      "Direct subsidies to Bulgarian farmers"
+    ]
+  },
+  "label": {
+    "en_BE": "Subsidies to Bulgarian farmers in millions of euros",
+    "fr_FR": "Subventions aux exploitations bulgares en millions d'euros"
+  },
+  "details": {
+    "en_BE": "Subsidies in millions of current euros",
+    "fr_FR": "Subventions en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 6,
-  "slidetitleenbe": "Farm size Bulgaria",
-  "slidetextenbe": "Direct subsidies incentivize farmers to produce a lot, over large areas. Bulgarian farms indeed became bigger.",
   "sheettitle": "farms_bulgaria",
   "smoothing": "0",
   "min": 0,
   "max": null,
   "charttype": "line",
-  "highlightsenbe": [],
-  "labelenbe": "Average farm size in hectares",
-  "detailsenbe": "Average farm size in hectares",
-  "yaxislabelenbe": "hectares",
   "source": "ef_alarableaa",
   "slug": "farms_bulgaria",
   "data": [{
@@ -215,20 +277,37 @@
     "2010": 12,
     "2013": 18,
     "_cn6ca": "Farm size in ha"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Average farm size in Bulgaria in hectares",
+    "fr_FR": "Taille moyenne des exploitations bulgares en hectares"
+  },
+  "slidetext": {
+    "en_BE": "Direct subsidies incentivize farmers to produce a lot, over large areas. Bulgarian farms indeed became bigger.",
+    "fr_FR": "Les subventions directes poussent les agriculteurs à produire sur des surfaces plus grandes. Les exploitations bulgares sont devenues plus grandes."
+  },
+  "highlights": {
+    "en_BE": []
+  },
+  "label": {
+    "en_BE": "Average farm size in hectares",
+    "fr_FR": "Taille moyenne d'une exploitation en hectares"
+  },
+  "details": {
+    "en_BE": "Average farm size in hectares",
+    "fr_FR": "Taille moyenne d'une exploitation en hectares"
+  },
+  "yaxislabel": {
+    "en_BE": "hectares",
+    "fr_FR": "hectares"
+  }
 }, {
   "slideid": 7,
-  "slidetitleenbe": "Production Bulgaria",
-  "slidetextenbe": "Production increased, too.",
   "sheettitle": "production_bulgaria",
   "smoothing": "1",
   "min": 0,
   "max": 4500,
   "charttype": "area",
-  "highlightsenbe": [],
-  "labelenbe": "Production in Bulgaria in millions of euros",
-  "detailsenbe": "Production in Bulgaria in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "production_bulgaria",
   "data": [{
@@ -249,22 +328,37 @@
     "2014": 4137.99,
     "2015": 3915.12,
     "_cn6ca": "Total production from Bulgarian farms"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Production of Bulgarian farms in millions of euros",
+    "fr_FR": "Production des exploitations bulgares en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "Production increased, too.",
+    "fr_FR": "La production a également augmenté."
+  },
+  "highlights": {
+    "en_BE": []
+  },
+  "label": {
+    "en_BE": "Production in Bulgaria in millions of euros",
+    "fr_FR": "Production en Bulgarie en millions d'euros"
+  },
+  "details": {
+    "en_BE": "Production in Bulgaria in millions of current euros",
+    "fr_FR": "Production en Bulgarie en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 8,
-  "slidetitleenbe": "Cash crops Bulgaria",
-  "slidetextenbe": "Production increased mostly in crops that require large fields, such as corn, wheat or sunflower.<br/><br/>These are known as cash crops.",
   "sheettitle": "cash_crops_bulgaria",
   "smoothing": "1",
   "min": 0,
   "max": 4500,
   "charttype": "stacked area",
-  "highlightsenbe": [
-    "Cash crops production"
-  ],
-  "labelenbe": "Production in Bulgaria in millions of euros",
-  "detailsenbe": "Production in Bulgaria in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "cash_crops_bulgaria",
   "data": [{
@@ -303,22 +397,39 @@
     "2014": 1056.13,
     "2015": 929.36,
     "_cn6ca": "Other production in value"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Production of Bulgarian farms in millions of euros",
+    "fr_FR": "Production des exploitations bulgares en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "Production increased mostly in crops that require large fields, such as corn, wheat or sunflower.<br/><br/>These are known as cash crops.",
+    "fr_FR": "La production a principalement augmentée pour les cultures qui nécessitent des grands champs, comme le mais, le blé ou le tournesol.<br/><br/>Ce sont ce qu'on appelle des cultures industrielles."
+  },
+  "highlights": {
+    "en_BE": [
+      "Cash crops production"
+    ]
+  },
+  "label": {
+    "en_BE": "Production in Bulgaria in millions of euros",
+    "fr_FR": "Production en Bulgarie en millions d'euros"
+  },
+  "details": {
+    "en_BE": "Production in Bulgaria in millions of current euros",
+    "fr_FR": "Production en Bulgarie en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 9,
-  "slidetitleenbe": "Vegetables Bulgaria",
-  "slidetextenbe": "For vegetables, a traditional cultivation tradition in Bulgaria, production actually decreased!",
   "sheettitle": "vegetables_bulgaria",
   "smoothing": "1",
   "min": 0,
   "max": 4500,
   "charttype": "stacked area",
-  "highlightsenbe": [
-    "Vegetables"
-  ],
-  "labelenbe": "Production in Bulgaria in millions of euros",
-  "detailsenbe": "Production in Bulgaria in millions of current euros",
-  "yaxislabelenbe": "million euros",
   "source": "aact_eaa01",
   "slug": "vegetables_bulgaria",
   "data": [{
@@ -375,20 +486,39 @@
     "2014": 913.56,
     "2015": 785.22,
     "_cn6ca": "Other production in value"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Production of Bulgarian farms in millions of euros",
+    "fr_FR": "Production des exploitations bulgares en millions d'euros"
+  },
+  "slidetext": {
+    "en_BE": "For vegetables, a traditional cultivation tradition in Bulgaria, production actually decreased!",
+    "fr_FR": "Pour les légumes, une culture traditionnelle en Bulgarie, la production a même diminué!"
+  },
+  "highlights": {
+    "en_BE": [
+      "Vegetables"
+    ]
+  },
+  "label": {
+    "en_BE": "Production in Bulgaria in millions of euros",
+    "fr_FR": "Production en Bulgarie en millions d'euros"
+  },
+  "details": {
+    "en_BE": "Production in Bulgaria in millions of current euros",
+    "fr_FR": "Production en Bulgarie en millions d'euros courants"
+  },
+  "yaxislabel": {
+    "en_BE": "million euros",
+    "fr_FR": "millions d'euros"
+  }
 }, {
   "slideid": 10,
-  "slidetitleenbe": "Vegetables Bulgaria details",
-  "slidetextenbe": "The decrease in the production of veggies shows across the board, from tomatoes to carrots to cabbage.",
   "sheettitle": "vegetables_details",
   "smoothing": "1",
   "min": 0,
   "max": 180,
   "charttype": "line",
-  "highlightsenbe": [],
-  "labelenbe": "Vegetable production tonnage (2001 = 100)",
-  "detailsenbe": "Production (2001 = 100)",
-  "yaxislabelenbe": null,
   "source": "apro_acs_a",
   "slug": "vegetables_details",
   "data": [{
@@ -527,22 +657,41 @@
     "2014": 27,
     "2015": 32,
     "_cn6ca": "Strawberries"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Production of vegetables in Bulgaria in volume (2001 = 100)",
+    "fr_FR": "Production de légumes en Bulgarie en volume (2001 = 100)"
+  },
+  "slidetext": {
+    "en_BE": "The decrease in the production of veggies shows across the board, from tomatoes to carrots to cabbage.",
+    "fr_FR": "La baisse de la production de légume se voit pour tout, des tomates aux choux, en passant par les carottes."
+  },
+  "highlights": {
+    "en_BE": [
+      "Tomatoes",
+      "Carrots",
+      "Cabbages"
+    ]
+  },
+  "label": {
+    "en_BE": "Vegetable production tonnage (2001 = 100)",
+    "fr_FR": "Production de légume en volume (2001 = 100)"
+  },
+  "details": {
+    "en_BE": "Production (2001 = 100)",
+    "fr_FR": "Production (2001 = 100)"
+  },
+  "yaxislabel": {
+    "en_BE": null,
+    "fr_FR": null
+  }
 }, {
   "slideid": 11,
-  "slidetitleenbe": "Vegetables in tons",
-  "slidetextenbe": "Bulgaria and some others clearly gave up on growing vegetables. This is not the case in every country.",
   "sheettitle": "vegetables in value",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "line",
-  "highlightsenbe": [
-    "Bulgaria"
-  ],
-  "labelenbe": null,
-  "detailsenbe": "Production in value (2000=100)",
-  "yaxislabelenbe": null,
   "source": "aact_uv03",
   "slug": "vegetables-in-value",
   "data": [{
@@ -995,23 +1144,39 @@
     "2014": 176.761027,
     "2015": 293.6142199,
     "_cn6ca": "Estonia"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Production of vegetables in value (2000 = 100)",
+    "fr_FR": "Production de légumes en valeur (2000 = 100)"
+  },
+  "slidetext": {
+    "en_BE": "Bulgaria and some others clearly gave up on growing vegetables. This is not the case in every country.",
+    "fr_FR": "La Bulgarie et quelques autres ont clairement abandonné les légumes, mais ce n'est pas le cas partout."
+  },
+  "highlights": {
+    "en_BE": [
+      "Bulgaria"
+    ]
+  },
+  "label": {
+    "en_BE": null,
+    "fr_FR": null
+  },
+  "details": {
+    "en_BE": "Production in value (2000=100)",
+    "fr_FR": "Production en valeur (2000 = 100)"
+  },
+  "yaxislabel": {
+    "en_BE": null,
+    "fr_FR": null
+  }
 }, {
   "slideid": 12,
-  "slidetitleenbe": "Cash crops in tons",
-  "slidetextenbe": "Though when it comes to vegetables, growth pales in comparison to cash crops, especially in countries that joined the EU in 2004 and 2007.",
   "sheettitle": "cash crops in value",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "line",
-  "highlightsenbe": [
-    "Bulgaria",
-    "Vegetables"
-  ],
-  "labelenbe": null,
-  "detailsenbe": "Production in value (2000=100)",
-  "yaxislabelenbe": null,
   "source": "aact_uv03",
   "slug": "cash-crops-in-value",
   "data": [{
@@ -1304,24 +1469,6 @@
     "_cn6ca": "Slovenia"
   }, {
     "2000": 100,
-    "2001": 103.5416679,
-    "2002": 107.2793889,
-    "2003": 115.6754983,
-    "2004": 111.0908376,
-    "2005": 114.873514,
-    "2006": 115.4978772,
-    "2007": 121.7738016,
-    "2008": 122.1863443,
-    "2009": 114.9556509,
-    "2010": 122.9326418,
-    "2011": 118.9611238,
-    "2012": 120.3699928,
-    "2013": 124.0367974,
-    "2014": 122.1472559,
-    "2015": 131.6660995,
-    "_cn6ca": "Vegetables"
-  }, {
-    "2000": 100,
     "2001": 122.9546849,
     "2002": 109.3927862,
     "2003": 95.9215707,
@@ -1482,20 +1629,39 @@
     "2014": 386.9681802,
     "2015": 571.2727923,
     "_cn6ca": "Latvia"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Production of cash crops in value (2000 = 100)",
+    "fr_FR": "Production de cultures industrielles en valeur (2000 = 100)"
+  },
+  "slidetext": {
+    "en_BE": "Though when it comes to vegetables, growth pales in comparison to cash crops, especially in countries that joined the EU in 2004 and 2007.",
+    "fr_FR": "Mais comparée aux cultures industrielle, la croissance de la production de légumes fait pale figure, surtout dans les pays qui ont rejoint l'UE en 2004 et 2007."
+  },
+  "highlights": {
+    "en_BE": [
+      "Bulgaria"
+    ]
+  },
+  "label": {
+    "en_BE": null,
+    "fr_FR": null
+  },
+  "details": {
+    "en_BE": "Production in value (2000=100)",
+    "fr_FR": "Production en valeur (2000 = 100)"
+  },
+  "yaxislabel": {
+    "en_BE": null,
+    "fr_FR": null
+  }
 }, {
   "slideid": 13,
-  "slidetitleenbe": "Imports",
-  "slidetextenbe": "Where do we get our vegetables from? Half a world away.",
   "sheettitle": "imports",
   "smoothing": "1",
   "min": 80,
   "max": null,
   "charttype": "line",
-  "highlightsenbe": [],
-  "labelenbe": "Imports of fruits and vegetables in volume",
-  "detailsenbe": "Imports in volume to EU-28 countries (2000=100)",
-  "yaxislabelenbe": null,
   "source": "ComExt",
   "slug": "imports",
   "data": [{
@@ -1570,20 +1736,37 @@
     "2014": 122,
     "2015": 135,
     "_cn6ca": "South Africa"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Imports of vegetables in value (2000 = 100)",
+    "fr_FR": "Importations de légumes en valeur (2000 = 100)"
+  },
+  "slidetext": {
+    "en_BE": "Where do we get our vegetables from? Half a world away.",
+    "fr_FR": "Pendant ce temps, les importations de légumes en provenance d'Afrique du Sud et du Chili ont largement augmenté."
+  },
+  "highlights": {
+    "en_BE": []
+  },
+  "label": {
+    "en_BE": "Imports of fruits and vegetables in volume",
+    "fr_FR": "Imports de fruits et légumes en volume"
+  },
+  "details": {
+    "en_BE": "Imports in volume to EU-28 countries (2000=100)",
+    "fr_FR": "Imports en volume vers l'EU-28 (2000 = 100)"
+  },
+  "yaxislabel": {
+    "en_BE": null,
+    "fr_FR": null
+  }
 }, {
   "slideid": 14,
-  "slidetitleenbe": "Salaried employment",
-  "slidetextenbe": "Despite a large increase in production, salaried employment in agriculture remained flat.",
   "sheettitle": "salaried employment",
   "smoothing": "1",
   "min": 0,
   "max": 14000,
   "charttype": "line",
-  "highlightsenbe": [],
-  "labelenbe": "Number of salaried workers in agriculture in the EU-27.",
-  "detailsenbe": "Full-time equivalent (thousands)",
-  "yaxislabelenbe": "thousand salaried workers",
   "source": "aact_ali01",
   "slug": "salaried-employment",
   "data": [{
@@ -1605,20 +1788,37 @@
     "2015": 2412.99,
     "2016": 2456.59,
     "_cn6ca": "European Union (27 countries)"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Salaried employment in agriculture in the EU in  thousands of full-time equivalent",
+    "fr_FR": "Emploi salarié dans l'agriculture dans l'UE en milliers d'équivalents temps pleins"
+  },
+  "slidetext": {
+    "en_BE": "Despite a large increase in production, salaried employment in agriculture remained flat.",
+    "fr_FR": "Malgré l'augmentation de la production, l'emploi salarié dans l'agriculture a stagné."
+  },
+  "highlights": {
+    "en_BE": []
+  },
+  "label": {
+    "en_BE": "Number of salaried workers in agriculture in the EU-27.",
+    "fr_FR": "Nombre de travailleurs salariés dans l'agriculture (UE-27)"
+  },
+  "details": {
+    "en_BE": "Full-time equivalent (thousands)",
+    "fr_FR": "Equivalents temps plein (milliers)"
+  },
+  "yaxislabel": {
+    "en_BE": "thousand salaried workers",
+    "fr_FR": "milliers d'emplois salariés"
+  }
 }, {
   "slideid": 15,
-  "slidetitleenbe": "Non-salaried employment",
-  "slidetextenbe": "More importantly, employment of seasonal workers has dropped dramatically.<br/><br/>Cash crops are profitable because they cover a lot of land (which brings in direct subsidies) and require very few seasonal workers.",
   "sheettitle": "non salaried employment",
   "smoothing": "1",
   "min": 0,
   "max": 14000,
   "charttype": "line",
-  "highlightsenbe": [],
-  "labelenbe": "Number of non-salaried workers in agriculture in the EU-27.",
-  "detailsenbe": "Full-time equivalent (thousands)",
-  "yaxislabelenbe": "thousand non-salaried workers",
   "source": "aact_ali01",
   "slug": "non-salaried-employment",
   "data": [{
@@ -1640,24 +1840,37 @@
     "2015": 6927.5,
     "2016": 6740.95,
     "_cn6ca": "European Union (27 countries)"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Non-salaried employment in agriculture in the EU in  thousands of full-time equivalent",
+    "fr_FR": "Emploi non-salarié dans l'agriculture dans l'UE en milliers d'équivalents temps pleins"
+  },
+  "slidetext": {
+    "en_BE": "More importantly, employment of seasonal workers has dropped dramatically.<br/><br/>Cash crops are profitable because they cover a lot of land (which brings in direct subsidies) and require very few seasonal workers.",
+    "fr_FR": "Plus important, l'emploi de travailleurs saisonniers a largement baissé.<br/><br/>Les cultures industrielles sont profitables parce qu'elles couvrent une large surface (qui rapporte des subventions) et nécessitent peu de travailleurs."
+  },
+  "highlights": {
+    "en_BE": []
+  },
+  "label": {
+    "en_BE": "Number of non-salaried workers in agriculture in the EU-27.",
+    "fr_FR": "Nombre de travailleurs non-salariés dans l'agriculture (UE-27)"
+  },
+  "details": {
+    "en_BE": "Full-time equivalent (thousands)",
+    "fr_FR": "Equivalents temps plein (milliers)"
+  },
+  "yaxislabel": {
+    "en_BE": "thousand non-salaried workers",
+    "fr_FR": "milliers d'emplois non-salariés"
+  }
 }, {
   "slideid": 16,
-  "slidetitleenbe": "Non-salaried employment by country",
-  "slidetextenbe": "Unsurprisingly, countries where cash crops dominate saw the steepest decline in seasonal employment.",
   "sheettitle": "non salaried employment by country",
   "smoothing": "1",
   "min": 0,
   "max": null,
   "charttype": "line",
-  "highlightsenbe": [
-    "Slovakia",
-    "Romania",
-    "Bulgaria"
-  ],
-  "labelenbe": null,
-  "detailsenbe": "Number of non-salaried workers (2000=100)",
-  "yaxislabelenbe": null,
   "source": "aact_ali01",
   "slug": "non-salaried-employment-by-country",
   "data": [{
@@ -2173,5 +2386,32 @@
     "2015": 16.30520817,
     "2016": 14.40557227,
     "geotime": "Slovakia"
-  }]
+  }],
+  "slidetitle": {
+    "en_BE": "Non-salaried employment in agriculture by country (2000 = 100)",
+    "fr_FR": "Emploi non-salarié dans l'agriculture dans l'UE (2000 = 100)"
+  },
+  "slidetext": {
+    "en_BE": "Unsurprisingly, countries where cash crops grew most saw the steepest decline in seasonal employment.",
+    "fr_FR": "Sans surprise, les pays où les cultures industrielles ont le plus progressé sont ceux où l'emploi saisonnier a le plus diminué."
+  },
+  "highlights": {
+    "en_BE": [
+      "Slovakia",
+      "Romania",
+      "Bulgaria"
+    ]
+  },
+  "label": {
+    "en_BE": null,
+    "fr_FR": null
+  },
+  "details": {
+    "en_BE": "Number of non-salaried workers (2000=100)",
+    "fr_FR": "Travailleurs non-salariés (2000 = 100)"
+  },
+  "yaxislabel": {
+    "en_BE": null,
+    "fr_FR": null
+  }
 }]

@@ -1,6 +1,6 @@
 angular
   .module('app')
-  .directive('timeline', ($window, Timeline) => {
+  .directive('timeline', ($window, $filter, $translate, Timeline) => {
     return {
       restrict: 'E',
       scope: {
@@ -12,6 +12,8 @@ angular
       link: (scope, element) => {
         return new class {
           constructor() {
+            // Get i18n filter function
+            this.i18n = $filter('i18n');
             // Resize the parent element to fit to the screen
             this.fit();
             // Create a SVG and append it to the element
@@ -46,9 +48,14 @@ angular
           }
           draw(step) {
             this.timeline.config({
-              highlights: scope.meta[step].highlightsenbe,
+              yunit: this.i18n(scope.meta[step].yaxislabel),
+              highlights: this.i18n(scope.meta[step].highlights),
               smoothing: this.smoothing(step),
-              yunit: scope.meta[step].yaxislabelenbe,
+              rulers: [
+                [2004, $translate.instant('timeline.rulers.10-new-country')],
+                [2007, $translate.instant('timeline.rulers.romania-bulgaria')],
+                [2013, $translate.instant('timeline.rulers.croatia')]
+              ],
               type: scope.meta[step].charttype,
               min: scope.meta[step].min,
               max: scope.meta[step].max

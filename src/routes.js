@@ -5,12 +5,18 @@ angular
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(false);
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/en_BE/');
 
   $stateProvider
     .state('main', {
-      url: '/',
-      component: 'main'
+      url: '/:language/',
+      component: 'main',
+      resolve: {
+        use: ($translate, $stateParams) => {
+          'ngInject';
+          return $translate.use($stateParams.language);
+        }
+      }
     })
     .state('main.step', {
       component: 'main.step',

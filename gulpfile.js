@@ -15,7 +15,7 @@ gulp.task('inject:styles', gulp.series('styles', 'inject'));
 gulp.task('inject:scripts', gulp.series('scripts', 'inject'));
 gulp.task('build', gulp.series('partials', gulp.parallel('inject:all', 'other'), 'build'));
 gulp.task('deploy', gulp.series('build', 'deploy'));
-gulp.task('data', gulp.series('data:all', 'data:meta'));
+gulp.task('data', gulp.series('data:all', 'data:meta', 'data:i18n'));
 gulp.task('test', gulp.series('scripts', 'karma:single-run'));
 gulp.task('test:auto', gulp.series('watch', 'karma:auto-run'));
 gulp.task('serve', gulp.series('inject:all', 'watch', 'browsersync'));
