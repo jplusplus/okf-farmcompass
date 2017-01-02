@@ -1,1 +1,20 @@
-{}
+{
+  "timeline": {
+    "rulers": {
+      "10-new-country": "10 new countries join EU",
+      "romania-bulgaria": "Romania and Bulgaria join",
+      "croatia": "Croatia joins"
+    }
+  },
+  "main": {
+    "step": {
+      "next": "Next",
+      "previous": "Previous",
+      "outro": {
+        "content": "<p>Farm subsidies in Bulgaria, Romania and other EU countries have pushed farmers out of labour-intensive farming, such as vegetables, towards cash crops.</p><p>Farming cash crops creates unemployment and environmental damage (erosion).</p><p>In 1999, the Commission said it would tackle the problem. Instead, it made it worse.</p>",
+        "share": "Share",
+        "play-again": "Play again"
+      }
+    }
+  }
+}
