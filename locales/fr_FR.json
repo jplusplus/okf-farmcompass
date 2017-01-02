@@ -1,11 +1,19 @@
 {
+  "app": {
+    "title": "Agricultural Subsidies: New Countries, Same Problems — OKF"
+  },
   "main": {
+    "about": {
+      "title": "About",
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper fringilla semper. Nulla dictum placerat metus, sit amet fringilla velit posuere non. Sed eget malesuada sapien. Sed malesuada magna vel tellus vulputate posuere. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed viverra eleifend nulla, ut lobortis sem faucibus sed. Donec turpis lacus, ultrices eget placerat ac, tincidunt ac sapien. Curabitur ex ipsum, ultrices pretium tincidunt et, pretium sit amet nunc. Phasellus iaculis turpis in aliquam gravida. Phasellus a quam arcu. Nulla nec augue fermentum, sagittis erat pretium, congue ligula. Pellentesque aliquet odio eu magna pellentesque, ac commodo risus vulputate. Suspendisse quis enim id justo congue luctus. Pellentesque et nulla dui.</p><p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce in turpis eu diam dictum efficitur sit amet et elit. Etiam eget pretium ligula. Phasellus rutrum neque neque, in malesuada metus mollis laoreet. Ut ante massa, tristique vitae dolor vitae, tristique placerat quam. Nunc ac nisl sem. Nulla et vehicula erat. Maecenas placerat eleifend magna vulputate tempor. Proin enim augue, luctus accumsan porttitor id, lobortis non orci. Mauris finibus tortor gravida velit rhoncus egestas.</p>"
+    },
     "intro": {
       "read-story": "Read the full story",
       "headline": "Agricultural Subsidies:<br/>New Countries, Same Problems",
       "abstract": "The Common Agricultural Policy of the European Union gives out a lot of money to farmers - 60 billion each year. While it does help some farms, most of this money incentivizes farmers to grow cash crops and employ less workers."
     },
     "step": {
+      "about": "À propos",
       "next": "Suivant",
       "previous": "Précédent",
       "outro": {
