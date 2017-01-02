@@ -17,7 +17,7 @@ const GSSID = '1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k';
 const NUMBER_FIELDS = ['slideid', 'min', 'max']
 const UNWANTED_FIELDS = ['_xml', '_links', 'id'];
 const BOOL_FIELDS = [];
-const I18N_FIELDS = ['slidetitle', 'slidetext', 'label', 'details', 'yaxislabel', 'highlights'];
+const I18N_FIELDS = ['slidetitle', 'slidetext', 'yaxislabel', 'highlights'];
 
 let gss = new Gss(GSSID);
 
@@ -123,4 +123,21 @@ gulp.task('data:i18n', function() {
       });
     }))
     .pipe(gulp.dest(conf.paths.data));
-})
+});
+
+gulp.task('data:labels', function(){
+  let meta = require(path.join('../', conf.paths.data, 'meta.json'));
+  // Collect labels
+  let labels = _.chain(meta).map('data').flatten().map('label').uniq().value();
+  // Zips labels with their own value
+  let zip =_.zipObject(labels, labels);
+  // Open locales
+  return gulp.src(path.join(conf.paths.locales, '*.json'))
+    .pipe(jeditor(function(locale) {
+      // Path to the labels inside the locale
+      let path = 'timeline.labels';
+      // Get existing labels and extends them with
+      return _.set(locale, path, _.assign(zip, _.get(locale, path)));
+    // Override existing locales
+    })).pipe(gulp.dest(conf.paths.locales));
+});

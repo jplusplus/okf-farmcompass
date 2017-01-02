@@ -19,6 +19,7 @@ exports.ngModule = 'app';
 exports.paths = {
   src: 'src',
   data: path.join('src', 'data'),
+  locales: path.join('src', 'locales'),
   dist: 'dist',
   tmp: '.tmp',
   e2e: 'e2e',

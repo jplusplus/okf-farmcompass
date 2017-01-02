@@ -24,7 +24,7 @@
     "2013": 11503.08,
     "2014": 12119.25,
     "2015": 11831.14,
-    "_cn6ca": "Subsidies"
+    "label": "Subsidies"
   }],
   "slidetitle": {
     "en_BE": "Subsidies to new EU members in millions of euros",
@@ -36,14 +36,6 @@
   },
   "highlights": {
     "en_BE": []
-  },
-  "label": {
-    "en_BE": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
-    "fr_FR": "Subventions à tous les nouveaux membres de l'UE à l'exception de Malte et Chypre."
-  },
-  "details": {
-    "en_BE": "Subsidies in millions of current euros",
-    "fr_FR": "Subventions en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -75,7 +67,7 @@
     "2013": 1250.72,
     "2014": 1132.19,
     "2015": 1686.56,
-    "_cn6ca": "Product subsidies"
+    "label": "Product subsidies"
   }, {
     "2000": 800.24,
     "2001": 896.47,
@@ -93,7 +85,7 @@
     "2013": 10252.36,
     "2014": 10987.06,
     "2015": 10144.58,
-    "_cn6ca": "Other subsidies"
+    "label": "Other subsidies"
   }],
   "slidetitle": {
     "en_BE": "Indirect subsidies to new EU members in millions of euros",
@@ -107,14 +99,6 @@
     "en_BE": [
       "Product subsidies"
     ]
-  },
-  "label": {
-    "en_BE": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
-    "fr_FR": "Subventions à tous les nouveaux membres de l'UE à l'exception de Malte et Chypre."
-  },
-  "details": {
-    "en_BE": "Subsidies in millions of current euros",
-    "fr_FR": "Subventions en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -146,7 +130,7 @@
     "2013": 1250.72,
     "2014": 1132.19,
     "2015": 1686.56,
-    "_cn6ca": "Product subsidies"
+    "label": "Product subsidies"
   }, {
     "2000": 800.24,
     "2001": 896.47,
@@ -164,7 +148,7 @@
     "2013": 10252.36,
     "2014": 10987.06,
     "2015": 10144.58,
-    "_cn6ca": "Other subsidies"
+    "label": "Other subsidies"
   }],
   "slidetitle": {
     "en_BE": "Direct subsidies to new EU members in millions of euros",
@@ -178,14 +162,6 @@
     "en_BE": [
       "Other subsidies"
     ]
-  },
-  "label": {
-    "en_BE": "Subsidies to all new EU members since 2000 except Cyprus and Malta",
-    "fr_FR": "Subventions à tous les nouveaux membres de l'UE à l'exception de Malte et Chypre."
-  },
-  "details": {
-    "en_BE": "Subsidies in millions of current euros",
-    "fr_FR": "Subventions en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -217,7 +193,7 @@
     "2013": 131.7,
     "2014": 142.78,
     "2015": 213.05,
-    "_cn6ca": "Indirect subsidies to Bulgarian farmers"
+    "label": "Indirect subsidies to Bulgarian farmers"
   }, {
     "2000": 5.42,
     "2001": 33.42,
@@ -235,7 +211,7 @@
     "2013": 852.37,
     "2014": 820.59,
     "2015": 677.4,
-    "_cn6ca": "Direct subsidies to Bulgarian farmers"
+    "label": "Direct subsidies to Bulgarian farmers"
   }],
   "slidetitle": {
     "en_BE": "Subsidies to Bulgarian farmers in millions of euros",
@@ -249,14 +225,6 @@
     "en_BE": [
       "Direct subsidies to Bulgarian farmers"
     ]
-  },
-  "label": {
-    "en_BE": "Subsidies to Bulgarian farmers in millions of euros",
-    "fr_FR": "Subventions aux exploitations bulgares en millions d'euros"
-  },
-  "details": {
-    "en_BE": "Subsidies in millions of current euros",
-    "fr_FR": "Subventions en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -276,7 +244,7 @@
     "2007": 6,
     "2010": 12,
     "2013": 18,
-    "_cn6ca": "Farm size in ha"
+    "label": "Farm size in ha"
   }],
   "slidetitle": {
     "en_BE": "Average farm size in Bulgaria in hectares",
@@ -288,14 +256,6 @@
   },
   "highlights": {
     "en_BE": []
-  },
-  "label": {
-    "en_BE": "Average farm size in hectares",
-    "fr_FR": "Taille moyenne d'une exploitation en hectares"
-  },
-  "details": {
-    "en_BE": "Average farm size in hectares",
-    "fr_FR": "Taille moyenne d'une exploitation en hectares"
   },
   "yaxislabel": {
     "en_BE": "hectares",
@@ -327,7 +287,7 @@
     "2013": 4115.12,
     "2014": 4137.99,
     "2015": 3915.12,
-    "_cn6ca": "Total production from Bulgarian farms"
+    "label": "Total production from Bulgarian farms"
   }],
   "slidetitle": {
     "en_BE": "Production of Bulgarian farms in millions of euros",
@@ -339,14 +299,6 @@
   },
   "highlights": {
     "en_BE": []
-  },
-  "label": {
-    "en_BE": "Production in Bulgaria in millions of euros",
-    "fr_FR": "Production en Bulgarie en millions d'euros"
-  },
-  "details": {
-    "en_BE": "Production in Bulgaria in millions of current euros",
-    "fr_FR": "Production en Bulgarie en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -378,7 +330,7 @@
     "2013": 2802.08,
     "2014": 3081.86,
     "2015": 2985.76,
-    "_cn6ca": "Cash crops production"
+    "label": "Cash crops production"
   }, {
     "2000": 2317.98,
     "2001": 2463.25,
@@ -396,7 +348,7 @@
     "2013": 1313.04,
     "2014": 1056.13,
     "2015": 929.36,
-    "_cn6ca": "Other production in value"
+    "label": "Other production in value"
   }],
   "slidetitle": {
     "en_BE": "Production of Bulgarian farms in millions of euros",
@@ -410,14 +362,6 @@
     "en_BE": [
       "Cash crops production"
     ]
-  },
-  "label": {
-    "en_BE": "Production in Bulgaria in millions of euros",
-    "fr_FR": "Production en Bulgarie en millions d'euros"
-  },
-  "details": {
-    "en_BE": "Production in Bulgaria in millions of current euros",
-    "fr_FR": "Production en Bulgarie en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -449,7 +393,7 @@
     "2013": 138.99,
     "2014": 142.57,
     "2015": 144.14,
-    "_cn6ca": "Vegetables"
+    "label": "Vegetables"
   }, {
     "2000": 615.29,
     "2001": 776.77,
@@ -467,7 +411,7 @@
     "2013": 2802.08,
     "2014": 3081.86,
     "2015": 2985.76,
-    "_cn6ca": "Cash crops production"
+    "label": "Cash crops production"
   }, {
     "2000": 1854.03,
     "2001": 2004.79,
@@ -485,7 +429,7 @@
     "2013": 1174.05,
     "2014": 913.56,
     "2015": 785.22,
-    "_cn6ca": "Other production in value"
+    "label": "Other production in value"
   }],
   "slidetitle": {
     "en_BE": "Production of Bulgarian farms in millions of euros",
@@ -499,14 +443,6 @@
     "en_BE": [
       "Vegetables"
     ]
-  },
-  "label": {
-    "en_BE": "Production in Bulgaria in millions of euros",
-    "fr_FR": "Production en Bulgarie en millions d'euros"
-  },
-  "details": {
-    "en_BE": "Production in Bulgaria in millions of current euros",
-    "fr_FR": "Production en Bulgarie en millions d'euros courants"
   },
   "yaxislabel": {
     "en_BE": "million euros",
@@ -537,7 +473,7 @@
     "2013": 33,
     "2014": 31,
     "2015": 31,
-    "_cn6ca": "Cabbages"
+    "label": "Cabbages"
   }, {
     "2001": 100,
     "2002": 90,
@@ -554,7 +490,7 @@
     "2013": 43,
     "2014": 44,
     "2015": 45,
-    "_cn6ca": "Tomatoes"
+    "label": "Tomatoes"
   }, {
     "2001": 100,
     "2002": 98,
@@ -571,7 +507,7 @@
     "2013": 60,
     "2014": 21,
     "2015": 30,
-    "_cn6ca": "Muskmelons"
+    "label": "Muskmelons"
   }, {
     "2001": 100,
     "2002": 124,
@@ -588,7 +524,7 @@
     "2013": 53,
     "2014": 28,
     "2015": 50,
-    "_cn6ca": "Watermelons"
+    "label": "Watermelons"
   }, {
     "2001": 100,
     "2002": 64,
@@ -605,7 +541,7 @@
     "2013": 39,
     "2014": 69,
     "2015": 57,
-    "_cn6ca": "Carrots"
+    "label": "Carrots"
   }, {
     "2001": 100,
     "2002": 106,
@@ -622,7 +558,7 @@
     "2013": 36,
     "2014": 37,
     "2015": 25,
-    "_cn6ca": "Onions"
+    "label": "Onions"
   }, {
     "2001": 100,
     "2002": 95,
@@ -639,7 +575,7 @@
     "2013": 40,
     "2014": 8,
     "2015": 18,
-    "_cn6ca": "Garlic"
+    "label": "Garlic"
   }, {
     "2001": 100,
     "2002": 100,
@@ -656,7 +592,7 @@
     "2013": 24,
     "2014": 27,
     "2015": 32,
-    "_cn6ca": "Strawberries"
+    "label": "Strawberries"
   }],
   "slidetitle": {
     "en_BE": "Production of vegetables in Bulgaria in volume (2001 = 100)",
@@ -672,14 +608,6 @@
       "Carrots",
       "Cabbages"
     ]
-  },
-  "label": {
-    "en_BE": "Vegetable production tonnage (2001 = 100)",
-    "fr_FR": "Production de légume en volume (2001 = 100)"
-  },
-  "details": {
-    "en_BE": "Production (2001 = 100)",
-    "fr_FR": "Production (2001 = 100)"
   },
   "yaxislabel": {
     "en_BE": null,
@@ -711,7 +639,7 @@
     "2013": 29.95796961,
     "2014": 30.72960448,
     "2015": 31.06800302,
-    "_cn6ca": "Bulgaria"
+    "label": "Bulgaria"
   }, {
     "2000": 100,
     "2001": 103.7019492,
@@ -729,7 +657,7 @@
     "2013": 94.66760554,
     "2014": 92.54296963,
     "2015": 102.0926287,
-    "_cn6ca": "Greece"
+    "label": "Greece"
   }, {
     "2000": 100,
     "2001": 93.93510324,
@@ -747,7 +675,7 @@
     "2013": 87.19764012,
     "2014": 110.2654867,
     "2015": 109.1327434,
-    "_cn6ca": "Lithuania"
+    "label": "Lithuania"
   }, {
     "2000": 100,
     "2001": 99.37533949,
@@ -765,7 +693,7 @@
     "2013": 101.2682501,
     "2014": 100.0395042,
     "2015": 110.0579395,
-    "_cn6ca": "Belgium"
+    "label": "Belgium"
   }, {
     "2000": 100,
     "2001": 103.4063398,
@@ -783,7 +711,7 @@
     "2013": 99.85058254,
     "2014": 107.39711,
     "2015": 110.1830837,
-    "_cn6ca": "France"
+    "label": "France"
   }, {
     "2000": 100,
     "2001": 99.36511672,
@@ -801,7 +729,7 @@
     "2013": 118.5631153,
     "2014": 113.8387974,
     "2015": 118.6252932,
-    "_cn6ca": "Italy"
+    "label": "Italy"
   }, {
     "2000": 100,
     "2001": 102.5218019,
@@ -819,7 +747,7 @@
     "2013": 128.0675443,
     "2014": 122.211113,
     "2015": 118.8838897,
-    "_cn6ca": "Denmark"
+    "label": "Denmark"
   }, {
     "2000": 100,
     "2001": 110.7622456,
@@ -837,7 +765,7 @@
     "2013": 125.4651693,
     "2014": 115.1844462,
     "2015": 120.6087191,
-    "_cn6ca": "Germany (until 1990 former territory of the FRG)"
+    "label": "Germany (until 1990 former territory of the FRG)"
   }, {
     "2000": 100,
     "2001": 104.7329306,
@@ -855,7 +783,7 @@
     "2013": 113.3121822,
     "2014": 122.0826633,
     "2015": 127.7673954,
-    "_cn6ca": "Ireland"
+    "label": "Ireland"
   }, {
     "2000": 100,
     "2001": 101.3012397,
@@ -873,7 +801,7 @@
     "2013": 116.6951958,
     "2014": 115.7382636,
     "2015": 130.1290664,
-    "_cn6ca": "United Kingdom"
+    "label": "United Kingdom"
   }, {
     "2000": 100,
     "2001": 99.87839726,
@@ -891,7 +819,7 @@
     "2013": 123.651733,
     "2014": 122.0022728,
     "2015": 130.9219574,
-    "_cn6ca": "Netherlands"
+    "label": "Netherlands"
   }, {
     "2000": 100,
     "2001": 95.28850145,
@@ -909,7 +837,7 @@
     "2013": 142.7266797,
     "2014": 142.780051,
     "2015": 137.6208267,
-    "_cn6ca": "Sweden"
+    "label": "Sweden"
   }, {
     "2000": 100,
     "2001": 105.6567663,
@@ -927,7 +855,7 @@
     "2013": 136.6393721,
     "2014": 140.2393527,
     "2015": 142.286448,
-    "_cn6ca": "Austria"
+    "label": "Austria"
   }, {
     "2000": 100,
     "2001": 113.7002045,
@@ -945,7 +873,7 @@
     "2013": 116.5267361,
     "2014": 125.1329502,
     "2015": 146.6699133,
-    "_cn6ca": "Hungary"
+    "label": "Hungary"
   }, {
     "2000": 100,
     "2001": 116.1868982,
@@ -963,7 +891,7 @@
     "2013": 140.2287502,
     "2014": 138.5810819,
     "2015": 146.7335137,
-    "_cn6ca": "Portugal"
+    "label": "Portugal"
   }, {
     "2000": 100,
     "2001": 107.541077,
@@ -981,7 +909,7 @@
     "2013": 126.1117898,
     "2014": 123.0031342,
     "2015": 146.8518804,
-    "_cn6ca": "Spain"
+    "label": "Spain"
   }, {
     "2000": 100,
     "2001": 86.51685393,
@@ -999,7 +927,7 @@
     "2013": 122.4719101,
     "2014": 149.6629213,
     "2015": 147.6404494,
-    "_cn6ca": "Luxembourg"
+    "label": "Luxembourg"
   }, {
     "2000": 100,
     "2001": 100.4473503,
@@ -1017,7 +945,7 @@
     "2013": 153.8128011,
     "2014": 159.2876807,
     "2015": 155.1823813,
-    "_cn6ca": "Finland"
+    "label": "Finland"
   }, {
     "2000": 100,
     "2001": 115.4290334,
@@ -1035,7 +963,7 @@
     "2013": 225.869038,
     "2014": 171.6826423,
     "2015": 194.2025638,
-    "_cn6ca": "Slovakia"
+    "label": "Slovakia"
   }, {
     "2000": 100,
     "2001": 98.81489842,
@@ -1053,7 +981,7 @@
     "2013": 176.1662904,
     "2014": 191.7607223,
     "2015": 213.9766742,
-    "_cn6ca": "Slovenia"
+    "label": "Slovenia"
   }, {
     "2000": 100,
     "2001": 101.9336234,
@@ -1071,7 +999,7 @@
     "2013": 212.2193677,
     "2014": 211.8984953,
     "2015": 222.9738374,
-    "_cn6ca": "Romania"
+    "label": "Romania"
   }, {
     "2000": 100,
     "2001": 102.2283392,
@@ -1089,7 +1017,7 @@
     "2013": 266.4438327,
     "2014": 259.0378818,
     "2015": 268.5804168,
-    "_cn6ca": "Czech Republic"
+    "label": "Czech Republic"
   }, {
     "2000": 100,
     "2001": 114.4370196,
@@ -1107,7 +1035,7 @@
     "2013": 270.9861985,
     "2014": 262.6091894,
     "2015": 275.113557,
-    "_cn6ca": "Poland"
+    "label": "Poland"
   }, {
     "2000": 100,
     "2001": 101.7155756,
@@ -1125,7 +1053,7 @@
     "2013": 184.7404063,
     "2014": 294.3566591,
     "2015": 288.8036117,
-    "_cn6ca": "Latvia"
+    "label": "Latvia"
   }, {
     "2000": 100,
     "2001": 135.5497038,
@@ -1143,7 +1071,7 @@
     "2013": 244.7662936,
     "2014": 176.761027,
     "2015": 293.6142199,
-    "_cn6ca": "Estonia"
+    "label": "Estonia"
   }],
   "slidetitle": {
     "en_BE": "Production of vegetables in value (2000 = 100)",
@@ -1157,14 +1085,6 @@
     "en_BE": [
       "Bulgaria"
     ]
-  },
-  "label": {
-    "en_BE": null,
-    "fr_FR": null
-  },
-  "details": {
-    "en_BE": "Production in value (2000=100)",
-    "fr_FR": "Production en valeur (2000 = 100)"
   },
   "yaxislabel": {
     "en_BE": null,
@@ -1196,7 +1116,7 @@
     "2013": 64.90119649,
     "2014": 56.47421719,
     "2015": 57.22073998,
-    "_cn6ca": "Greece"
+    "label": "Greece"
   }, {
     "2000": 100,
     "2001": 100.6647724,
@@ -1214,7 +1134,7 @@
     "2013": 58.45708465,
     "2014": 57.55285119,
     "2015": 60.98036062,
-    "_cn6ca": "Portugal"
+    "label": "Portugal"
   }, {
     "2000": 100,
     "2001": 96.47087261,
@@ -1232,7 +1152,7 @@
     "2013": 98.49166062,
     "2014": 77.4546773,
     "2015": 72.35919749,
-    "_cn6ca": "Finland"
+    "label": "Finland"
   }, {
     "2000": 100,
     "2001": 90.8148935,
@@ -1250,7 +1170,7 @@
     "2013": 89.6000125,
     "2014": 75.89514876,
     "2015": 76.69403026,
-    "_cn6ca": "Spain"
+    "label": "Spain"
   }, {
     "2000": 100,
     "2001": 97.11200696,
@@ -1268,7 +1188,7 @@
     "2013": 82.12784222,
     "2014": 84.22436549,
     "2015": 78.72553299,
-    "_cn6ca": "Italy"
+    "label": "Italy"
   }, {
     "2000": 100,
     "2001": 105.8634031,
@@ -1286,7 +1206,7 @@
     "2013": 117.5439678,
     "2014": 100.6134686,
     "2015": 83.57969697,
-    "_cn6ca": "Netherlands"
+    "label": "Netherlands"
   }, {
     "2000": 100,
     "2001": 103.8988164,
@@ -1304,7 +1224,7 @@
     "2013": 91.94244604,
     "2014": 88.91622186,
     "2015": 92.19540497,
-    "_cn6ca": "Ireland"
+    "label": "Ireland"
   }, {
     "2000": 100,
     "2001": 97.74312029,
@@ -1322,7 +1242,7 @@
     "2013": 100.635767,
     "2014": 101.9716235,
     "2015": 99.5292341,
-    "_cn6ca": "Sweden"
+    "label": "Sweden"
   }, {
     "2000": 100,
     "2001": 105.9787485,
@@ -1340,7 +1260,7 @@
     "2013": 104.4892562,
     "2014": 105.6991736,
     "2015": 102.6191263,
-    "_cn6ca": "Austria"
+    "label": "Austria"
   }, {
     "2000": 100,
     "2001": 102.6046669,
@@ -1358,7 +1278,7 @@
     "2013": 125.4315471,
     "2014": 126.9065841,
     "2015": 106.6130855,
-    "_cn6ca": "Germany (until 1990 former territory of the FRG)"
+    "label": "Germany (until 1990 former territory of the FRG)"
   }, {
     "2000": 100,
     "2001": 77.60652093,
@@ -1376,7 +1296,7 @@
     "2013": 121.7280474,
     "2014": 108.0785476,
     "2015": 106.6557984,
-    "_cn6ca": "Belgium"
+    "label": "Belgium"
   }, {
     "2000": 100,
     "2001": 97.05701518,
@@ -1394,7 +1314,7 @@
     "2013": 114.2274903,
     "2014": 111.8505372,
     "2015": 112.8418851,
-    "_cn6ca": "France"
+    "label": "France"
   }, {
     "2000": 100,
     "2001": 100.4780507,
@@ -1412,7 +1332,7 @@
     "2013": 104.540429,
     "2014": 103.6380293,
     "2015": 120.4566753,
-    "_cn6ca": "Denmark"
+    "label": "Denmark"
   }, {
     "2000": 100,
     "2001": 89.19194788,
@@ -1430,7 +1350,7 @@
     "2013": 114.9403971,
     "2014": 120.4759069,
     "2015": 120.4737078,
-    "_cn6ca": "United Kingdom"
+    "label": "United Kingdom"
   }, {
     "2000": 100,
     "2001": 95.40114132,
@@ -1448,7 +1368,7 @@
     "2013": 136.5223229,
     "2014": 109.9362202,
     "2015": 124.9412555,
-    "_cn6ca": "Luxembourg"
+    "label": "Luxembourg"
   }, {
     "2000": 100,
     "2001": 95.72510304,
@@ -1466,7 +1386,7 @@
     "2013": 100.2875491,
     "2014": 129.0999712,
     "2015": 129.8955238,
-    "_cn6ca": "Slovenia"
+    "label": "Slovenia"
   }, {
     "2000": 100,
     "2001": 122.9546849,
@@ -1484,7 +1404,7 @@
     "2013": 233.4646864,
     "2014": 230.0309312,
     "2015": 202.9542891,
-    "_cn6ca": "Poland"
+    "label": "Poland"
   }, {
     "2000": 100,
     "2001": 139.4910971,
@@ -1502,7 +1422,7 @@
     "2013": 263.142888,
     "2014": 256.2732895,
     "2015": 243.1063131,
-    "_cn6ca": "Czech Republic"
+    "label": "Czech Republic"
   }, {
     "2000": 100,
     "2001": 118.4392474,
@@ -1520,7 +1440,7 @@
     "2013": 277.0149464,
     "2014": 290.9273782,
     "2015": 277.6212414,
-    "_cn6ca": "Hungary"
+    "label": "Hungary"
   }, {
     "2000": 100,
     "2001": 176.3983261,
@@ -1538,7 +1458,7 @@
     "2013": 362.6834758,
     "2014": 317.4372035,
     "2015": 286.6164365,
-    "_cn6ca": "Romania"
+    "label": "Romania"
   }, {
     "2000": 100,
     "2001": 161.0973342,
@@ -1556,7 +1476,7 @@
     "2013": 369.8319212,
     "2014": 405.9860853,
     "2015": 347.7853551,
-    "_cn6ca": "Slovakia"
+    "label": "Slovakia"
   }, {
     "2000": 100,
     "2001": 88.39181824,
@@ -1574,7 +1494,7 @@
     "2013": 424.5207912,
     "2014": 395.2017882,
     "2015": 477.0071652,
-    "_cn6ca": "Lithuania"
+    "label": "Lithuania"
   }, {
     "2000": 100,
     "2001": 86.46748682,
@@ -1592,7 +1512,7 @@
     "2013": 348.4810444,
     "2014": 365.1518956,
     "2015": 480.5548581,
-    "_cn6ca": "Estonia"
+    "label": "Estonia"
   }, {
     "2000": 100,
     "2001": 126.2445351,
@@ -1610,7 +1530,7 @@
     "2013": 455.408019,
     "2014": 500.8792602,
     "2015": 485.2606088,
-    "_cn6ca": "Bulgaria"
+    "label": "Bulgaria"
   }, {
     "2000": 100,
     "2001": 102.2434752,
@@ -1628,7 +1548,7 @@
     "2013": 483.9202717,
     "2014": 386.9681802,
     "2015": 571.2727923,
-    "_cn6ca": "Latvia"
+    "label": "Latvia"
   }],
   "slidetitle": {
     "en_BE": "Production of cash crops in value (2000 = 100)",
@@ -1642,14 +1562,6 @@
     "en_BE": [
       "Bulgaria"
     ]
-  },
-  "label": {
-    "en_BE": null,
-    "fr_FR": null
-  },
-  "details": {
-    "en_BE": "Production in value (2000=100)",
-    "fr_FR": "Production en valeur (2000 = 100)"
   },
   "yaxislabel": {
     "en_BE": null,
@@ -1681,7 +1593,7 @@
     "2013": 197,
     "2014": 170,
     "2015": 173,
-    "_cn6ca": "Chile"
+    "label": "Chile"
   }, {
     "2000": 100,
     "2001": 127,
@@ -1699,7 +1611,7 @@
     "2013": 112,
     "2014": 115,
     "2015": 114,
-    "_cn6ca": "Turkey"
+    "label": "Turkey"
   }, {
     "2000": 100,
     "2001": 99,
@@ -1717,7 +1629,7 @@
     "2013": 148,
     "2014": 163,
     "2015": 172,
-    "_cn6ca": "Morocco"
+    "label": "Morocco"
   }, {
     "2000": 100,
     "2001": 108,
@@ -1735,7 +1647,7 @@
     "2013": 136,
     "2014": 122,
     "2015": 135,
-    "_cn6ca": "South Africa"
+    "label": "South Africa"
   }],
   "slidetitle": {
     "en_BE": "Imports of vegetables in value (2000 = 100)",
@@ -1747,14 +1659,6 @@
   },
   "highlights": {
     "en_BE": []
-  },
-  "label": {
-    "en_BE": "Imports of fruits and vegetables in volume",
-    "fr_FR": "Imports de fruits et légumes en volume"
-  },
-  "details": {
-    "en_BE": "Imports in volume to EU-28 countries (2000=100)",
-    "fr_FR": "Imports en volume vers l'EU-28 (2000 = 100)"
   },
   "yaxislabel": {
     "en_BE": null,
@@ -1787,7 +1691,7 @@
     "2014": 2366.46,
     "2015": 2412.99,
     "2016": 2456.59,
-    "_cn6ca": "European Union (27 countries)"
+    "label": "European Union (27 countries)"
   }],
   "slidetitle": {
     "en_BE": "Salaried employment in agriculture in the EU in  thousands of full-time equivalent",
@@ -1799,14 +1703,6 @@
   },
   "highlights": {
     "en_BE": []
-  },
-  "label": {
-    "en_BE": "Number of salaried workers in agriculture in the EU-27.",
-    "fr_FR": "Nombre de travailleurs salariés dans l'agriculture (UE-27)"
-  },
-  "details": {
-    "en_BE": "Full-time equivalent (thousands)",
-    "fr_FR": "Equivalents temps plein (milliers)"
   },
   "yaxislabel": {
     "en_BE": "thousand salaried workers",
@@ -1839,7 +1735,7 @@
     "2014": 7182.83,
     "2015": 6927.5,
     "2016": 6740.95,
-    "_cn6ca": "European Union (27 countries)"
+    "label": "European Union (27 countries)"
   }],
   "slidetitle": {
     "en_BE": "Non-salaried employment in agriculture in the EU in  thousands of full-time equivalent",
@@ -1851,14 +1747,6 @@
   },
   "highlights": {
     "en_BE": []
-  },
-  "label": {
-    "en_BE": "Number of non-salaried workers in agriculture in the EU-27.",
-    "fr_FR": "Nombre de travailleurs non-salariés dans l'agriculture (UE-27)"
-  },
-  "details": {
-    "en_BE": "Full-time equivalent (thousands)",
-    "fr_FR": "Equivalents temps plein (milliers)"
   },
   "yaxislabel": {
     "en_BE": "thousand non-salaried workers",
@@ -1891,7 +1779,7 @@
     "2014": 110.7569721,
     "2015": 110.7569721,
     "2016": 110.7569721,
-    "geotime": "Czech Republic"
+    "label": "Czech Republic"
   }, {
     "2000": 100,
     "2001": 93.94618834,
@@ -1910,7 +1798,7 @@
     "2014": 100.896861,
     "2015": 102.4663677,
     "2016": 102.4663677,
-    "geotime": "Malta"
+    "label": "Malta"
   }, {
     "2000": 100,
     "2001": 89.37540245,
@@ -1929,7 +1817,7 @@
     "2014": 96.89632968,
     "2015": 96.89632968,
     "2016": 96.89632968,
-    "geotime": "Ireland"
+    "label": "Ireland"
   }, {
     "2000": 100,
     "2001": 97.54433834,
@@ -1948,7 +1836,7 @@
     "2014": 87.69895407,
     "2015": 88.08094588,
     "2016": 87.95361528,
-    "geotime": "United Kingdom"
+    "label": "United Kingdom"
   }, {
     "2000": 100,
     "2001": 101.4992312,
@@ -1967,7 +1855,7 @@
     "2014": 77.26806766,
     "2015": 77.26806766,
     "2016": 77.26806766,
-    "geotime": "Poland"
+    "label": "Poland"
   }, {
     "2000": 100,
     "2001": 103.4798723,
@@ -1986,7 +1874,7 @@
     "2014": 78.58540101,
     "2015": 78.13239988,
     "2016": 76.8145784,
-    "geotime": "Slovenia"
+    "label": "Slovenia"
   }, {
     "2000": 100,
     "2001": 97.74802191,
@@ -2005,7 +1893,7 @@
     "2014": 79.69162102,
     "2015": 78.00770947,
     "2016": 76.36031649,
-    "geotime": "Greece"
+    "label": "Greece"
   }, {
     "2000": 100,
     "2001": 99.90574929,
@@ -2024,7 +1912,7 @@
     "2014": 71.23468426,
     "2015": 72.667295,
     "2016": 73.46842601,
-    "geotime": "Italy"
+    "label": "Italy"
   }, {
     "2000": 100,
     "2001": 93.75,
@@ -2043,7 +1931,7 @@
     "2014": 75.47554348,
     "2015": 74.93206522,
     "2016": 73.30163043,
-    "geotime": "Lithuania"
+    "label": "Lithuania"
   }, {
     "2000": 100,
     "2001": 98.84858044,
@@ -2062,7 +1950,7 @@
     "2014": 73.15457413,
     "2015": 72.05047319,
     "2016": 72.50788644,
-    "geotime": "Belgium"
+    "label": "Belgium"
   }, {
     "2000": 100,
     "2001": 92.73648649,
@@ -2081,7 +1969,7 @@
     "2014": 71.28378378,
     "2015": 72.13682432,
     "2016": 68.26858108,
-    "geotime": "Netherlands"
+    "label": "Netherlands"
   }, {
     "2000": 100,
     "2001": 98.26332795,
@@ -2100,7 +1988,7 @@
     "2014": 71.80936995,
     "2015": 68.21486268,
     "2016": 68.21486268,
-    "geotime": "Cyprus"
+    "label": "Cyprus"
   }, {
     "2000": 100,
     "2001": 97.05882353,
@@ -2119,7 +2007,7 @@
     "2014": 68.44919786,
     "2015": 67.64705882,
     "2016": 66.31016043,
-    "geotime": "Luxembourg"
+    "label": "Luxembourg"
   }, {
     "2000": 100,
     "2001": 97.57488366,
@@ -2138,7 +2026,7 @@
     "2014": 68.427607,
     "2015": 66.77590614,
     "2016": 65.35360818,
-    "geotime": "Austria"
+    "label": "Austria"
   }, {
     "2000": 100,
     "2001": 96.81780934,
@@ -2157,7 +2045,7 @@
     "2014": 67.7683693,
     "2015": 66.45861786,
     "2016": 65.18027861,
-    "geotime": "France"
+    "label": "France"
   }, {
     "2000": 100,
     "2001": 98.38209983,
@@ -2176,7 +2064,7 @@
     "2014": 66.02409639,
     "2015": 63.87263339,
     "2016": 61.80722892,
-    "geotime": "Sweden"
+    "label": "Sweden"
   }, {
     "2000": 100,
     "2001": 97.16647511,
@@ -2195,7 +2083,7 @@
     "2014": 62.82601008,
     "2015": 60.97825126,
     "2016": 60.55167536,
-    "geotime": "Germany (until 1990 former territory of the FRG)"
+    "label": "Germany (until 1990 former territory of the FRG)"
   }, {
     "2000": 100,
     "2001": 98.47367721,
@@ -2214,7 +2102,7 @@
     "2014": 64.82365283,
     "2015": 59.84721996,
     "2016": 60.29196649,
-    "geotime": "Spain"
+    "label": "Spain"
   }, {
     "2000": 100,
     "2001": 97.03389831,
@@ -2233,7 +2121,7 @@
     "2014": 64.61864407,
     "2015": 62.5,
     "2016": 60.06355932,
-    "geotime": "Finland"
+    "label": "Finland"
   }, {
     "2000": 100,
     "2001": 95.33071738,
@@ -2252,7 +2140,7 @@
     "2014": 63.11510805,
     "2015": 58.38386873,
     "2016": 55.53573775,
-    "geotime": "Hungary"
+    "label": "Hungary"
   }, {
     "2000": 100,
     "2001": 99.30327076,
@@ -2271,7 +2159,7 @@
     "2014": 52.37081479,
     "2015": 50.37739501,
     "2016": 50.88058835,
-    "geotime": "Denmark"
+    "label": "Denmark"
   }, {
     "2000": 100,
     "2001": 100.1778789,
@@ -2290,7 +2178,7 @@
     "2014": 56.30011956,
     "2015": 53.69608958,
     "2016": 48.83795527,
-    "geotime": "Portugal"
+    "label": "Portugal"
   }, {
     "2000": 100,
     "2001": 97.51745539,
@@ -2309,7 +2197,7 @@
     "2014": 45.35298681,
     "2015": 44.91854151,
     "2016": 43.11869666,
-    "geotime": "Latvia"
+    "label": "Latvia"
   }, {
     "2000": 100,
     "2001": 86.03221083,
@@ -2328,7 +2216,7 @@
     "2014": 35.92972182,
     "2015": 31.83016105,
     "2016": 28.63836018,
-    "geotime": "Romania"
+    "label": "Romania"
   }, {
     "2000": 100,
     "2001": 97.16394154,
@@ -2347,7 +2235,7 @@
     "2014": 31.99247576,
     "2015": 28.78020547,
     "2016": 25.81391984,
-    "geotime": "Bulgaria"
+    "label": "Bulgaria"
   }, {
     "2000": 100,
     "2001": 87.48430306,
@@ -2366,7 +2254,7 @@
     "2014": 20.02930096,
     "2015": 18.79447468,
     "2016": 18.6270406,
-    "geotime": "Estonia"
+    "label": "Estonia"
   }, {
     "2000": 100,
     "2001": 85.42029444,
@@ -2385,7 +2273,7 @@
     "2014": 24.85356973,
     "2015": 16.30520817,
     "2016": 14.40557227,
-    "geotime": "Slovakia"
+    "label": "Slovakia"
   }],
   "slidetitle": {
     "en_BE": "Non-salaried employment in agriculture by country (2000 = 100)",
@@ -2401,14 +2289,6 @@
       "Romania",
       "Bulgaria"
     ]
-  },
-  "label": {
-    "en_BE": null,
-    "fr_FR": null
-  },
-  "details": {
-    "en_BE": "Number of non-salaried workers (2000=100)",
-    "fr_FR": "Travailleurs non-salariés (2000 = 100)"
   },
   "yaxislabel": {
     "en_BE": null,

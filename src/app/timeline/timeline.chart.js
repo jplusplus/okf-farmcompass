@@ -1,5 +1,5 @@
 angular.module('app')
-  .service('Timeline', (TIMELINE_CONFIG, TIMELINE_COLORS, $filter) => {
+  .service('Timeline', (TIMELINE_CONFIG, TIMELINE_COLORS, $translate, $filter) => {
     class Timeline extends Koto {
       constructor(svg) {
         super(svg);
@@ -383,7 +383,7 @@ angular.module('app')
           // Create a new object as row, describing this group
           res.push({
             // The last element of this hash is the group id
-            id: _.values(hash).pop(),
+            id: $translate.instant('timeline.labels.' + hash.label),
             // Collect value for each year
             values: _.map(years, year => {
               // Create a stack for this year
