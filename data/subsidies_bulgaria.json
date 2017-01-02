@@ -16,7 +16,7 @@
     "2013": 131.7,
     "2014": 142.78,
     "2015": 213.05,
-    "_cn6ca": "Indirect subsidies to Bulgarian farmers"
+    "label": "Indirect subsidies to Bulgarian farmers"
   },
   {
     "2000": 5.42,
@@ -35,6 +35,6 @@
     "2013": 852.37,
     "2014": 820.59,
     "2015": 677.4,
-    "_cn6ca": "Direct subsidies to Bulgarian farmers"
+    "label": "Direct subsidies to Bulgarian farmers"
   }
 ]

@@ -16,7 +16,7 @@
     "2013": 2802.08,
     "2014": 3081.86,
     "2015": 2985.76,
-    "_cn6ca": "Cash crops production"
+    "label": "Cash crops production"
   },
   {
     "2000": 2317.98,
@@ -35,6 +35,6 @@
     "2013": 1313.04,
     "2014": 1056.13,
     "2015": 929.36,
-    "_cn6ca": "Other production in value"
+    "label": "Other production in value"
   }
 ]
