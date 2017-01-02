@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>FountainJS</title>
+    <title ng-bind="'app.title' | translate">Agricultural Subsidies: New Countries, Same Problems — OKF</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/png" href="//jplusplus2.s3.amazonaws.com/img/favicon.png" />
@@ -19,7 +19,7 @@
   </head>
 
 
-  <body ng-app="app">
+  <body>
     <ui-view></ui-view>
   </body>
 

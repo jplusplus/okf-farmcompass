@@ -1,0 +1,10 @@
+<div class="main__about">
+  <h1 class="main__about__title">
+    {{ 'main.about.title' | translate }}
+  </h1>
+  <div class="main__about__content" ng-bind-html="'main.about.content' | translate | unsafe"></div>
+  <a ui-sref="main.step">
+    <i class="fa fa-arrow-left"></i>
+    Back to the story
+  </a>
+</div>

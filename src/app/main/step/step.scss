@@ -23,6 +23,14 @@
       top:50%;
       right:$spacer;
       transform: translateY(-50%);
+
+      & &__about {
+        color: $brand-primary;
+        border:1px solid $brand-primary;
+        margin-right: $spacer;
+        color: $brand-primary !important;
+        border-radius: 2px;
+      }
     }
 
     &__progress {

@@ -5,11 +5,11 @@ angular
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(false);
-  $urlRouterProvider.otherwise('/en_BE/');
+  $urlRouterProvider.otherwise('/en_BE');
 
   $stateProvider
     .state('main', {
-      url: '/:language/',
+      url: '/:language',
       component: 'main',
       resolve: {
         use: ($translate, $stateParams) => {
@@ -17,6 +17,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
           return $translate.use($stateParams.language);
         }
       }
+    })
+    .state('main.about', {
+      component: 'main.about',
+      url: '/about'
     })
     .state('main.step', {
       component: 'main.step',

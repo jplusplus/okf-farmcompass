@@ -1,0 +1,14 @@
+.main__about {
+  margin:auto;
+  max-width: 660px;
+  padding:10vh $spacer;
+
+  &__title {
+    margin-bottom: 10vh;
+  }
+
+  &__content {
+    border-bottom:2px solid $brand-primary;
+    padding-bottom:10vh;
+  }
+}

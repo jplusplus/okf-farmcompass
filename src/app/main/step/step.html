@@ -4,6 +4,9 @@
       {{ $ctrl.current().slidetitle | i18n }}
     </h2>
     <div class="main__step__heading__controls">
+      <a ui-sref="main.about" class="btn btn-link btn-sm main__step__heading__controls__about">
+        {{ 'main.step.about' | translate}}
+      </a>
       <div class="btn-group btn-group-sm">
         <button class="btn btn-primary btn-sm" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()" ng-attr-title="{{ 'main.step.previous' | translate }}">
           <span class="sr-only">{{ 'main.step.previous' | translate }}</span>
