@@ -7,5 +7,6 @@ angular
     'angularVideoBg',
     'cfp.hotkeys',
     'pascalprecht.translate',
-    'tmh.dynamicLocale'
+    'tmh.dynamicLocale',
+    'zeroclipboard'
   ]);

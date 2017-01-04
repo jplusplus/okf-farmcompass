@@ -33,10 +33,14 @@
         <div class="col-sm-8 lead" ng-bind-html="'main.step.outro.content' | translate | unsafe"></div>
         <div class="col-sm-4 main__step__outro__content__sidebar">
           <img src="images/vroom.svg" class="img-fluid w-100 pl-3 pr-3 pb-3 pt-0 hidden-xs-down" alt="" />
-          <button class="btn btn-secondary btn-block">
-            <i class="fa fa-share fa-fw"></i>
-            {{ 'main.step.outro.share' | translate }}
-          </button>
+          <div class="input-group mb-1">
+            <input type="text" readonly value="{{ $ctrl.location }}" class="form-control" />
+            <div class="input-group-btn">
+              <button class="btn btn-secondary" ui-zeroclip zeroclip-text="{{ $ctrl.location }}">
+                <i class="fa fa-copy fa-fw"></i>
+              </button>
+            </div>
+          </div>
           <button class="btn btn-primary btn-block" ui-sref="main.step({ index: 0 })">
             <i class="fa fa-repeat fa-fw"></i>
             {{ 'main.step.outro.play-again' | translate }}

@@ -23,6 +23,7 @@ exports.paths = {
   dist: 'dist',
   tmp: '.tmp',
   e2e: 'e2e',
+  bower: 'bower_components',
   tasks: 'gulp_tasks'
 };
 

@@ -1,7 +1,7 @@
 class MainStepController {
-  constructor($stateParams, $translate, $state, $scope, hotkeys, $sce) {
+  constructor($stateParams, $translate, $state, $scope, hotkeys, $sce, $window) {
     'ngInject';
-    angular.extend(this, {$state, $scope, $sce});
+    angular.extend(this, {$state, $scope, $sce, $window});
     // Initialize
     this.uiOnParamsChanged($stateParams);
     // Copy translate's use method
@@ -20,6 +20,9 @@ class MainStepController {
   }
   get step() {
     return this._step;
+  }
+  get location() {
+    return this.$window.location.href;
   }
   uiOnParamsChanged(params) {
     this._step = Number(params.index || 0);

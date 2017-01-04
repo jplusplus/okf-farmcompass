@@ -18,7 +18,7 @@ $enable-shadows: true;
 $enable-rounded: false;
 $enable-gradients: false;
 $enable-transitions: true;
-$enable-flex: true;
+$enable-flex: false;
 
 @import "bower_components/bootstrap/scss/bootstrap";
 @import "app/main/main";

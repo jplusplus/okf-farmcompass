@@ -17,6 +17,7 @@ function other() {
   const fileFilter = filter(file => file.stat.isFile());
 
   return gulp.src([
+    './**/*.swf',
     path.join(conf.paths.src, '/**/*'),
     path.join(`!${conf.paths.src}`, '/**/*.{scss,js,html}')
   ])
