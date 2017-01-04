@@ -383,7 +383,7 @@ angular.module('app')
           // Create a new object as row, describing this group
           res.push({
             // The last element of this hash is the group id
-            id: $translate.instant('timeline.labels.' + hash.label),
+            id: $translate.instant(`timeline.labels.${hash.label}`),
             // Collect value for each year
             values: _.map(years, year => {
               // Create a stack for this year
@@ -494,6 +494,7 @@ angular.module('app')
           .transition()
             .duration(this.c('transition'))
             .call(d3.axisBottom(this.xScale)
+              .tickFormat(d3.format(''))
               .tickValues(data.years.slice(1, -1))
               .tickSize(0).tickPadding(10));
         // Select the existing Y axis to update it

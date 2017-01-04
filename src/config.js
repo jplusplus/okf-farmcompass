@@ -16,12 +16,12 @@ function translateConfig($translateProvider, tmhDynamicLocaleProvider) {
     .registerAvailableLanguageKeys(['en_BE', 'fr_FR'], {
       '*': 'en_BE',
       'fr': 'fr_FR',
-      'fr_FR': 'fr_FR',
       'fr-FR': 'fr_FR',
+      'fr_FR': 'fr_FR',
       'fr-BE': 'fr_FR',
-      'fr-BE': 'fr_FR',
+      'fr_BE': 'fr_FR',
       'fr-CA': 'fr_FR',
-      'fr-CA': 'fr_FR'
+      'fr_CA': 'fr_FR'
     })
     .determinePreferredLanguage()
     .fallbackLanguage('en_BE')
