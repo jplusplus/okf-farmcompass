@@ -478,7 +478,7 @@ angular.module('app')
         // Set sizes explicitely
         this.base.attr(_.pick(this, ['width', 'height']));
         this.base.classed('timeline__chart--highlights', this.hasHighligths);
-        this.base.selectAll('.line, .area, .event').call(this.translate(p.left, p.top));
+        this.base.selectAll('.line, .area, .event, .label').call(this.translate(p.left, p.top));
         // Update rulers according to the new scales
         this.updateRulers();
         // Remove existing bubble
