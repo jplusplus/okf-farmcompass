@@ -109,11 +109,19 @@
         height:100%;
       }
 
-      .btn.btn-block {
+      .btn {
         font-weight: bold;
         border:0;
         border-radius:$line-height-base * 1rem;
         @include box-shadow(none);
+      }
+
+      .input-group .btn:last-child {
+        border-radius:0 $line-height-base * 1rem $line-height-base * 1rem 0;
+      }
+
+      .input-group .form-control:first-child {
+        border-radius:$line-height-base * 1rem 0 0 $line-height-base * 1rem;
       }
     }
   }

@@ -39,6 +39,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state('main.step.outro', {
-      url: '/outro'
+      // url: '/outro'
     });
 }
