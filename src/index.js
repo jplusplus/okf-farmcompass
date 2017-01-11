@@ -4,7 +4,6 @@ angular
     'ngTouch',
     'ngCookies',
     'ui.router',
-    'angularVideoBg',
     'cfp.hotkeys',
     'pascalprecht.translate',
     'tmh.dynamicLocale',
