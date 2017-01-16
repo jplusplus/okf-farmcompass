@@ -32,8 +32,8 @@
     },
     "labels": {
       "Subsidies": "Subsidies",
-      "Product subsidies": "Product subsidies",
-      "Other subsidies": "Other subsidies",
+      "Indirect subsidies": "Indirect subsidies",
+      "Direct subsidies": "Direct subsidies",
       "Indirect subsidies to Bulgarian farmers": "Indirect subsidies to Bulgarian farmers",
       "Direct subsidies to Bulgarian farmers": "Direct subsidies to Bulgarian farmers",
       "Farm size in ha": "Farm size in ha",
@@ -80,7 +80,9 @@
       "South Africa": "South Africa",
       "European Union (27 countries)": "European Union (27 countries)",
       "Malta": "Malta",
-      "Cyprus": "Cyprus"
+      "Cyprus": "Cyprus",
+      "Product subsidies": "Product subsidies",
+      "Other subsidies": "Other subsidies"
     }
   }
 }

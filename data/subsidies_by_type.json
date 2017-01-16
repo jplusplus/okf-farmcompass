@@ -16,7 +16,7 @@
     "2013": 1250.72,
     "2014": 1132.19,
     "2015": 1686.56,
-    "label": "Product subsidies"
+    "label": "Indirect subsidies"
   },
   {
     "2000": 800.24,
@@ -35,6 +35,6 @@
     "2013": 10252.36,
     "2014": 10987.06,
     "2015": 10144.58,
-    "label": "Other subsidies"
+    "label": "Direct subsidies"
   }
 ]
