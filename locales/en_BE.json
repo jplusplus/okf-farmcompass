@@ -1,23 +1,23 @@
 {
   "app": {
-    "title": "Agricultural Subsidies: New Countries, Same Problems — OKF"
+    "title": "Agricultural Subsidies: New Countries, Same Problems"
   },
   "main": {
     "about": {
       "title": "About",
-      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper fringilla semper. Nulla dictum placerat metus, sit amet fringilla velit posuere non. Sed eget malesuada sapien. Sed malesuada magna vel tellus vulputate posuere. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed viverra eleifend nulla, ut lobortis sem faucibus sed. Donec turpis lacus, ultrices eget placerat ac, tincidunt ac sapien. Curabitur ex ipsum, ultrices pretium tincidunt et, pretium sit amet nunc. Phasellus iaculis turpis in aliquam gravida. Phasellus a quam arcu. Nulla nec augue fermentum, sagittis erat pretium, congue ligula. Pellentesque aliquet odio eu magna pellentesque, ac commodo risus vulputate. Suspendisse quis enim id justo congue luctus. Pellentesque et nulla dui.</p><p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce in turpis eu diam dictum efficitur sit amet et elit. Etiam eget pretium ligula. Phasellus rutrum neque neque, in malesuada metus mollis laoreet. Ut ante massa, tristique vitae dolor vitae, tristique placerat quam. Nunc ac nisl sem. Nulla et vehicula erat. Maecenas placerat eleifend magna vulputate tempor. Proin enim augue, luctus accumsan porttitor id, lobortis non orci. Mauris finibus tortor gravida velit rhoncus egestas.</p>"
+      "content": "<p>This project was created by Journalism++ and Tanuki Films for the Open Knowledge Foundation, as part of a grant by the Adessium Foundation.</p><p>The data used in the application can seen and downloaded <a href='https://docs.google.com/spreadsheets/d/1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k/edit?usp=sharing' target='_blank'>at this link</a>.</p>"
     },
     "intro": {
       "read-story": "Read the full story",
       "headline": "Agricultural Subsidies:<br/>New Countries, Same Problems",
-      "abstract": "The Common Agricultural Policy of the European Union gives out a lot of money to farmers - 60 billion each year. While it does help some farms, most of this money incentivizes farmers to grow cash crops and employ less workers."
+      "abstract": "The Common Agricultural Policy of the European Union pays a lot of money to farmers - 60 billion each year. While it does help some farms, most of this money incentivizes farmers to grow more crops and employ less workers."
     },
     "step": {
       "about": "About",
       "next": "Next",
       "previous": "Previous",
       "outro": {
-        "content": "<p>Farm subsidies in Bulgaria, Romania and other EU countries have pushed farmers out of labour-intensive farming, such as vegetables, towards cash crops.</p><p>Farming cash crops creates unemployment and environmental damage (erosion).</p><p>In 1999, the Commission said it would tackle the problem. Instead, it made it worse.</p>",
+        "content": "<p>Farm subsidies in Bulgaria and other EU countries have pushed farmers out of labour-intensive farming, such as vegetables, towards cash crops.</p><p>Farming cash crops creates unemployment and environmental damage (erosion).</p><p>In 1999, the Commission said it would tackle the problem. Instead, it made it worse.</p>",
         "share": "Share",
         "play-again": "Play again",
         "get-link": "Get the link and share it with your friends or co-workers, or post it in your social networks."
@@ -26,9 +26,9 @@
   },
   "timeline": {
     "rulers": {
-      "10-new-country": "10 new countries join EU",
-      "romania-bulgaria": "Romania and Bulgaria join",
-      "croatia": "Croatia joins"
+      "10-new-country": "10 new countries join the EU",
+      "romania-bulgaria": "Romania and Bulgaria join the EU",
+      "croatia": "Croatia joins the EU"
     },
     "labels": {
       "Subsidies": "Subsidies",
@@ -56,7 +56,7 @@
       "France": "France",
       "Italy": "Italy",
       "Denmark": "Denmark",
-      "Germany (until 1990 former territory of the FRG)": "Germany (until 1990 former territory of the FRG)",
+      "Germany (until 1990 former territory of the FRG)": "Germany",
       "Ireland": "Ireland",
       "United Kingdom": "United Kingdom",
       "Netherlands": "Netherlands",
@@ -74,13 +74,13 @@
       "Poland": "Poland",
       "Latvia": "Latvia",
       "Estonia": "Estonia",
+      "European Union (27 countries)": "European Union (27 countries)",
+      "Malta": "Malta",
+      "Cyprus": "Cyprus",
       "Chile": "Chile",
       "Turkey": "Turkey",
       "Morocco": "Morocco",
       "South Africa": "South Africa",
-      "European Union (27 countries)": "European Union (27 countries)",
-      "Malta": "Malta",
-      "Cyprus": "Cyprus",
       "Product subsidies": "Product subsidies",
       "Other subsidies": "Other subsidies"
     }

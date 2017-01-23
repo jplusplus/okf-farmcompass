@@ -31,7 +31,7 @@
     "fr_FR": "Subventions aux nouveaux états-membres de l'UE en millions d'euros"
   },
   "slidetext": {
-    "en_BE": "After the enlargement of the European Union to the countries of post-socialist Europe in 2004, 2007 and 2013, agricultural subsidies to farmers of these countries increased a lot.<br><br>It now reaches more than €10 billion a year. (All data in this report comes from Eurostat, the European statistical agency).",
+    "en_BE": "After the successive enlargements of the European Union, agricultural subsidies to farmers of post-socialist countries increased a lot.<br><br>More than €10 billion flow to them annually. (All data in this report comes from Eurostat, the European statistical agency).",
     "fr_FR": "Après l'élargissement de l'Union Européenne aux pays d'Europe post-socialiste en 2004, 2007 et 2013, les subventions aux agriculteurs de ces pays ont augmenté."
   },
   "highlights": {
@@ -92,7 +92,7 @@
     "fr_FR": "Subventions indirectes aux nouveaux états-membres de l'UE en millions d'euros"
   },
   "slidetext": {
-    "en_BE": "Some subsidies are indirect subsidies. They are tied to the crops farmers grow, for instance.<br><br>Subsidies on products were reduced because they fell foul of the rules of the World Trade Organization. Indeed, some of this money was invested to dump European crops on world markets, thereby depressing wordwide prices.",
+    "en_BE": "Some subsidies are indirect subsidies. They can be tied to the crops farmers grow.<br><br>Subsidies on products were reduced because they fell foul of the rules of the World Trade Organization. Indeed, some of this money was used to dump European crops on world markets, thereby depressing prices worldwide.",
     "fr_FR": "Certaines subventions sont des subventions indirectes. Elles sont liées aux types de cultures plantées, par exemple."
   },
   "highlights": {
@@ -155,7 +155,7 @@
     "fr_FR": "Subventions directes aux nouveaux états-membres de l'UE en millions d'euros"
   },
   "slidetext": {
-    "en_BE": "Most of the subsidies are <strong>direct subsidies</strong>. It’s a lump sum of money given per hectare. The larger the fields, the more money farmers receive.<br><br>The \"Single Payment Scheme\", which replaced indirect subsidies, was enacted in the 2003 reform of the CAP. After the 2013 CAP reform, the name changed to \"Basic Payment Scheme\" but the rationale remain: more money goes to larger farms.",
+    "en_BE": "Most of the subsidies are now <strong>direct subsidies</strong>. It’s a lump sum of money given per hectare. The larger the fields, the more money farmers receive.<br><br>The \"Single Payment Scheme\", which replaced indirect subsidies, was enacted in the 2003 reform of the CAP. Another reform, in 2013, the name changed to \"Basic Payment Scheme\" but the rationale remain: larger payments to larger farms.",
     "fr_FR": "La majeure partie des subventions sont des <strong>subventions directes</strong>, données par hectare. Plus la surface cultivée est grande, plus les agriculteurs touchent de subventions."
   },
   "highlights": {
@@ -218,7 +218,7 @@
     "fr_FR": "Subventions aux fermes bulgares en millions d'euros"
   },
   "slidetext": {
-    "en_BE": "The proportion of direct subsidies is even higher in Bulgaria. Overall, in new member-states, the share of direct subsidies is 78%, against 85% in Bulgaria.",
+    "en_BE": "The proportion of direct subsidies is even higher in Bulgaria. <br><br>In member-states that joined the EU after 2004, the share of direct subsidies is 78%. It is 85% in Bulgaria.",
     "fr_FR": "La proportion de subventions directe est encore plus élevée en Bulgarie."
   },
   "highlights": {
@@ -251,7 +251,7 @@
     "fr_FR": "Taille moyenne des exploitations bulgares en hectares"
   },
   "slidetext": {
-    "en_BE": "Direct subsidies incentivize farmers to produce a lot, over large areas. Bulgarian farms indeed became bigger. The graph shows that the average size went from 5 hectares in 2003 to almost 20 today.<br><br>While small farmers can apply for subsidies and are, in theory, encouraged to do so, the complexity of the paperwork is such that, in effect, they have little chance of receiving as much money as big landholders.",
+    "en_BE": "Direct subsidies incentivize farmers to produce a lot, over large areas. Indeed, Bulgarian farms became bigger. The graph shows that the average farm size increase fourfold, from 5 hectares in 2003 to almost 20 today.<br><br>While small farmers can apply for some subsidies and are, in theory, encouraged to do so, the complexity of the paperwork is such that, in effect, they have little chance of receiving as much money as big landholders.",
     "fr_FR": "Les subventions directes poussent les agriculteurs à produire sur des surfaces plus grandes. Les exploitations bulgares sont devenues plus grandes."
   },
   "highlights": {
@@ -294,7 +294,7 @@
     "fr_FR": "Production des exploitations bulgares en millions d'euros"
   },
   "slidetext": {
-    "en_BE": "Production increased, too. Over the last 15 years, it increased from €3 billion to €4 billion per year.<br><br>The increase in production is almost exactly equal to the increase in subsidy. One euro of subsidy led to an increase of one euro in product. In other words, the net effect of subsidies was nil.",
+    "en_BE": "Production in Bulgaria increased, too. Over the last 15 years, it went from €3 billion to €4 billion per year.<br><br>The increase in production is almost exactly equal to the increase in subsidies. One euro of subsidy led to an increase of one euro in product. In other words, the net effect of subsidies was nil.",
     "fr_FR": "La production a également augmenté."
   },
   "highlights": {
@@ -436,7 +436,7 @@
     "fr_FR": "Production des exploitations bulgares en millions d'euros"
   },
   "slidetext": {
-    "en_BE": "Growth in industrial crops occured at the expense of other produce. For vegetables, a traditional cultivation tradition in Bulgaria, production actually decreased by a factor of four!",
+    "en_BE": "Growth in cash crops occured at the expense of other produce. For vegetables, a traditional cultivation tradition in Bulgaria, production in value actually decreased by a factor of four!",
     "fr_FR": "Pour les légumes, une culture traditionnelle en Bulgarie, la production a même diminué!"
   },
   "highlights": {
@@ -1555,7 +1555,7 @@
     "fr_FR": "Production de cultures industrielles en valeur (2000 = 100)"
   },
   "slidetext": {
-    "en_BE": "Even in countries where the production of vegetables increased, growth pales in comparison to cash crops, especially in countries that joined the EU in 2004 and 2007. Almost everywhere, fields of wheat, sunflower or soya grew and in some cases replaced orchards.",
+    "en_BE": "Even where the production of vegetables increased, its growth pales in comparison to cash crops, especially in countries that joined the EU after 2004. Almost everywhere, production of wheat, sunflower or soya grew more than production of vegetables and fruits.",
     "fr_FR": "Mais comparée aux cultures industrielle, la croissance de la production de légumes fait pale figure, surtout dans les pays qui ont rejoint l'UE en 2004 et 2007."
   },
   "highlights": {
@@ -1569,103 +1569,6 @@
   }
 }, {
   "slideid": 13,
-  "sheettitle": "imports",
-  "smoothing": "1",
-  "min": 80,
-  "max": null,
-  "charttype": "line",
-  "source": "ComExt",
-  "slug": "imports",
-  "data": [{
-    "2000": 100,
-    "2001": 122,
-    "2002": 135,
-    "2003": 159,
-    "2004": 179,
-    "2005": 201,
-    "2006": 213,
-    "2007": 219,
-    "2008": 241,
-    "2009": 223,
-    "2010": 204,
-    "2011": 211,
-    "2012": 190,
-    "2013": 197,
-    "2014": 170,
-    "2015": 173,
-    "label": "Chile"
-  }, {
-    "2000": 100,
-    "2001": 127,
-    "2002": 127,
-    "2003": 124,
-    "2004": 130,
-    "2005": 141,
-    "2006": 142,
-    "2007": 141,
-    "2008": 131,
-    "2009": 134,
-    "2010": 131,
-    "2011": 118,
-    "2012": 108,
-    "2013": 112,
-    "2014": 115,
-    "2015": 114,
-    "label": "Turkey"
-  }, {
-    "2000": 100,
-    "2001": 99,
-    "2002": 98,
-    "2003": 117,
-    "2004": 122,
-    "2005": 128,
-    "2006": 130,
-    "2007": 144,
-    "2008": 159,
-    "2009": 147,
-    "2010": 140,
-    "2011": 145,
-    "2012": 140,
-    "2013": 148,
-    "2014": 163,
-    "2015": 172,
-    "label": "Morocco"
-  }, {
-    "2000": 100,
-    "2001": 108,
-    "2002": 113,
-    "2003": 117,
-    "2004": 110,
-    "2005": 123,
-    "2006": 112,
-    "2007": 136,
-    "2008": 143,
-    "2009": 123,
-    "2010": 126,
-    "2011": 113,
-    "2012": 120,
-    "2013": 136,
-    "2014": 122,
-    "2015": 135,
-    "label": "South Africa"
-  }],
-  "slidetitle": {
-    "en_BE": "Imports of vegetables in value (2000 = 100)",
-    "fr_FR": "Importations de légumes en valeur (2000 = 100)"
-  },
-  "slidetext": {
-    "en_BE": "Demand for vegetables did not decrease. Instead of producing fruits and vegetables locally, Europeans import it from Chile, South Africa and other far-away countries.<br><br>Granted, avocadoes do not grow well in Europe, but imports in tomatoes and apples increased, too.",
-    "fr_FR": "Pendant ce temps, les importations de légumes en provenance d'Afrique du Sud et du Chili ont largement augmenté."
-  },
-  "highlights": {
-    "en_BE": []
-  },
-  "yaxislabel": {
-    "en_BE": null,
-    "fr_FR": null
-  }
-}, {
-  "slideid": 14,
   "sheettitle": "salaried employment",
   "smoothing": "1",
   "min": 0,
@@ -1709,7 +1612,7 @@
     "fr_FR": "milliers d'emplois salariés"
   }
 }, {
-  "slideid": 15,
+  "slideid": 14,
   "sheettitle": "non salaried employment",
   "smoothing": "1",
   "min": 0,
@@ -1742,7 +1645,7 @@
     "fr_FR": "Emploi non-salarié dans l'agriculture dans l'UE en milliers d'équivalents temps pleins"
   },
   "slidetext": {
-    "en_BE": "More importantly, employment of seasonal workers has dropped dramatically. Over 12 million full-time equalivalent were employed as seasonal workers in 2000. The figure is less than half today.(The data represent full-time equalivalents. Because it requires several season workers to match a full-time equalivalent, the number of actual people impacted is much higher.)<br/><br/>Cash crops are profitable because they cover a lot of land (which brings in direct subsidies) and require very few seasonal workers. As a result, unemployment grows.",
+    "en_BE": "More importantly, employment of seasonal workers has dropped dramatically. Over 12 million full-time equalivalents were employed as seasonal workers in 2000. The figure is less than half today. (The data represent full-time equalivalents. Because it requires several seasonal workers to match a full-time equalivalent, the number of actual people impacted is much higher.)<br/><br/>Cash crops are profitable because they cover a lot of land (which brings in direct subsidies) and require very few seasonal workers. As a result, unemployment grows.",
     "fr_FR": "Plus important, l'emploi de travailleurs saisonniers a largement baissé.<br/><br/>Les cultures industrielles sont profitables parce qu'elles couvrent une large surface (qui rapporte des subventions) et nécessitent peu de travailleurs."
   },
   "highlights": {
@@ -1753,7 +1656,7 @@
     "fr_FR": "milliers d'emplois non-salariés"
   }
 }, {
-  "slideid": 16,
+  "slideid": 15,
   "sheettitle": "non salaried employment by country",
   "smoothing": "1",
   "min": 0,
@@ -2280,7 +2183,7 @@
     "fr_FR": "Emploi non-salarié dans l'agriculture dans l'UE (2000 = 100)"
   },
   "slidetext": {
-    "en_BE": "Unsurprisingly, countries where cash crops grew most saw the steepest decline in seasonal employment. In Bulgaria, out of 4 seasonal workers who would have found employment in 2000, just one could still do so today.",
+    "en_BE": "Unsurprisingly, countries where the production of cash crops increased most saw the steepest decline in seasonal employment. In Bulgaria, out of 4 seasonal workers who would have found employment in 2000, just one could still do so today.",
     "fr_FR": "Sans surprise, les pays où les cultures industrielles ont le plus progressé sont ceux où l'emploi saisonnier a le plus diminué."
   },
   "highlights": {
