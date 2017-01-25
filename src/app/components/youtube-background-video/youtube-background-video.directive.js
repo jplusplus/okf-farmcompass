@@ -1,10 +1,12 @@
+import $ from 'jquery';
+
 angular
   .module('app')
   .directive('youtubeBackgroundVideo', youtubeBackgroundVideoDirective);
 
 /** @ngInject */
 function youtubeBackgroundVideoDirective() {
-  return  {
+  return {
     restrict: 'A',
     link: (scope, el, attr) => {
       $(el).addClass('youtube-background-video').YTPlayer({
@@ -12,5 +14,5 @@ function youtubeBackgroundVideoDirective() {
         videoId: attr.youtubeBackgroundVideo
       });
     }
-  }
+  };
 }
