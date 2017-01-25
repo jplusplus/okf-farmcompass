@@ -13,7 +13,7 @@ gulp.registry(hub);
 gulp.task('inject:all', gulp.series(gulp.parallel('styles', 'scripts'), 'inject'));
 gulp.task('inject:styles', gulp.series('styles', 'inject'));
 gulp.task('inject:scripts', gulp.series('scripts', 'inject'));
-gulp.task('build', gulp.series('partials', gulp.parallel('inject:all', 'other'), 'build'));
+gulp.task('build', gulp.series('partials', gulp.parallel('inject:all', 'bower', 'other'), 'build'));
 gulp.task('deploy', gulp.series('build', 'deploy'));
 gulp.task('data', gulp.series('data:all', 'data:meta', 'data:i18n', 'data:labels'));
 gulp.task('serve', gulp.series('inject:all', 'watch', 'browsersync'));
