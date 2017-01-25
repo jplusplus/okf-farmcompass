@@ -2,3 +2,15 @@ $brand-primary: #FF8354 !default;
 $brand-secondary: #32353A !default;
 
 @import "index";
+
+.main__intro:before {
+  content:url('./images/euobserver.svg');
+  width: 220px;
+  position: absolute;
+  top:$spacer;
+  left:0;
+  padding:$spacer;
+  background: white;
+  border-left:$spacer solid $brand-primary;
+  z-index:100;
+}
