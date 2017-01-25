@@ -3,22 +3,26 @@
 
 $font-family-sans-serif: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default
 
-$brand-primary:#ff5a3c;
-$brand-secondary: #0d404e;
-$brand-success:#00da9d;
-$brand-danger:#d13b54;
-$brand-info:#6c3ad2;
-$brand-warning:#F6E484;
-$brand-inverse:darken($brand-primary, 35);
+$brand-primary:#ff5a3c !default;
+$brand-secondary: #0d404e !default;
 
-$body-bg: $brand-secondary;
-$body-color: #f5f7f6;
+// $brand-primary: #FF8354 !default;
+// $brand-secondary: #32353A !default;
 
-$enable-shadows: true;
-$enable-rounded: false;
-$enable-gradients: false;
-$enable-transitions: true;
-$enable-flex: false;
+$brand-success:#00da9d !default;
+$brand-danger:#d13b54 !default;
+$brand-info:#6c3ad2 !default;
+$brand-warning:#F6E484 !default;
+$brand-inverse:darken($brand-primary, 35) !default;
+
+$body-bg: $brand-secondary !default;
+$body-color: #f5f7f6 !default;
+
+$enable-shadows: true !default;
+$enable-rounded: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-flex: false !default;
 
 @import "bower_components/bootstrap/scss/bootstrap";
 @import "app/main/main";

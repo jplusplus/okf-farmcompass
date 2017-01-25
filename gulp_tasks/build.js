@@ -29,7 +29,7 @@ function build() {
 
   return gulp.src(conf.path.tmp('/index.html'))
     .pipe(inject(partialsInjectFile, partialsInjectOptions))
-    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, {loadMaps: true})))
+    .pipe(useref({noconcat: true}, lazypipe().pipe(sourcemaps.init, {loadMaps: true})))
     .pipe(jsFilter)
     .pipe(ngAnnotate())
     .pipe(uglify({preserveComments: uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
