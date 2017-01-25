@@ -1,2 +1,0 @@
-"use strict";function _classCallCheck(n,a){if(!(n instanceof a))throw new TypeError("Cannot call a class as a function")}var MainController=function n(a,t,e){"ngInject";_classCallCheck(this,n),a.get("data/meta.json",{cache:!0}).then(function(n){return n.data}),e.set(t.use().slice(0,2))};MainController.$inject=["$http","$translate","tmhDynamicLocale"],angular.module("app").component("main",{templateUrl:"app/main/main.html",controller:MainController});
-//# sourceMappingURL=../../maps/app/main/main-75d7e4b276.js.map
