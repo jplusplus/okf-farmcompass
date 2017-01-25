@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 angular
   .module('app')
   .directive('youtubeBackgroundVideo', youtubeBackgroundVideoDirective);

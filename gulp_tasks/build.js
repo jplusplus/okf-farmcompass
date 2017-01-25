@@ -13,7 +13,7 @@ const inject = require('gulp-inject');
 const ngAnnotate = require('gulp-ng-annotate');
 const conf = require('../conf/gulp.conf');
 
-gulp.task('build', gulp.series(build));
+gulp.task('build', gulp.series(build, cssmin, cssrev));
 
 function build() {
   const partialsInjectFile = gulp.src(conf.path.tmp('templateCacheHtml.js'), {read: false});
@@ -29,7 +29,7 @@ function build() {
 
   return gulp.src(conf.path.tmp('/index.html'))
     .pipe(inject(partialsInjectFile, partialsInjectOptions))
-    .pipe(useref({noconcat: true}, lazypipe().pipe(sourcemaps.init, {loadMaps: true})))
+    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, {loadMaps: true})))
     .pipe(jsFilter)
     .pipe(ngAnnotate())
     .pipe(uglify({preserveComments: uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
@@ -44,5 +44,23 @@ function build() {
     .pipe(htmlFilter)
     .pipe(htmlmin())
     .pipe(htmlFilter.restore)
+    .pipe(gulp.dest(conf.path.dist()));
+}
+
+function cssmin() {
+  return gulp.src(conf.path.tmp('**/*.css'))
+    .pipe(cssnano())
+    .pipe(rev())
+    .pipe(gulp.dest(conf.path.dist()))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(conf.path.dist()));
+}
+
+function cssrev() {
+  var manifest = gulp.src(conf.path.dist("/rev-manifest.json"));
+
+  return gulp.src(conf.path.dist('/index.html'))
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest(conf.path.dist()));
 }
