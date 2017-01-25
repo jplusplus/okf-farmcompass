@@ -343,7 +343,7 @@ angular.module('app')
       }
       smooth(hash) {
         // Iterate over the hash
-        _.each(hash, (value, key) => {
+        return _.each(hash, (value, key) => {
           // Skip non-numeric keys and the first year
           if (!isNaN(key) && hash.hasOwnProperty(Number(key) - 1)) {
             // Every values to use in the moving average
@@ -360,13 +360,12 @@ angular.module('app')
             hash[key] = d3.mean(values);
           }
         });
-        return hash;
       }
       transform(data) {
         // Extract years from the first line
         const years = this.years(data[0]);
         // Smooth all the rows
-        data = data.map(this.smooth.bind(this));
+        data = angular.copy(data).map(this.smooth.bind(this));
         // Get groups of data
         const groups = _.chain(data).map(r => _.values(r).pop()).value();
         // Transpose data to be able to stack them

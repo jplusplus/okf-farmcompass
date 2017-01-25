@@ -34,11 +34,15 @@
       fill: $brand-success;
     }
 
+    .label {
+      mix-blend-mode: exclusion;
+      filter: grayscale(100%);
+    }
+
     .label text {
       font-weight:bold;
       fill: white;
       font-size: .8rem;
-      filter: drop-shadow(0 0 5px $brand-secondary);
     }
 
     .event {
