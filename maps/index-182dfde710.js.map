@@ -1,0 +1,1 @@
+{"version":3,"sources":["/.tmp/index.js"],"names":["angular","module"],"mappings":"AAAA,YAEAA,SAAQC,OAAO,OAAQ,YAAa,UAAW,YAAa,YAAa,cAAe,yBAA0B,oBAAqB","file":"../index-182dfde710.js","sourcesContent":["'use strict';\n\nangular.module('app', ['ngAnimate', 'ngTouch', 'ngCookies', 'ui.router', 'cfp.hotkeys', 'pascalprecht.translate', 'tmh.dynamicLocale', 'zeroclipboard']);"]}
