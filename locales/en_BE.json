@@ -5,7 +5,7 @@
   "main": {
     "about": {
       "title": "About",
-      "content": "<p>This project was created by Journalism++ and Tanuki Films for the Open Knowledge Foundation, as part of a grant by the Adessium Foundation.</p><div style='width:100%; text-align: center; margin: 10% 0'><img src='../images/adessium.svg'style='width:40%; margin: 0 5%'><img src='../images/okf.svg' style='width:40%; margin: 0 5%; webkit-filter: invert(1);filter: invert(1);'></div><p>The data used in the application can seen and downloaded <a href='https://docs.google.com/spreadsheets/d/1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k/edit?usp=sharing' target='_blank'>at this link</a>. All data comes from Eurostat. Some series use 3-year running averages rather than absolute values to smooth year-to-year variations (indicated in the `smoothing` column of the `meta` sheet of the document.</p>"
+      "content": "<p>This project was created by Journalism++ and Tanuki Films for the Open Knowledge Foundation, as part of a grant by the Adessium Foundation.</p><div style='width:100%; text-align: center; margin: 10% 0'><img src='./images/adessium.svg'style='width:40%; margin: 0 5%'><img src='./images/okf.svg' style='width:40%; margin: 0 5%; webkit-filter: invert(1);filter: invert(1);'></div><p>The data used in the application can seen and downloaded <a href='https://docs.google.com/spreadsheets/d/1Pcj2yKJ5qAi4SyMLIYvw4GuxrX97sgtw61ZfG_ihn3k/edit?usp=sharing' target='_blank'>at this link</a>. All data comes from Eurostat. Some series use 3-year running averages rather than absolute values to smooth year-to-year variations (indicated in the `smoothing` column of the `meta` sheet of the document.</p>"
     },
     "intro": {
       "read-story": "Read the full story",
