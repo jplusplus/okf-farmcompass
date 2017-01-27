@@ -1,2 +1,0 @@
-"use strict";function youtubeBackgroundVideoDirective(){return{restrict:"A",link:function(e,u,o){$(u).addClass("youtube-background-video").YTPlayer({fitToBackground:!0,videoId:o.youtubeBackgroundVideo})}}}angular.module("app").directive("youtubeBackgroundVideo",youtubeBackgroundVideoDirective);
-//# sourceMappingURL=../../../maps/app/components/youtube-background-video/youtube-background-video-320e3e81e3.directive.js.map
