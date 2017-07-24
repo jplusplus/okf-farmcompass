@@ -9,3 +9,7 @@ data:
 
 build:
 		node_modules/.bin/gulp build
+
+install:
+		yarn
+		bower install
